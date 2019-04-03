@@ -177,6 +177,22 @@
 
 <br />
 
+<div class="form-inline pb-2">
+    @* @Html.ActionLink("Add Door", "CreateDoorItem/" + Model.QuoteID, "DoorItems", null, new { @class = "btn btn-primary" })>*@
+
+    <a href='@Url.Action("CreateSliderItem/" + Model.QuoteID, "DoorItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add New Slider </a>
+
+    <div class="mx-auto"><h4><strong>List of Slider Items</strong></h4></div>
+</div>
+
+
+<div class="table-responsive border card border-dark shadow">
+    <table id="grid3b" class="ui-jqgrid text-large"></table>
+</div>
+
+
+<br />
+
 
 <div class="form-inline pb-2">
     @*@Html.ActionLink("Add FlyScreen", "CreateFlyScreenItem/" + Model.QuoteID, "FlyScreenItems", null, new { @class = "btn btn-primary" })*@
@@ -235,6 +251,7 @@
     // ********************************************************************************
     $(document).ready(function () {
         GenerateDoorTable();
+        GenerateSliderTable();
         GenerateFlyScreenTable();
     });
 
@@ -277,6 +294,24 @@
             }
         });
         };
+
+    function GenerateSliderTable() {
+        $.ajax({
+            "url": "@(Url.Action("GetSliders", "Quotes"))",
+            "type": "POST",
+            "datatype": "json",
+            //"contentType": "application/json; charset=utf-8",
+            data: { Quote:  @Model.QuoteID},
+            success: function (response) {
+                retData = response.data;
+                console.log('GetList: ' + retData);
+                DisplaySliderTable(retData);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("GenerateSliderTable Status: " + textStatus); alert("GenerateSliderTable Error: " + errorThrown);
+            }
+        });
+     };
 
     function GenerateFlyScreenTable() {
         $.ajax({
@@ -330,12 +365,12 @@
             { name: "Width1", label: "Width1", width: 20 },
             { name: "Width2", label: "Width2", width: 20 },
             { name: "Width3", label: "Width3", width: 20 },
-            { name: "SliderTopTrack", label: "SliderTopTrack", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "SliderBottomTrack", label: "SliderBottomTrack", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "SliderSideChannel", label: "SliderSideChannel", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "SliderFs", label: "SliderFs", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "SliderZs", label: "SliderZs", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "SliderBugStrip", label: "SliderBugStrip", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
+            //{ name: "SliderTopTrack", label: "SliderTopTrack", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
+            //{ name: "SliderBottomTrack", label: "SliderBottomTrack", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
+            //{ name: "SliderSideChannel", label: "SliderSideChannel", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
+            //{ name: "SliderFs", label: "SliderFs", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
+            //{ name: "SliderZs", label: "SliderZs", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
+            //{ name: "SliderBugStrip", label: "SliderBugStrip", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
             { name: "Cost", label: "Cost", width: 20 },
 
 
@@ -433,6 +468,148 @@
 
         }).jqGrid();
     };
+
+
+    function DisplaySliderTable(json) {
+        //"use strict";
+        $("#grid3b").jqGrid("GridUnload")
+        $('grid3b').css('font-size', '20px');
+        $("#grid3b").jqGrid({
+        colModel: [
+        { name: "act", template: "actions", align: "left", width: 80 },
+
+        //{
+        //    name: "Type", label: "Type", width: 53,
+
+        //    formatter: "select",
+        //    formatoptions: { value: "Flat:Flat;Rotary:Rotary", defaultValue: "Flat" },
+        //    stype: "select",
+        //    searchoptions: { value: ":Any;Flat:Flat;Rotary:Rotary" }
+        //},
+        //{
+        ////    name: "invdate", label: "Date", width: 90, align: "center", sorttype: "date",*
+        ////    formatter: "date", formatoptions: { newformat: "d-M-Y" },
+        ////    searchoptions: { sopt: ["eq"] }
+        //},
+
+            { name: "id", label: "DoorItemID", width: 20 },
+            //{ name: "QuoteID", label: "QuoteID", width: 30 },
+            { name: "Description", label: "Description", width: 30 },
+            { name: "ColorTypeName", label: "ColorType", width: 30 },
+            { name: "LockTypeName", label: "LockType", width: 30 },
+            { name: "LockHeight", label: "LockHeight", width: 30 },
+            { name: "DoorTypeName", label: "DoorType", width: 30 },
+            { name: "DesignTypeName", label: "DesignType", width: 30 },
+            { name: "Height", label: "Height", width: 20 },
+            { name: "Width1", label: "Width", width: 20 },
+            //{ name: "Width2", label: "Width2", width: 20 },
+            //{ name: "Width3", label: "Width3", width: 20 },
+            { name: "SliderTopTrack", label: "SliderTopTrack", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "SliderBottomTrack", label: "SliderBottomTrack", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "SliderSideChannel", label: "SliderSideChannel", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "SliderFs", label: "SliderFs", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "SliderZs", label: "SliderZs", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "SliderBugStrip", label: "SliderBugStrip", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "Cost", label: "Cost", width: 20 },
+
+
+        ],
+        data: json,
+        //height: 450,
+        caption: "",
+        autowidth: true,
+        guiStyle: "bootstrap",
+        iconSet: "fontAwesome",
+        //idPrefix: "gid_",
+        //shrinkToFit: false,
+        rownumbers: true,
+        sortname: "invdate",
+        sortorder: "desc",
+        threeStateSort: true,
+        sortIconsBeforeText: true,
+        headertitles: true,
+        toppager: false,
+        pager: false,
+        rowNum: 10,
+        viewrecords: true,
+        searching: {
+        defaultSearch: "cn"
+        },
+        actionsNavOptions: {
+            editbutton: false,
+            delbutton: false,
+            custom: [
+            {
+            action: "open", position: "first",
+            onClick: function (options) {
+                var rid = options.rowid;
+                var id = rid.replace("jqg","");
+                window.location = '@Url.Action("DetailsSliderItem", "DoorItems")' + '?id=' + id;
+                }
+            },
+            {
+            action: "post", position: "first",
+            onClick: function (options) {
+                var rid = options.rowid;
+                var id = rid.replace("jqg", "");
+                window.location = '@Url.Action("EditSliderItem", "DoorItems")' + '?id=' + id;
+                }
+            },
+            {
+            action: "delete", position: "first",
+            onClick: function (options) {
+                var rid = options.rowid;
+                var id = rid.replace("jqg", "");
+                window.location = '@Url.Action("DeleteDoorItem", "DoorItems")' + '?id=' + id;
+                }
+            }
+            ],
+            posticon: "fa-pencil",
+            posttitle: "Edit",
+            openicon: "fa-folder-open-o",
+            opentitle: "Details",
+            deleteicon: "fa-trash",
+            deletetitle: "Delete",
+            isDisplayButtons: function (options, rowData) {
+                if (options.rowData.closed) { // or rowData.closed
+                return { post: { hidden: true }, del: { display: false } };
+                }
+            }
+        },
+
+        loadComplete: function () {
+            var rowIds = $('#grid1b').jqGrid('getDataIDs');
+            for (var i = 0; i < rowIds.length; i++) {//iterate over each row
+                rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
+                //set background style if ColValue === true\
+                console.log('Stage: ' + rowData['Stage']);
+
+                if (rowData['Stage'] === 'Completed') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+                }
+                else if (rowData['Stage'] === 'Ordered') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
+                }
+                else if (rowData['Stage'] === 'In Progress') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+                }
+                else if (rowData['Stage'] === 'On Hold') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
+                }
+                else if (rowData['Stage'] === 'Canceled') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+                }
+
+            } //for
+        }//loadComplete
+
+
+
+        }).jqGrid();
+    };
+
+
+
 
 
     function DisplayFlyScreenTable(json) {

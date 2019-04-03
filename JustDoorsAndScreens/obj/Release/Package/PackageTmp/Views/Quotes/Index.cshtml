@@ -425,10 +425,10 @@
                     $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
                 }
                 else if (rowData['Stage'] === 'On Hold') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
                 }
-                else if (rowData['Stage'] === 'Canceled') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+                else if (rowData['Stage'] === 'Cancelled') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
                 }
 
             } //for

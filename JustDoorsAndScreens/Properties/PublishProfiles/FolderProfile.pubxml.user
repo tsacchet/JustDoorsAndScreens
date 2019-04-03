@@ -61,10 +61,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/21/2017 19:57:54</publishTime>
     </File>
     <File Include="bin/JustDoorsAndScreens.dll">
-      <publishTime>04/03/2019 21:31:48</publishTime>
+      <publishTime>04/04/2019 08:10:37</publishTime>
     </File>
     <File Include="bin/JustDoorsAndScreens.pdb">
-      <publishTime>04/03/2019 21:31:48</publishTime>
+      <publishTime>04/04/2019 08:10:37</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>11/01/2018 13:23:02</publishTime>
@@ -1912,7 +1912,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/29/2019 17:17:30</publishTime>
     </File>
     <File Include="Views/DoorItems/CreateDoorItem.cshtml">
-      <publishTime>04/03/2019 19:27:32</publishTime>
+      <publishTime>04/03/2019 23:36:45</publishTime>
+    </File>
+    <File Include="Views/DoorItems/CreateSliderItem.cshtml">
+      <publishTime>04/03/2019 23:48:30</publishTime>
     </File>
     <File Include="Views/DoorItems/Delete.cshtml">
       <publishTime>03/01/2019 20:02:14</publishTime>
@@ -1924,13 +1927,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/01/2019 20:02:14</publishTime>
     </File>
     <File Include="Views/DoorItems/DetailsDoorItem.cshtml">
-      <publishTime>04/03/2019 19:38:01</publishTime>
+      <publishTime>04/03/2019 23:20:46</publishTime>
+    </File>
+    <File Include="Views/DoorItems/DetailsSliderItem.cshtml">
+      <publishTime>04/03/2019 22:41:07</publishTime>
     </File>
     <File Include="Views/DoorItems/Edit.cshtml">
       <publishTime>03/15/2019 11:06:56</publishTime>
     </File>
     <File Include="Views/DoorItems/EditDoorItem.cshtml">
-      <publishTime>04/03/2019 19:38:01</publishTime>
+      <publishTime>04/03/2019 23:38:42</publishTime>
+    </File>
+    <File Include="Views/DoorItems/EditSliderItem.cshtml">
+      <publishTime>04/03/2019 23:50:06</publishTime>
     </File>
     <File Include="Views/DoorItems/Index.cshtml">
       <publishTime>03/01/2019 20:42:54</publishTime>
@@ -2044,13 +2053,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/02/2019 12:28:27</publishTime>
     </File>
     <File Include="Views/Quotes/Index.cshtml">
-      <publishTime>04/02/2019 12:40:43</publishTime>
+      <publishTime>04/03/2019 21:51:52</publishTime>
     </File>
     <File Include="Views/Quotes/QuoteDetails.cshtml">
-      <publishTime>04/02/2019 13:02:06</publishTime>
+      <publishTime>04/03/2019 23:10:41</publishTime>
     </File>
     <File Include="Views/Quotes/QuoteDetailsPDF.cshtml">
-      <publishTime>04/03/2019 21:30:32</publishTime>
+      <publishTime>04/04/2019 00:02:31</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>03/01/2019 17:32:41</publishTime>

@@ -376,3 +376,4 @@ C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\JustDoorsAndScreens.csproj.CopyComplete
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\JustDoorsAndScreens.dll
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\JustDoorsAndScreens.pdb
+C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\JustDoorsAndScreens.csprojAssemblyReference.cache

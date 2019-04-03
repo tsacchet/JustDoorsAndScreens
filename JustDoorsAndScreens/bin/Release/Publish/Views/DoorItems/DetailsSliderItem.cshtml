@@ -16,7 +16,7 @@
     <div class="card-body">
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <h5>Details</h5>
                 <hr class="bg-dark"/>
                 <dl class="dl-horizontal">
@@ -94,13 +94,13 @@
                     </dd>
 
 
-                    <dt>
-                        Adaptors
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.HingeType)
                     </dt>
 
                     <dd>
                         @Html.DisplayFor(model => model.HingeType1.HingeTypeName)
-                    </dd>
+                    </dd>*@
 
                 </dl>
 
@@ -129,46 +129,164 @@
                 @{var picture = Model.DoorType.DoorTypeName + ".PNG";}
                 <img class="p-3 img-fluid" id="pic" src="~/images/@picture" />
 
-            </div>
-
-
-            <div class="col-md-2">
-                <h5>Widths</h5>
-                <hr class="bg-dark" />
                 <dl class="dl-horizontal">
                     <dt>
-                        Top
+                        Width
                     </dt>
 
                     <dd>
                         @Html.DisplayFor(model => model.Width1)
                     </dd>
+                    </dl>
+            </div>
 
-                    <br />
 
-                    <dt>
-                        Middle
+            <div class="col-md-2">
+                <h5>Sliders Stuff</h5>
+                <hr class="bg-dark" />
+                <dl class="dl-horizontal">
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.SliderTopTrack)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.Width2)
+                        @Html.DisplayFor(model => model.SliderTopTrack)
+                    </dd>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderTopTrackType)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderTopTrackType)
                     </dd>
 
-                    <br />
-
                     <dt>
-                        Bottom
+                        @Html.DisplayNameFor(model => model.SliderTopTrackWidth)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.Width3)
+                        @Html.DisplayFor(model => model.SliderTopTrackWidth)
+                    </dd>
+
+
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.SliderBottomTrack)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderBottomTrack)
+                    </dd>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderBottomTrackType)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderBottomTrackType)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderBottomTrackWidth)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderBottomTrackWidth)
+                    </dd>
+
+
+
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.SliderSideChannel)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderSideChannel)
+                    </dd>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderSideChannelType)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderSideChannelType)
+                    </dd>
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderSideChannelWidth)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderSideChannelWidth)
                     </dd>
                 </dl>
 
             </div>
 
 
-            
+            <div class="col-md-2">
+                <h5>Sliders Stuff</h5>
+                <hr class="bg-dark" />
+                <dl class="dl-horizontal">
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.SliderFs)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderFs)
+                    </dd>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.F) Qty.
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.F)
+                    </dd>
+
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.SliderZs)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderZs)
+                    </dd>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Z) Qty.
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Z)
+                    </dd>
+
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderBugStrip)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderBugStrip)
+                    </dd>
+
+                    @*<dt>
+                @Html.DisplayNameFor(model => model.TrackTypes)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TrackTypes)
+            </dd>*@
+
+
+                </dl>
+            </div>
 
         </div>
 
