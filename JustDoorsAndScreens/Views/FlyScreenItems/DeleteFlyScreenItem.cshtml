@@ -1,0 +1,92 @@
+﻿@model JustDoorsAndScreens.FlyScreenItem
+
+@{
+    ViewBag.Title = "DeleteFlyScreenItem";
+}
+
+<h2>DeleteFlyScreenItem</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>FlyScreenItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Width)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Width)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Depth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Depth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlysScreenType.FlyScreenName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlysScreenType.FlyScreenName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quote.Customer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quote.Customer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ColorType.ColorTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ColorType.ColorTypeName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @*<div class="form-actions no-color">
+            <input type="submit" value="DeleteFlyScreenItemConfirmed" class="btn btn-default" /> |
+
+            @Html.ActionLink("Back to List", "QuoteDetails/" + Model.QuoteID, "Quotes")
+        </div>*@
+
+        <div class="form-actions no-color">
+
+            @Html.ActionLink("Delete DoorItem", "DeleteFlyScreenItemConfirmed", "FlyScreenItems", new { id = Model.FlyScreenItemsID }, new { @class = "btn btn-danger" })|
+
+            @*<input type="submit" value="Delete" class="btn btn-danger" /> |*@
+            @*@Html.ActionLink("Back to List", "Index")*@
+            @Html.ActionLink("Back Details", "QuoteDetails", "Quotes", new { id = Model.QuoteID }, new { @class = "btn btn-secondary" })
+        </div>
+
+    }
+</div>

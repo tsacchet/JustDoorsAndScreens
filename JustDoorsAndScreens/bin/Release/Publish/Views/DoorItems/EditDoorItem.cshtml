@@ -1,0 +1,413 @@
+﻿@model JustDoorsAndScreens.DoorItem
+
+@{
+    ViewBag.Title = "EditDoorItem";
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.DoorItemID)
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="card border border-dark shadow">
+
+        <div class="card-header bg-light border-dark">
+            <h4 class="text-dark"><strong>Edit Door Item</strong></h4>
+        </div>
+
+
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-sm-2">
+
+                    <h5>Details</h5>
+                    <hr class="bg-dark" />
+
+                    <div class="form-group">
+                        <label class="control-label"><strong>Customer Name</strong></label>
+                        <input type="text" class="form-control" value="@ViewBag.Customer" readonly="readonly">
+                    </div>
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.QuoteID, "QuoteID", htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @*@Html.DropDownList("QuoteID", null, htmlAttributes: new { @class = "form-control" })*@
+                        @Html.EditorFor(model => model.QuoteID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.QuoteID, @readonly = "readonly" } })
+                        @Html.HiddenFor(model => model.QuoteID)
+                        @Html.ValidationMessageFor(model => model.QuoteID, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @*@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.TextAreaFor(model => model.Description, 5, 20, new { @class = "form-control", @id = "Description" })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+
+                    <h5>Description</h5>
+                    <hr class="bg-dark" />
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.DoorTypeID, "DoorTypeID", htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @Html.DropDownList("DoorTypeID", null, htmlAttributes: new { @class = "form-control", @id = "DoorType", @onchange = "ChangeDoorType();" })
+                        @Html.ValidationMessageFor(model => model.DoorTypeID, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.DesignTypeID, "DesignTypeID", htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @Html.DropDownList("DesignTypeID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DesignTypeID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.ColorTypeID, "ColorTypeID", htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @Html.DropDownList("ColorTypeID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ColorTypeID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.LockTypeID, "LockTypeID", htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @Html.DropDownList("LockTypeID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LockTypeID, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.LockHeight, "LockHeight", htmlAttributes: new { @class = "control-label" })</strong>
+                        @Html.EditorFor(model => model.LockHeight, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LockHeight, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.HingeType, "HingeType", htmlAttributes: new { @class = "control-label" })</strong>
+                        @Html.DropDownList("HingeType", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.HingeType, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <div class="col-sm-2">
+                    <h5>Height</h5>
+                    <hr class="bg-dark" />
+
+                    <div class="form-group">
+
+                        <strong>@Html.LabelFor(model => model.Height, htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Height, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <h5>Description</h5>
+                    <hr class="bg-dark" />
+
+                    <img class="p-3 img-fluid" id="pic" src="~/images/Door_LH.PNG" />
+                </div>
+
+                <div class="col-sm-2">
+
+                    <h5>Widths</h5>
+                    <hr class="bg-dark" />
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.Width1, htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @Html.EditorFor(model => model.Width1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Width1, "", new { @class = "text-danger" })
+                    </div>
+
+                    <br />
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.Width2, htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @Html.EditorFor(model => model.Width2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Width2, "", new { @class = "text-danger" })
+                    </div>
+
+                    <br />
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.Width3, htmlAttributes: new { @class = "control-label" })</strong>
+
+                        @Html.EditorFor(model => model.Width3, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Width3, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <div class="col-sm-2">
+
+                    <h5>Sliders Stuff</h5>
+                    <hr class="bg-dark" />
+
+
+                    <div class="form-group">
+                        @*<div class="row">*@
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.SliderTopTrack, htmlAttributes: new { @class = "control-label" })</strong>
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.SliderTopTrack)
+                                @Html.ValidationMessageFor(model => model.SliderTopTrack, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.SliderTopTrackType, "SliderTopTrackType", htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.DropDownList("SliderTopTrackType", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SliderTopTrackType, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.SliderTopTrackWidth, htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.EditorFor(model => model.SliderTopTrackWidth, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SliderTopTrackWidth, "", new { @class = "text-danger" })
+                        </div>
+                        @*</div>*@
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @*<div class="row">*@
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.SliderBottomTrack, htmlAttributes: new { @class = "control-label" })</strong>
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.SliderBottomTrack)
+                                @Html.ValidationMessageFor(model => model.SliderBottomTrack, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.SliderBottomTrackType, "SliderBottomTrackType", htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.DropDownList("SliderBottomTrackType", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SliderBottomTrackType, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.SliderBottomTrackWidth, htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.EditorFor(model => model.SliderBottomTrackWidth, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SliderBottomTrackWidth, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @*<div class="row">*@
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.SliderSideChannel, htmlAttributes: new { @class = "control-label" })</strong>
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.SliderSideChannel)
+                                @Html.ValidationMessageFor(model => model.SliderSideChannel, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.SliderSideChannelType, "SliderSideChannelTrackType", htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.DropDownList("SliderSideChannelTrackType", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SliderSideChannelType, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.SliderSideChannelWidth, htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.EditorFor(model => model.SliderSideChannelWidth, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SliderSideChannelWidth, "", new { @class = "text-danger" })
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.SliderFs, htmlAttributes: new { @class = "control-label" })</strong>
+
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.SliderFs)
+                            @Html.ValidationMessageFor(model => model.SliderFs, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.F, htmlAttributes: new { @class = "control-label" }) Qty.</strong>
+                            @Html.EditorFor(model => model.F, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.F, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.SliderZs, htmlAttributes: new { @class = "control-label" })</strong>
+
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.SliderZs)
+                            @Html.ValidationMessageFor(model => model.SliderZs, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.Z, htmlAttributes: new { @class = "control-label" }) Qty.</strong>
+                            @Html.EditorFor(model => model.Z, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Z, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <strong>@Html.LabelFor(model => model.SliderBugStrip, htmlAttributes: new { @class = "control-label" })</strong>
+
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.SliderBugStrip)
+                            @Html.ValidationMessageFor(model => model.SliderBugStrip, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+                    @*<div class="form-group">
+                        <strong><label>Select Track Types</label></strong><br />
+                        @Html.DropDownList("TrackTypeID", null, htmlAttributes: new { @class = "form-control bg-primary", multiple = "multiple", @id = "TrackTypeID", onchange = "GetSelectedTracks();" })
+                    </div>*@
+
+                    @*@Html.DropDownList("LockTypeID", null, htmlAttributes: new { @class = "form-control border ", multiple = "multiple", @id = "test" })*@
+
+
+                    @*<div class="form-group">
+                        <strong>@Html.LabelFor(model => model.TrackTypes, htmlAttributes: new { @class = "control-label" })</strong>
+                        @Html.EditorFor(model => model.TrackTypes, new { htmlAttributes = new { @class = "form-control", @id = "tracks", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.TrackTypes, "", new { @class = "text-danger" })
+                    </div>*@
+
+                    @*Z and F*@
+ 
+
+
+
+                </div>
+
+                </div>
+            @*end of row*@
+
+        </div>
+        @*end of card body*@
+
+
+        <div class="card-footer">
+            @*<input type="submit" value="Save" class="btn btn-primary border-dark shadow" />*@
+            <button type="submit" class="btn btn-primary border-dark shadow"><i class="fa fa-save"></i> Save</button>
+            @*@Html.ActionLink("Back Details", "QuoteDetails", "Quotes", new { id = Model.QuoteID }, new { @class = "btn btn-secondary border-dark shadow" })
+
+        @Html.ActionLink("Back Details", "QuoteDetails", "Quotes", new { id = Model.QuoteID }, new { @class = "btn btn-secondary" })*@
+
+            <a href='@Url.Action("QuoteDetails/"+ @Model.QuoteID, "Quotes")' id="" class="btn btn-secondary border-dark shadow"><i class="fa fa-arrow-circle-left"></i> Back to Quote </a>
+        </div>
+
+
+
+
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script>
+
+        // ********************************************************************************
+        // * Document loaded completed Trigger
+        // ********************************************************************************
+        $(document).ready(function () {
+
+            ChangeDoorType();
+
+            //$('#TrackTypeID').multiselect({
+            //    buttonClass: 'btn btn-secondary',
+            //    //buttonWidth: '280px',
+            //    templates: {
+            //        li: '<li class="checkList"><a tabindex="0"><div class="aweCheckbox aweCheckbox-danger"><label for=""></label></div></a></li>',
+            //    }
+            //});
+
+            //$('.multiselect-container div.aweCheckbox').each(function (index) {
+
+            //    var id = 'multiselect-' + index,
+            //        $input = $(this).find('input');
+
+            //    // Associate the label and the input
+            //    $(this).find('label').attr('for', id);
+            //    $input.attr('id', id);
+
+            //    // Remove the input from the label wrapper
+            //    $input.detach();
+
+            //    // Place the input back in before the label
+            //    $input.prependTo($(this));
+
+            //    $(this).click(function (e) {
+            //        // Prevents the click from bubbling up and hiding the dropdown
+            //        e.stopPropagation();
+            //    });
+
+            //});
+
+
+        });
+
+
+        function ChangeDoorType() {
+            var picture = $("#DoorType :selected").text();
+
+            picture = window.location.origin + '@Request.ApplicationPath' + '/images/' + picture + '.PNG';
+            console.log('Picture :' + picture);
+            $("#pic").attr("src", picture);
+        }
+
+
+        //function GetSelectedTracks() {
+        //    var trck='';
+        //    $("#TrackTypeID option:selected").each(function () {
+        //        var $this = $(this);
+        //        if ($this.length) {
+        //            var selText = $this.text();
+        //            var selValue = $this.val();
+        //            console.log('Select TrackID : ' + selText + ' - Selected Track Value : ' + selValue);
+
+        //            trck = trck + selText + ', ';
+        //        }
+        //    });
+
+        //    $('#tracks').val(trck.slice(0, -2));
+        //};
+
+    </script>
+
+}

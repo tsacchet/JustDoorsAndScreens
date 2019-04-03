@@ -1,0 +1,138 @@
+﻿@model IEnumerable<JustDoorsAndScreens.DoorItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Door Items List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuoteID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderTopTrack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderBottomTrack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderSideChannel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderFs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderZs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderBugStrip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ColorType.ColorTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DesignType.DesignTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoorType.DoorTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LockType.LockTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote.Customer)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuoteID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderTopTrack)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderBottomTrack)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderSideChannel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderFs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderZs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderBugStrip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ColorType.ColorTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesignType.DesignTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoorType.DoorTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockType.LockTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quote.Customer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DoorItemID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DoorItemID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DoorItemID })
+            </td>
+        </tr>
+        }
+
+    </table>
+</div>

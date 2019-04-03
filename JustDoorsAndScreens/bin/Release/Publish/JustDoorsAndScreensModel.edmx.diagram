@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d4a1f693bf7846a597e79195df43a8a8" Name="Diagram1" ZoomLevel="79">
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.ColorType" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.DesignType" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.DoorType" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.FlysScreenType" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.LockType" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.Quote" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.StagesType" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_Quote_Stages" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.DoorItem" Width="2" PointX="5.25" PointY="6.875" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_ColorType" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_DesignType" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_DoorType" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_LockType" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_Quote" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.FlyScreenItem" Width="1.5" PointX="8.25" PointY="3.125" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_FlyScreenItem_FlysScreenType" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_FlyScreenItem_Quote" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.vwFlyScreenItem" Width="1.5" PointX="13.125" PointY="6.75" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_FlyScreenItem_ColorType" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.vwQuoteReport" Width="1.5" PointX="13.125" PointY="0.625" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.vwRolledQuoteCost" Width="1.5" PointX="13.125" PointY="4.5" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.TrackType" Width="1.5" PointX="7.875" PointY="12.875" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.HingeType" Width="1.5" PointX="8" PointY="10.875" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_HingeType" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_SliderType" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_SliderType1" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_SliderType2" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.vwDoorItem" Width="2" PointX="11" PointY="6.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

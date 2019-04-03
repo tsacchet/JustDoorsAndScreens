@@ -1,0 +1,333 @@
+﻿@model JustDoorsAndScreens.DoorItem
+
+@{
+    ViewBag.Title = "DetailsDoorItem";
+}
+
+@*<h2>DetailsDoorItem</h2>*@
+
+<div class="card border border-dark shadow">
+    @*<h4>DoorItem</h4>
+        <hr />*@
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Detail Door Item</strong></h4>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+
+            <div class="col-md-2">
+                <h5>Details</h5>
+                <hr class="bg-dark"/>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Quote.Customer)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Quote.Customer)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cost)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Cost)
+                    </dd>
+
+                </dl>
+
+
+            </div>
+
+            <div class="col-md-2">
+                <h5>Description</h5>
+                <hr class="bg-dark" />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DoorType.DoorTypeName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DoorType.DoorTypeName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ColorType.ColorTypeName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ColorType.ColorTypeName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DesignType.DesignTypeName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DesignType.DesignTypeName)
+                    </dd>
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LockType.LockTypeName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LockType.LockTypeName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LockHeight)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LockHeight)
+                    </dd>
+
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.HingeType)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.HingeType1.HingeTypeName)
+                    </dd>*@
+
+                </dl>
+
+            </div>
+
+            <div class="col-md-2">
+                <h5>Height</h5>
+                <hr class="bg-dark" />
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Height)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Height)
+                    </dd>
+
+                </dl>
+            </div>
+
+
+            <div class="col-md-2">
+                <h5>Description</h5>
+                <hr class="bg-dark" />
+                @{var picture = Model.DoorType.DoorTypeName + ".PNG";}
+                <img class="p-3 img-fluid" id="pic" src="~/images/@picture" />
+
+                <dl class="dl-horizontal">
+                    <dt>
+                        Width
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Width1)
+                    </dd>
+                    </dl>
+            </div>
+
+
+            <div class="col-md-2">
+                <h5>Sliders Stuff</h5>
+                <hr class="bg-dark" />
+                <dl class="dl-horizontal">
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.SliderTopTrack)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderTopTrack)
+                    </dd>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderTopTrackType)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderTopTrackType)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderTopTrackWidth)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderTopTrackWidth)
+                    </dd>
+
+
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.SliderBottomTrack)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderBottomTrack)
+                    </dd>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderBottomTrackType)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderBottomTrackType)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderBottomTrackWidth)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderBottomTrackWidth)
+                    </dd>
+
+
+
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.SliderSideChannel)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderSideChannel)
+                    </dd>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderSideChannelType)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderSideChannelType)
+                    </dd>
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderSideChannelWidth)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderSideChannelWidth)
+                    </dd>
+                </dl>
+
+            </div>
+
+
+            <div class="col-md-2">
+                <h5>Sliders Stuff</h5>
+                <hr class="bg-dark" />
+                <dl class="dl-horizontal">
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.SliderFs)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderFs)
+                    </dd>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.F) Qty.
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.F)
+                    </dd>
+
+
+                    @*<dt>
+                        @Html.DisplayNameFor(model => model.SliderZs)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderZs)
+                    </dd>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Z) Qty.
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Z)
+                    </dd>
+
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SliderBugStrip)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SliderBugStrip)
+                    </dd>
+
+                    @*<dt>
+                @Html.DisplayNameFor(model => model.TrackTypes)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TrackTypes)
+            </dd>*@
+
+
+                </dl>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+    <div class="card-footer">
+        @*@Html.ActionLink("Edit", "EditDoorItem", new { id = Model.DoorItemID }, new { @class = "btn btn-primary" }) |*@
+        @*@Html.ActionLink("Back Details", "QuoteDetails", "Quotes", new { id = Model.QuoteID }, new { @class = "btn btn-secondary" })*@
+        <a href='@Url.Action("EditDoorItem/"+ @Model.DoorItemID, "DoorItems")' id="" class="btn btn-danger border-dark shadow"><i class="fa fa-edit"></i> Edit </a>
+        <a href='@Url.Action("QuoteDetails/"+ @Model.QuoteID, "Quotes")' id="" class="btn btn-secondary border-dark shadow"><i class="fa fa-arrow-circle-left"></i> Back to Quote </a>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        // ********************************************************************************
+        // * Document loaded completed Trigger
+        // ********************************************************************************
+        $(document).ready(function () {
+            //ChangeDoorType();
+        });
+
+
+        function ChangeDoorType()
+        {
+            var picture = @Model.DoorType.DoorTypeName;
+
+            picture = window.location.origin + '@Request.ApplicationPath' + '/images/' + picture + '.PNG';
+            console.log('Picture :' + picture);
+            $("#pic").attr("src", picture);
+        }
+
+
+    </script>
+
+}

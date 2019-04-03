@@ -1,0 +1,26 @@
+﻿@model JustDoorsAndScreens.DesignType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card border border-dark shadow">
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Detail DesignType</strong></h4>
+    </div>
+    <div class="card-body">
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignTypeName)
+        </dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.DesignTypeID }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>

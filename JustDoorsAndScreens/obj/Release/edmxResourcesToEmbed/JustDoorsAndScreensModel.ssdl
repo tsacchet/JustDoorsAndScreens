@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JustDoorsAndScreensModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ColorType">
+    <Key>
+      <PropertyRef Name="ColorTypeID" />
+    </Key>
+    <Property Name="ColorTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColorTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DesignType">
+    <Key>
+      <PropertyRef Name="DesignTypeID" />
+    </Key>
+    <Property Name="DesignTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DesignTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DoorItems">
+    <Key>
+      <PropertyRef Name="DoorItemID" />
+    </Key>
+    <Property Name="DoorItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuoteID" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="ColorTypeID" Type="int" />
+    <Property Name="LockTypeID" Type="int" />
+    <Property Name="Height" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Width1" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Width2" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Width3" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SliderTopTrack" Type="bit" />
+    <Property Name="SliderBottomTrack" Type="bit" />
+    <Property Name="SliderSideChannel" Type="bit" />
+    <Property Name="SliderFs" Type="bit" />
+    <Property Name="SliderZs" Type="bit" />
+    <Property Name="SliderBugStrip" Type="bit" />
+    <Property Name="Cost" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="DoorTypeID" Type="int" />
+    <Property Name="DesignTypeID" Type="int" />
+    <Property Name="LockHeight" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SliderTopTrackWidth" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SliderBottomTrackWidth" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SliderSideChannelWidth" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TrackTypes" Type="nvarchar" MaxLength="50" />
+    <Property Name="SliderTopTrackType" Type="int" />
+    <Property Name="SliderBottomTrackType" Type="int" />
+    <Property Name="SliderSideChannelType" Type="int" />
+    <Property Name="F" Type="int" />
+    <Property Name="Z" Type="int" />
+    <Property Name="HingeType" Type="int" />
+  </EntityType>
+  <EntityType Name="DoorType">
+    <Key>
+      <PropertyRef Name="DoorTypeID" />
+    </Key>
+    <Property Name="DoorTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoorTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FlyScreenItem">
+    <Key>
+      <PropertyRef Name="FlyScreenItemsID" />
+    </Key>
+    <Property Name="FlyScreenItemsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuoteID" Type="int" />
+    <Property Name="FlyScreenTypeID" Type="int" />
+    <Property Name="Width" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Depth" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Cost" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="ColorTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="FlysScreenType">
+    <Key>
+      <PropertyRef Name="FlyScreenTypeID" />
+    </Key>
+    <Property Name="FlyScreenTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlyScreenName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HingeType">
+    <Key>
+      <PropertyRef Name="HingeTypeID" />
+    </Key>
+    <Property Name="HingeTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HingeTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LockType">
+    <Key>
+      <PropertyRef Name="LockTypeID" />
+    </Key>
+    <Property Name="LockTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LockTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Quote">
+    <Key>
+      <PropertyRef Name="QuoteID" />
+    </Key>
+    <Property Name="QuoteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Deposit" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TotalCost" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="StageID" Type="int" />
+    <Property Name="Paid" Type="bit" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="OrderDate" Type="date" />
+    <Property Name="CompletedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="StagesType">
+    <Key>
+      <PropertyRef Name="StageID" />
+    </Key>
+    <Property Name="StageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrackType">
+    <Key>
+      <PropertyRef Name="TrackTypeID" />
+    </Key>
+    <Property Name="TrackTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrackTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwDoorItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDoorItems">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="DesignTypeName" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="QuoteID" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="DoorTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DesignTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ColorTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LockTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LockHeight" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Height" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Width1" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Width2" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Width3" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="HingeTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SliderTopTrack" Type="bit" />
+    <Property Name="SliderTopTrackTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SliderTopTrackWidth" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SliderBottomTrack" Type="bit" />
+    <Property Name="SliderBottomTrackTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SliderBottomTrackWidth" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SliderSideChannel" Type="bit" />
+    <Property Name="SliderSideChannelTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SliderSideChannelWidth" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SliderFs" Type="bit" />
+    <Property Name="SliderZs" Type="bit" />
+    <Property Name="SliderBugStrip" Type="bit" />
+    <Property Name="TrackTypes" Type="nvarchar" MaxLength="50" />
+    <Property Name="F" Type="int" />
+    <Property Name="Z" Type="int" />
+    <Property Name="Cost" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwFlyScreenItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwFlyScreenItems">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="QuoteID" Type="int" />
+    <Property Name="FlyScreenName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Width" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Depth" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Cost" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="ColorTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwQuoteReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwQuoteReport">
+    <Key>
+      <PropertyRef Name="QuoteID" />
+    </Key>
+    <Property Name="QuoteID" Type="int" Nullable="false" />
+    <Property Name="Customer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Stage" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalCost" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="Deposit" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="Paid" Type="bit" />
+    <Property Name="OrderDate" Type="date" />
+    <Property Name="CompletedDate" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwRolledQuoteCost">
+    <Key>
+      <PropertyRef Name="Item" />
+    </Key>
+    <Property Name="QuoteID" Type="int" />
+    <Property Name="Item" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Total" Type="numeric" Precision="38" Scale="2" />
+  </EntityType>
+  <Association Name="FK_DoorItems_ColorType">
+    <End Role="ColorType" Type="Self.ColorType" Multiplicity="0..1" />
+    <End Role="DoorItems" Type="Self.DoorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColorType">
+        <PropertyRef Name="ColorTypeID" />
+      </Principal>
+      <Dependent Role="DoorItems">
+        <PropertyRef Name="ColorTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_DesignType">
+    <End Role="DesignType" Type="Self.DesignType" Multiplicity="0..1" />
+    <End Role="DoorItems" Type="Self.DoorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DesignType">
+        <PropertyRef Name="DesignTypeID" />
+      </Principal>
+      <Dependent Role="DoorItems">
+        <PropertyRef Name="DesignTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_DoorType">
+    <End Role="DoorType" Type="Self.DoorType" Multiplicity="0..1" />
+    <End Role="DoorItems" Type="Self.DoorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoorType">
+        <PropertyRef Name="DoorTypeID" />
+      </Principal>
+      <Dependent Role="DoorItems">
+        <PropertyRef Name="DoorTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_HingeType">
+    <End Role="HingeType" Type="Self.HingeType" Multiplicity="0..1" />
+    <End Role="DoorItems" Type="Self.DoorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HingeType">
+        <PropertyRef Name="HingeTypeID" />
+      </Principal>
+      <Dependent Role="DoorItems">
+        <PropertyRef Name="HingeType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_LockType">
+    <End Role="LockType" Type="Self.LockType" Multiplicity="0..1" />
+    <End Role="DoorItems" Type="Self.DoorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LockType">
+        <PropertyRef Name="LockTypeID" />
+      </Principal>
+      <Dependent Role="DoorItems">
+        <PropertyRef Name="LockTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_Quote">
+    <End Role="Quote" Type="Self.Quote" Multiplicity="0..1" />
+    <End Role="DoorItems" Type="Self.DoorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quote">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="DoorItems">
+        <PropertyRef Name="QuoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_SliderType">
+    <End Role="TrackType" Type="Self.TrackType" Multiplicity="0..1" />
+    <End Role="DoorItems" Type="Self.DoorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrackType">
+        <PropertyRef Name="TrackTypeID" />
+      </Principal>
+      <Dependent Role="DoorItems">
+        <PropertyRef Name="SliderTopTrackType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_SliderType1">
+    <End Role="TrackType" Type="Self.TrackType" Multiplicity="0..1" />
+    <End Role="DoorItems" Type="Self.DoorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrackType">
+        <PropertyRef Name="TrackTypeID" />
+      </Principal>
+      <Dependent Role="DoorItems">
+        <PropertyRef Name="SliderBottomTrackType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_SliderType2">
+    <End Role="TrackType" Type="Self.TrackType" Multiplicity="0..1" />
+    <End Role="DoorItems" Type="Self.DoorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrackType">
+        <PropertyRef Name="TrackTypeID" />
+      </Principal>
+      <Dependent Role="DoorItems">
+        <PropertyRef Name="SliderSideChannelType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FlyScreenItem_ColorType">
+    <End Role="ColorType" Type="Self.ColorType" Multiplicity="0..1" />
+    <End Role="FlyScreenItem" Type="Self.FlyScreenItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColorType">
+        <PropertyRef Name="ColorTypeID" />
+      </Principal>
+      <Dependent Role="FlyScreenItem">
+        <PropertyRef Name="ColorTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FlyScreenItem_FlysScreenType">
+    <End Role="FlysScreenType" Type="Self.FlysScreenType" Multiplicity="0..1" />
+    <End Role="FlyScreenItem" Type="Self.FlyScreenItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FlysScreenType">
+        <PropertyRef Name="FlyScreenTypeID" />
+      </Principal>
+      <Dependent Role="FlyScreenItem">
+        <PropertyRef Name="FlyScreenTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FlyScreenItem_Quote">
+    <End Role="Quote" Type="Self.Quote" Multiplicity="0..1" />
+    <End Role="FlyScreenItem" Type="Self.FlyScreenItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quote">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="FlyScreenItem">
+        <PropertyRef Name="QuoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quote_Stages">
+    <End Role="StagesType" Type="Self.StagesType" Multiplicity="0..1" />
+    <End Role="Quote" Type="Self.Quote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StagesType">
+        <PropertyRef Name="StageID" />
+      </Principal>
+      <Dependent Role="Quote">
+        <PropertyRef Name="StageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JustDoorsAndScreensModelStoreContainer">
+    <EntitySet Name="ColorType" EntityType="Self.ColorType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DesignType" EntityType="Self.DesignType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DoorItems" EntityType="Self.DoorItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DoorType" EntityType="Self.DoorType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlyScreenItem" EntityType="Self.FlyScreenItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlysScreenType" EntityType="Self.FlysScreenType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HingeType" EntityType="Self.HingeType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LockType" EntityType="Self.LockType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quote" EntityType="Self.Quote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StagesType" EntityType="Self.StagesType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrackType" EntityType="Self.TrackType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vwDoorItems" EntityType="Self.vwDoorItems" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDoorItems].[id] AS [id], 
+    [vwDoorItems].[QuoteID] AS [QuoteID], 
+    [vwDoorItems].[Description] AS [Description], 
+    [vwDoorItems].[DoorTypeName] AS [DoorTypeName], 
+    [vwDoorItems].[DesignTypeName] AS [DesignTypeName], 
+    [vwDoorItems].[ColorTypeName] AS [ColorTypeName], 
+    [vwDoorItems].[LockTypeName] AS [LockTypeName], 
+    [vwDoorItems].[LockHeight] AS [LockHeight], 
+    [vwDoorItems].[Height] AS [Height], 
+    [vwDoorItems].[Width1] AS [Width1], 
+    [vwDoorItems].[Width2] AS [Width2], 
+    [vwDoorItems].[Width3] AS [Width3], 
+    [vwDoorItems].[HingeTypeName] AS [HingeTypeName], 
+    [vwDoorItems].[SliderTopTrack] AS [SliderTopTrack], 
+    [vwDoorItems].[SliderTopTrackTypeName] AS [SliderTopTrackTypeName], 
+    [vwDoorItems].[SliderTopTrackWidth] AS [SliderTopTrackWidth], 
+    [vwDoorItems].[SliderBottomTrack] AS [SliderBottomTrack], 
+    [vwDoorItems].[SliderBottomTrackTypeName] AS [SliderBottomTrackTypeName], 
+    [vwDoorItems].[SliderBottomTrackWidth] AS [SliderBottomTrackWidth], 
+    [vwDoorItems].[SliderSideChannel] AS [SliderSideChannel], 
+    [vwDoorItems].[SliderSideChannelTypeName] AS [SliderSideChannelTypeName], 
+    [vwDoorItems].[SliderSideChannelWidth] AS [SliderSideChannelWidth], 
+    [vwDoorItems].[SliderFs] AS [SliderFs], 
+    [vwDoorItems].[SliderZs] AS [SliderZs], 
+    [vwDoorItems].[SliderBugStrip] AS [SliderBugStrip], 
+    [vwDoorItems].[TrackTypes] AS [TrackTypes], 
+    [vwDoorItems].[F] AS [F], 
+    [vwDoorItems].[Z] AS [Z], 
+    [vwDoorItems].[Cost] AS [Cost]
+    FROM [dbo].[vwDoorItems] AS [vwDoorItems]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwFlyScreenItems" EntityType="Self.vwFlyScreenItems" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwFlyScreenItems].[id] AS [id], 
+    [vwFlyScreenItems].[QuoteID] AS [QuoteID], 
+    [vwFlyScreenItems].[FlyScreenName] AS [FlyScreenName], 
+    [vwFlyScreenItems].[Width] AS [Width], 
+    [vwFlyScreenItems].[Depth] AS [Depth], 
+    [vwFlyScreenItems].[Qty] AS [Qty], 
+    [vwFlyScreenItems].[Cost] AS [Cost], 
+    [vwFlyScreenItems].[ColorTypeName] AS [ColorTypeName]
+    FROM [dbo].[vwFlyScreenItems] AS [vwFlyScreenItems]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwQuoteReport" EntityType="Self.vwQuoteReport" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwQuoteReport].[QuoteID] AS [QuoteID], 
+    [vwQuoteReport].[Customer] AS [Customer], 
+    [vwQuoteReport].[Address] AS [Address], 
+    [vwQuoteReport].[Date] AS [Date], 
+    [vwQuoteReport].[Telephone] AS [Telephone], 
+    [vwQuoteReport].[Mobile] AS [Mobile], 
+    [vwQuoteReport].[Email] AS [Email], 
+    [vwQuoteReport].[Stage] AS [Stage], 
+    [vwQuoteReport].[TotalCost] AS [TotalCost], 
+    [vwQuoteReport].[Deposit] AS [Deposit], 
+    [vwQuoteReport].[Balance] AS [Balance], 
+    [vwQuoteReport].[Paid] AS [Paid], 
+    [vwQuoteReport].[OrderDate] AS [OrderDate], 
+    [vwQuoteReport].[CompletedDate] AS [CompletedDate]
+    FROM [dbo].[vwQuoteReport] AS [vwQuoteReport]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwRolledQuoteCost" EntityType="Self.vwRolledQuoteCost" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwRolledQuoteCost].[QuoteID] AS [QuoteID], 
+    [vwRolledQuoteCost].[Item] AS [Item], 
+    [vwRolledQuoteCost].[Total] AS [Total]
+    FROM [dbo].[vwRolledQuoteCost] AS [vwRolledQuoteCost]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_DoorItems_ColorType" Association="Self.FK_DoorItems_ColorType">
+      <End Role="ColorType" EntitySet="ColorType" />
+      <End Role="DoorItems" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_DesignType" Association="Self.FK_DoorItems_DesignType">
+      <End Role="DesignType" EntitySet="DesignType" />
+      <End Role="DoorItems" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_DoorType" Association="Self.FK_DoorItems_DoorType">
+      <End Role="DoorType" EntitySet="DoorType" />
+      <End Role="DoorItems" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_HingeType" Association="Self.FK_DoorItems_HingeType">
+      <End Role="HingeType" EntitySet="HingeType" />
+      <End Role="DoorItems" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_LockType" Association="Self.FK_DoorItems_LockType">
+      <End Role="LockType" EntitySet="LockType" />
+      <End Role="DoorItems" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_Quote" Association="Self.FK_DoorItems_Quote">
+      <End Role="Quote" EntitySet="Quote" />
+      <End Role="DoorItems" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_SliderType" Association="Self.FK_DoorItems_SliderType">
+      <End Role="TrackType" EntitySet="TrackType" />
+      <End Role="DoorItems" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_SliderType1" Association="Self.FK_DoorItems_SliderType1">
+      <End Role="TrackType" EntitySet="TrackType" />
+      <End Role="DoorItems" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_SliderType2" Association="Self.FK_DoorItems_SliderType2">
+      <End Role="TrackType" EntitySet="TrackType" />
+      <End Role="DoorItems" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FlyScreenItem_ColorType" Association="Self.FK_FlyScreenItem_ColorType">
+      <End Role="ColorType" EntitySet="ColorType" />
+      <End Role="FlyScreenItem" EntitySet="FlyScreenItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FlyScreenItem_FlysScreenType" Association="Self.FK_FlyScreenItem_FlysScreenType">
+      <End Role="FlysScreenType" EntitySet="FlysScreenType" />
+      <End Role="FlyScreenItem" EntitySet="FlyScreenItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FlyScreenItem_Quote" Association="Self.FK_FlyScreenItem_Quote">
+      <End Role="Quote" EntitySet="Quote" />
+      <End Role="FlyScreenItem" EntitySet="FlyScreenItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quote_Stages" Association="Self.FK_Quote_Stages">
+      <End Role="StagesType" EntitySet="StagesType" />
+      <End Role="Quote" EntitySet="Quote" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

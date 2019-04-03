@@ -1,0 +1,48 @@
+﻿@model IEnumerable<JustDoorsAndScreens.DesignType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="card border border-dark shadow">
+
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Design Type List</strong></h4>
+    </div>
+
+    <div class="card-body">
+
+
+        <div class="table-responsive">
+            <table class="table table-sm table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DesignTypeName)
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DesignTypeName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.DesignTypeID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.DesignTypeID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.DesignTypeID })
+                            </td>
+                        </tr>
+                    }
+
+            </table>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    </div>
+
+</div>

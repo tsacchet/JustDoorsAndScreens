@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JustDoorsAndScreensModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ColorType">
+    <Key>
+      <PropertyRef Name="ColorTypeID" />
+    </Key>
+    <Property Name="ColorTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColorTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoorItems" Relationship="JustDoorsAndScreensModel.FK_DoorItems_ColorType" FromRole="ColorType" ToRole="DoorItem" />
+    <NavigationProperty Name="FlyScreenItems" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_ColorType" FromRole="ColorType" ToRole="FlyScreenItem" />
+  </EntityType>
+  <EntityType Name="DesignType">
+    <Key>
+      <PropertyRef Name="DesignTypeID" />
+    </Key>
+    <Property Name="DesignTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesignTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DoorItems" Relationship="JustDoorsAndScreensModel.FK_DoorItems_DesignType" FromRole="DesignType" ToRole="DoorItem" />
+  </EntityType>
+  <EntityType Name="DoorType">
+    <Key>
+      <PropertyRef Name="DoorTypeID" />
+    </Key>
+    <Property Name="DoorTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoorTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoorItems" Relationship="JustDoorsAndScreensModel.FK_DoorItems_DoorType" FromRole="DoorType" ToRole="DoorItem" />
+  </EntityType>
+  <EntityType Name="FlysScreenType">
+    <Key>
+      <PropertyRef Name="FlyScreenTypeID" />
+    </Key>
+    <Property Name="FlyScreenTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FlyScreenName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FlyScreenItems" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_FlysScreenType" FromRole="FlysScreenType" ToRole="FlyScreenItem" />
+  </EntityType>
+  <EntityType Name="LockType">
+    <Key>
+      <PropertyRef Name="LockTypeID" />
+    </Key>
+    <Property Name="LockTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LockTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoorItems" Relationship="JustDoorsAndScreensModel.FK_DoorItems_LockType" FromRole="LockType" ToRole="DoorItem" />
+  </EntityType>
+  <EntityType Name="Quote">
+    <Key>
+      <PropertyRef Name="QuoteID" />
+    </Key>
+    <Property Name="QuoteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Deposit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalCost" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="StageID" Type="Int32" />
+    <NavigationProperty Name="StagesType" Relationship="Self.FK_Quote_Stages" FromRole="Quote" ToRole="StagesType" />
+    <NavigationProperty Name="DoorItems" Relationship="JustDoorsAndScreensModel.FK_DoorItems_Quote" FromRole="Quote" ToRole="DoorItem" />
+    <NavigationProperty Name="FlyScreenItems" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_Quote" FromRole="Quote" ToRole="FlyScreenItem" />
+    <Property Name="Paid" Type="Boolean" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderDate" Type="DateTime" Precision="0" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="StagesType">
+    <Key>
+      <PropertyRef Name="StageID" />
+    </Key>
+    <Property Name="StageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Quotes" Relationship="Self.FK_Quote_Stages" FromRole="StagesType" ToRole="Quote" />
+  </EntityType>
+  <Association Name="FK_Quote_Stages">
+    <End Role="StagesType" Type="Self.StagesType" Multiplicity="0..1" />
+    <End Role="Quote" Type="Self.Quote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StagesType">
+        <PropertyRef Name="StageID" />
+      </Principal>
+      <Dependent Role="Quote">
+        <PropertyRef Name="StageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JustDoorsAndScreensEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ColorTypes" EntityType="Self.ColorType" />
+    <EntitySet Name="DesignTypes" EntityType="Self.DesignType" />
+    <EntitySet Name="DoorTypes" EntityType="Self.DoorType" />
+    <EntitySet Name="FlysScreenTypes" EntityType="Self.FlysScreenType" />
+    <EntitySet Name="LockTypes" EntityType="Self.LockType" />
+    <EntitySet Name="Quotes" EntityType="Self.Quote" />
+    <EntitySet Name="StagesTypes" EntityType="Self.StagesType" />
+    <AssociationSet Name="FK_Quote_Stages" Association="Self.FK_Quote_Stages">
+      <End Role="StagesType" EntitySet="StagesTypes" />
+      <End Role="Quote" EntitySet="Quotes" />
+    </AssociationSet>
+    <EntitySet Name="DoorItems" EntityType="JustDoorsAndScreensModel.DoorItem" />
+    <AssociationSet Name="FK_DoorItems_ColorType" Association="JustDoorsAndScreensModel.FK_DoorItems_ColorType">
+      <End Role="ColorType" EntitySet="ColorTypes" />
+      <End Role="DoorItem" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_DesignType" Association="JustDoorsAndScreensModel.FK_DoorItems_DesignType">
+      <End Role="DesignType" EntitySet="DesignTypes" />
+      <End Role="DoorItem" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_DoorType" Association="JustDoorsAndScreensModel.FK_DoorItems_DoorType">
+      <End Role="DoorType" EntitySet="DoorTypes" />
+      <End Role="DoorItem" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_LockType" Association="JustDoorsAndScreensModel.FK_DoorItems_LockType">
+      <End Role="LockType" EntitySet="LockTypes" />
+      <End Role="DoorItem" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_Quote" Association="JustDoorsAndScreensModel.FK_DoorItems_Quote">
+      <End Role="Quote" EntitySet="Quotes" />
+      <End Role="DoorItem" EntitySet="DoorItems" />
+    </AssociationSet>
+    <EntitySet Name="FlyScreenItems" EntityType="JustDoorsAndScreensModel.FlyScreenItem" />
+    <AssociationSet Name="FK_FlyScreenItem_FlysScreenType" Association="JustDoorsAndScreensModel.FK_FlyScreenItem_FlysScreenType">
+      <End Role="FlysScreenType" EntitySet="FlysScreenTypes" />
+      <End Role="FlyScreenItem" EntitySet="FlyScreenItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FlyScreenItem_Quote" Association="JustDoorsAndScreensModel.FK_FlyScreenItem_Quote">
+      <End Role="Quote" EntitySet="Quotes" />
+      <End Role="FlyScreenItem" EntitySet="FlyScreenItems" />
+    </AssociationSet>
+    <EntitySet Name="vwFlyScreenItems" EntityType="JustDoorsAndScreensModel.vwFlyScreenItem" />
+    <AssociationSet Name="FK_FlyScreenItem_ColorType" Association="JustDoorsAndScreensModel.FK_FlyScreenItem_ColorType">
+      <End Role="ColorType" EntitySet="ColorTypes" />
+      <End Role="FlyScreenItem" EntitySet="FlyScreenItems" />
+    </AssociationSet>
+    <EntitySet Name="vwQuoteReports" EntityType="JustDoorsAndScreensModel.vwQuoteReport" />
+    <EntitySet Name="vwRolledQuoteCosts" EntityType="JustDoorsAndScreensModel.vwRolledQuoteCost" />
+    <EntitySet Name="TrackTypes" EntityType="JustDoorsAndScreensModel.TrackType" />
+    <EntitySet Name="HingeTypes" EntityType="JustDoorsAndScreensModel.HingeType" />
+    <AssociationSet Name="FK_DoorItems_HingeType" Association="JustDoorsAndScreensModel.FK_DoorItems_HingeType">
+      <End Role="HingeType" EntitySet="HingeTypes" />
+      <End Role="DoorItem" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_SliderType" Association="JustDoorsAndScreensModel.FK_DoorItems_SliderType">
+      <End Role="TrackType" EntitySet="TrackTypes" />
+      <End Role="DoorItem" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_SliderType1" Association="JustDoorsAndScreensModel.FK_DoorItems_SliderType1">
+      <End Role="TrackType" EntitySet="TrackTypes" />
+      <End Role="DoorItem" EntitySet="DoorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoorItems_SliderType2" Association="JustDoorsAndScreensModel.FK_DoorItems_SliderType2">
+      <End Role="TrackType" EntitySet="TrackTypes" />
+      <End Role="DoorItem" EntitySet="DoorItems" />
+    </AssociationSet>
+    <EntitySet Name="vwDoorItems" EntityType="JustDoorsAndScreensModel.vwDoorItem" />
+  </EntityContainer>
+  <EntityType Name="DoorItem">
+    <Key>
+      <PropertyRef Name="DoorItemID" />
+    </Key>
+    <Property Name="DoorItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuoteID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ColorTypeID" Type="Int32" />
+    <Property Name="LockTypeID" Type="Int32" />
+    <Property Name="Height" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Width1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Width2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Width3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SliderTopTrack" Type="Boolean" />
+    <Property Name="SliderBottomTrack" Type="Boolean" />
+    <Property Name="SliderSideChannel" Type="Boolean" />
+    <Property Name="SliderFs" Type="Boolean" />
+    <Property Name="SliderZs" Type="Boolean" />
+    <Property Name="SliderBugStrip" Type="Boolean" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DoorTypeID" Type="Int32" />
+    <Property Name="DesignTypeID" Type="Int32" />
+    <NavigationProperty Name="ColorType" Relationship="JustDoorsAndScreensModel.FK_DoorItems_ColorType" FromRole="DoorItem" ToRole="ColorType" />
+    <NavigationProperty Name="DesignType" Relationship="JustDoorsAndScreensModel.FK_DoorItems_DesignType" FromRole="DoorItem" ToRole="DesignType" />
+    <NavigationProperty Name="DoorType" Relationship="JustDoorsAndScreensModel.FK_DoorItems_DoorType" FromRole="DoorItem" ToRole="DoorType" />
+    <NavigationProperty Name="LockType" Relationship="JustDoorsAndScreensModel.FK_DoorItems_LockType" FromRole="DoorItem" ToRole="LockType" />
+    <NavigationProperty Name="Quote" Relationship="JustDoorsAndScreensModel.FK_DoorItems_Quote" FromRole="DoorItem" ToRole="Quote" />
+    <Property Name="LockHeight" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SliderTopTrackWidth" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SliderBottomTrackWidth" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SliderSideChannelWidth" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TrackTypes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SliderTopTrackType" Type="Int32" />
+    <Property Name="SliderBottomTrackType" Type="Int32" />
+    <Property Name="SliderSideChannelType" Type="Int32" />
+    <Property Name="F" Type="Int32" />
+    <Property Name="Z" Type="Int32" />
+    <Property Name="HingeType" Type="Int32" />
+    <NavigationProperty Name="HingeType1" Relationship="JustDoorsAndScreensModel.FK_DoorItems_HingeType" FromRole="DoorItem" ToRole="HingeType" />
+    <NavigationProperty Name="TrackType" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType" FromRole="DoorItem" ToRole="TrackType" />
+    <NavigationProperty Name="TrackType1" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType1" FromRole="DoorItem" ToRole="TrackType" />
+    <NavigationProperty Name="TrackType2" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType2" FromRole="DoorItem" ToRole="TrackType" />
+  </EntityType>
+  <Association Name="FK_DoorItems_ColorType">
+    <End Type="JustDoorsAndScreensModel.ColorType" Role="ColorType" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.DoorItem" Role="DoorItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColorType">
+        <PropertyRef Name="ColorTypeID" />
+      </Principal>
+      <Dependent Role="DoorItem">
+        <PropertyRef Name="ColorTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_DesignType">
+    <End Type="JustDoorsAndScreensModel.DesignType" Role="DesignType" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.DoorItem" Role="DoorItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DesignType">
+        <PropertyRef Name="DesignTypeID" />
+      </Principal>
+      <Dependent Role="DoorItem">
+        <PropertyRef Name="DesignTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_DoorType">
+    <End Type="JustDoorsAndScreensModel.DoorType" Role="DoorType" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.DoorItem" Role="DoorItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoorType">
+        <PropertyRef Name="DoorTypeID" />
+      </Principal>
+      <Dependent Role="DoorItem">
+        <PropertyRef Name="DoorTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_LockType">
+    <End Type="JustDoorsAndScreensModel.LockType" Role="LockType" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.DoorItem" Role="DoorItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LockType">
+        <PropertyRef Name="LockTypeID" />
+      </Principal>
+      <Dependent Role="DoorItem">
+        <PropertyRef Name="LockTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_Quote">
+    <End Type="JustDoorsAndScreensModel.Quote" Role="Quote" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.DoorItem" Role="DoorItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quote">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="DoorItem">
+        <PropertyRef Name="QuoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FlyScreenItem">
+    <Key>
+      <PropertyRef Name="FlyScreenItemsID" />
+    </Key>
+    <Property Name="FlyScreenItemsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuoteID" Type="Int32" />
+    <Property Name="FlyScreenTypeID" Type="Int32" />
+    <Property Name="Width" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Depth" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Qty" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="FlysScreenType" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_FlysScreenType" FromRole="FlyScreenItem" ToRole="FlysScreenType" />
+    <NavigationProperty Name="Quote" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_Quote" FromRole="FlyScreenItem" ToRole="Quote" />
+    <Property Name="ColorTypeID" Type="Int32" />
+    <NavigationProperty Name="ColorType" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_ColorType" FromRole="FlyScreenItem" ToRole="ColorType" />
+  </EntityType>
+  <Association Name="FK_FlyScreenItem_FlysScreenType">
+    <End Type="JustDoorsAndScreensModel.FlysScreenType" Role="FlysScreenType" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.FlyScreenItem" Role="FlyScreenItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FlysScreenType">
+        <PropertyRef Name="FlyScreenTypeID" />
+      </Principal>
+      <Dependent Role="FlyScreenItem">
+        <PropertyRef Name="FlyScreenTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FlyScreenItem_Quote">
+    <End Type="JustDoorsAndScreensModel.Quote" Role="Quote" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.FlyScreenItem" Role="FlyScreenItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quote">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="FlyScreenItem">
+        <PropertyRef Name="QuoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vwFlyScreenItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="QuoteID" Type="Int32" />
+    <Property Name="FlyScreenName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Width" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Depth" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Qty" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ColorTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_FlyScreenItem_ColorType">
+    <End Type="JustDoorsAndScreensModel.ColorType" Role="ColorType" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.FlyScreenItem" Role="FlyScreenItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColorType">
+        <PropertyRef Name="ColorTypeID" />
+      </Principal>
+      <Dependent Role="FlyScreenItem">
+        <PropertyRef Name="ColorTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vwQuoteReport">
+    <Key>
+      <PropertyRef Name="QuoteID" />
+    </Key>
+    <Property Name="QuoteID" Type="Int32" Nullable="false" />
+    <Property Name="Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Stage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalCost" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Deposit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Paid" Type="Boolean" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderDate" Type="DateTime" Precision="0" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vwRolledQuoteCost">
+    <Key>
+      <PropertyRef Name="Item" />
+    </Key>
+    <Property Name="QuoteID" Type="Int32" />
+    <Property Name="Item" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="TrackType">
+    <Key>
+      <PropertyRef Name="TrackTypeID" />
+    </Key>
+    <Property Name="TrackTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrackTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoorItems" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType" FromRole="TrackType" ToRole="DoorItem" />
+    <NavigationProperty Name="DoorItems1" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType1" FromRole="TrackType" ToRole="DoorItem" />
+    <NavigationProperty Name="DoorItems2" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType2" FromRole="TrackType" ToRole="DoorItem" />
+  </EntityType>
+  <EntityType Name="HingeType">
+    <Key>
+      <PropertyRef Name="HingeTypeID" />
+    </Key>
+    <Property Name="HingeTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HingeTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoorItems" Relationship="JustDoorsAndScreensModel.FK_DoorItems_HingeType" FromRole="HingeType" ToRole="DoorItem" />
+  </EntityType>
+  <Association Name="FK_DoorItems_HingeType">
+    <End Type="JustDoorsAndScreensModel.HingeType" Role="HingeType" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.DoorItem" Role="DoorItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HingeType">
+        <PropertyRef Name="HingeTypeID" />
+      </Principal>
+      <Dependent Role="DoorItem">
+        <PropertyRef Name="HingeType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_SliderType">
+    <End Type="JustDoorsAndScreensModel.TrackType" Role="TrackType" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.DoorItem" Role="DoorItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrackType">
+        <PropertyRef Name="TrackTypeID" />
+      </Principal>
+      <Dependent Role="DoorItem">
+        <PropertyRef Name="SliderTopTrackType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_SliderType1">
+    <End Type="JustDoorsAndScreensModel.TrackType" Role="TrackType" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.DoorItem" Role="DoorItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrackType">
+        <PropertyRef Name="TrackTypeID" />
+      </Principal>
+      <Dependent Role="DoorItem">
+        <PropertyRef Name="SliderBottomTrackType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoorItems_SliderType2">
+    <End Type="JustDoorsAndScreensModel.TrackType" Role="TrackType" Multiplicity="0..1" />
+    <End Type="JustDoorsAndScreensModel.DoorItem" Role="DoorItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrackType">
+        <PropertyRef Name="TrackTypeID" />
+      </Principal>
+      <Dependent Role="DoorItem">
+        <PropertyRef Name="SliderSideChannelType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vwDoorItem">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="DesignTypeName" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="QuoteID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DoorTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DesignTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ColorTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LockTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LockHeight" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Height" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Width1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Width2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Width3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="HingeTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SliderTopTrack" Type="Boolean" />
+    <Property Name="SliderTopTrackTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SliderTopTrackWidth" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SliderBottomTrack" Type="Boolean" />
+    <Property Name="SliderBottomTrackTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SliderBottomTrackWidth" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SliderSideChannel" Type="Boolean" />
+    <Property Name="SliderSideChannelTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SliderSideChannelWidth" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SliderFs" Type="Boolean" />
+    <Property Name="SliderZs" Type="Boolean" />
+    <Property Name="SliderBugStrip" Type="Boolean" />
+    <Property Name="TrackTypes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F" Type="Int32" />
+    <Property Name="Z" Type="Int32" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+</Schema>

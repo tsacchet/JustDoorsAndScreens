@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JustDoorsAndScreensModelStoreContainer" CdmEntityContainer="JustDoorsAndScreensEntities">
+    <EntitySetMapping Name="ColorTypes">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.ColorType">
+        <MappingFragment StoreEntitySet="ColorType">
+          <ScalarProperty Name="ColorTypeID" ColumnName="ColorTypeID" />
+          <ScalarProperty Name="ColorTypeName" ColumnName="ColorTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DesignTypes">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.DesignType">
+        <MappingFragment StoreEntitySet="DesignType">
+          <ScalarProperty Name="DesignTypeID" ColumnName="DesignTypeID" />
+          <ScalarProperty Name="DesignTypeName" ColumnName="DesignTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoorTypes">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.DoorType">
+        <MappingFragment StoreEntitySet="DoorType">
+          <ScalarProperty Name="DoorTypeID" ColumnName="DoorTypeID" />
+          <ScalarProperty Name="DoorTypeName" ColumnName="DoorTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FlysScreenTypes">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.FlysScreenType">
+        <MappingFragment StoreEntitySet="FlysScreenType">
+          <ScalarProperty Name="FlyScreenTypeID" ColumnName="FlyScreenTypeID" />
+          <ScalarProperty Name="FlyScreenName" ColumnName="FlyScreenName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LockTypes">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.LockType">
+        <MappingFragment StoreEntitySet="LockType">
+          <ScalarProperty Name="LockTypeID" ColumnName="LockTypeID" />
+          <ScalarProperty Name="LockTypeName" ColumnName="LockTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quotes">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.Quote">
+        <MappingFragment StoreEntitySet="Quote">
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+          <ScalarProperty Name="StageID" ColumnName="StageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StagesTypes">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.StagesType">
+        <MappingFragment StoreEntitySet="StagesType">
+          <ScalarProperty Name="StageID" ColumnName="StageID" />
+          <ScalarProperty Name="StageName" ColumnName="StageName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoorItems">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.DoorItem">
+        <MappingFragment StoreEntitySet="DoorItems">
+          <ScalarProperty Name="HingeType" ColumnName="HingeType" />
+          <ScalarProperty Name="Z" ColumnName="Z" />
+          <ScalarProperty Name="F" ColumnName="F" />
+          <ScalarProperty Name="SliderSideChannelType" ColumnName="SliderSideChannelType" />
+          <ScalarProperty Name="SliderBottomTrackType" ColumnName="SliderBottomTrackType" />
+          <ScalarProperty Name="SliderTopTrackType" ColumnName="SliderTopTrackType" />
+          <ScalarProperty Name="TrackTypes" ColumnName="TrackTypes" />
+          <ScalarProperty Name="SliderSideChannelWidth" ColumnName="SliderSideChannelWidth" />
+          <ScalarProperty Name="SliderBottomTrackWidth" ColumnName="SliderBottomTrackWidth" />
+          <ScalarProperty Name="SliderTopTrackWidth" ColumnName="SliderTopTrackWidth" />
+          <ScalarProperty Name="LockHeight" ColumnName="LockHeight" />
+          <ScalarProperty Name="DesignTypeID" ColumnName="DesignTypeID" />
+          <ScalarProperty Name="DoorTypeID" ColumnName="DoorTypeID" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="SliderBugStrip" ColumnName="SliderBugStrip" />
+          <ScalarProperty Name="SliderZs" ColumnName="SliderZs" />
+          <ScalarProperty Name="SliderFs" ColumnName="SliderFs" />
+          <ScalarProperty Name="SliderSideChannel" ColumnName="SliderSideChannel" />
+          <ScalarProperty Name="SliderBottomTrack" ColumnName="SliderBottomTrack" />
+          <ScalarProperty Name="SliderTopTrack" ColumnName="SliderTopTrack" />
+          <ScalarProperty Name="Width3" ColumnName="Width3" />
+          <ScalarProperty Name="Width2" ColumnName="Width2" />
+          <ScalarProperty Name="Width1" ColumnName="Width1" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="LockTypeID" ColumnName="LockTypeID" />
+          <ScalarProperty Name="ColorTypeID" ColumnName="ColorTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="DoorItemID" ColumnName="DoorItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FlyScreenItems">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.FlyScreenItem">
+        <MappingFragment StoreEntitySet="FlyScreenItem">
+          <ScalarProperty Name="ColorTypeID" ColumnName="ColorTypeID" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Depth" ColumnName="Depth" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="FlyScreenTypeID" ColumnName="FlyScreenTypeID" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="FlyScreenItemsID" ColumnName="FlyScreenItemsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwFlyScreenItems">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwFlyScreenItem">
+        <MappingFragment StoreEntitySet="vwFlyScreenItems">
+          <ScalarProperty Name="ColorTypeName" ColumnName="ColorTypeName" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Depth" ColumnName="Depth" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="FlyScreenName" ColumnName="FlyScreenName" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwQuoteReports">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwQuoteReport">
+        <MappingFragment StoreEntitySet="vwQuoteReport">
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+          <ScalarProperty Name="Stage" ColumnName="Stage" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwRolledQuoteCosts">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwRolledQuoteCost">
+        <MappingFragment StoreEntitySet="vwRolledQuoteCost">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrackTypes">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.TrackType">
+        <MappingFragment StoreEntitySet="TrackType">
+          <ScalarProperty Name="TrackTypeName" ColumnName="TrackTypeName" />
+          <ScalarProperty Name="TrackTypeID" ColumnName="TrackTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HingeTypes">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.HingeType">
+        <MappingFragment StoreEntitySet="HingeType">
+          <ScalarProperty Name="HingeTypeName" ColumnName="HingeTypeName" />
+          <ScalarProperty Name="HingeTypeID" ColumnName="HingeTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwDoorItems">
+      <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwDoorItem">
+        <MappingFragment StoreEntitySet="vwDoorItems">
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Z" ColumnName="Z" />
+          <ScalarProperty Name="F" ColumnName="F" />
+          <ScalarProperty Name="TrackTypes" ColumnName="TrackTypes" />
+          <ScalarProperty Name="SliderBugStrip" ColumnName="SliderBugStrip" />
+          <ScalarProperty Name="SliderZs" ColumnName="SliderZs" />
+          <ScalarProperty Name="SliderFs" ColumnName="SliderFs" />
+          <ScalarProperty Name="SliderSideChannelWidth" ColumnName="SliderSideChannelWidth" />
+          <ScalarProperty Name="SliderSideChannelTypeName" ColumnName="SliderSideChannelTypeName" />
+          <ScalarProperty Name="SliderSideChannel" ColumnName="SliderSideChannel" />
+          <ScalarProperty Name="SliderBottomTrackWidth" ColumnName="SliderBottomTrackWidth" />
+          <ScalarProperty Name="SliderBottomTrackTypeName" ColumnName="SliderBottomTrackTypeName" />
+          <ScalarProperty Name="SliderBottomTrack" ColumnName="SliderBottomTrack" />
+          <ScalarProperty Name="SliderTopTrackWidth" ColumnName="SliderTopTrackWidth" />
+          <ScalarProperty Name="SliderTopTrackTypeName" ColumnName="SliderTopTrackTypeName" />
+          <ScalarProperty Name="SliderTopTrack" ColumnName="SliderTopTrack" />
+          <ScalarProperty Name="HingeTypeName" ColumnName="HingeTypeName" />
+          <ScalarProperty Name="Width3" ColumnName="Width3" />
+          <ScalarProperty Name="Width2" ColumnName="Width2" />
+          <ScalarProperty Name="Width1" ColumnName="Width1" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="LockHeight" ColumnName="LockHeight" />
+          <ScalarProperty Name="LockTypeName" ColumnName="LockTypeName" />
+          <ScalarProperty Name="ColorTypeName" ColumnName="ColorTypeName" />
+          <ScalarProperty Name="DesignTypeName" ColumnName="DesignTypeName" />
+          <ScalarProperty Name="DoorTypeName" ColumnName="DoorTypeName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

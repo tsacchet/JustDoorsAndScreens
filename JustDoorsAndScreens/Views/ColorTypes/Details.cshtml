@@ -1,0 +1,26 @@
+﻿@model JustDoorsAndScreens.ColorType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card border border-dark shadow">
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Detail ColourType</strong></h4>
+    </div>
+    <div class="card-body">
+        <dt>
+            @Html.DisplayNameFor(model => model.ColorTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ColorTypeName)
+        </dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ColorTypeID }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Back to List", "Index",  null, new { @class = "btn btn-secondary" })
+    </div>
+</div>

@@ -1,0 +1,164 @@
+﻿@model JustDoorsAndScreens.DoorItem
+
+@{
+    ViewBag.Title = "DeleteDoorItem";
+}
+
+<h2>DeleteDoorItem</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DoorItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Width1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Width1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Width2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Width2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Width3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Width3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderTopTrack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderTopTrack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderBottomTrack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderBottomTrack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderSideChannel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderSideChannel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderFs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderFs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderZs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderZs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderBugStrip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderBugStrip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ColorType.ColorTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ColorType.ColorTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignType.DesignTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignType.DesignTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoorType.DoorTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoorType.DoorTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LockType.LockTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LockType.LockTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quote.Customer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quote.Customer)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+
+        @Html.ActionLink("Delete DoorItem", "DeleteDoorItemConfirmed", "DoorItems", new { id = Model.DoorItemID }, new { @class = "btn btn-danger" })|
+
+        @*<input type="submit" value="Delete" class="btn btn-danger" /> |*@
+        @*@Html.ActionLink("Back to List", "Index")*@
+        @Html.ActionLink("Back Details", "QuoteDetails", "Quotes", new { id = Model.QuoteID }, new { @class = "btn btn-secondary" })
+    </div>
+    }
+</div>

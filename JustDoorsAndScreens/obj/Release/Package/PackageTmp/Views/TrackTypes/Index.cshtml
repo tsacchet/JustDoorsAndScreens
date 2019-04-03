@@ -1,0 +1,48 @@
+﻿@model IEnumerable<JustDoorsAndScreens.TrackType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="card border border-dark shadow">
+
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Track Type List</strong></h4>
+    </div>
+
+    <div class="card-body">
+
+
+        <div class="table-responsive">
+            <table class="table table-sm table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TrackTypeName)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TrackTypeName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.TrackTypeID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.TrackTypeID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.TrackTypeID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        </div>
+
+        <div class="card-footer">
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+        </div>
+
+    </div>

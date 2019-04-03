@@ -1,0 +1,26 @@
+﻿@model JustDoorsAndScreens.LockType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card border border-dark shadow">
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Detail LockType</strong></h4>
+    </div>
+    <div class="card-body">
+        <dt>
+            @Html.DisplayNameFor(model => model.LockTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LockTypeName)
+        </dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.LockTypeID }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+    </div>

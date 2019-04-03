@@ -1,0 +1,66 @@
+﻿@model JustDoorsAndScreens.FlyScreenItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FlyScreenItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Width)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Width)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Depth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Depth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlysScreenType.FlyScreenName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlysScreenType.FlyScreenName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quote.Customer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quote.Customer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FlyScreenItemsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

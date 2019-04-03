@@ -1,0 +1,156 @@
+﻿@model JustDoorsAndScreens.FlyScreenItem
+
+@{
+    ViewBag.Title = "DetailsFlyScreenItem";
+}
+
+@*<h2>DetailsFlyScreenItem</h2>*@
+
+<div class="card border border-dark shadow">
+
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Detail FlyScreen Item</strong></h4>
+    </div>
+
+    <div class="card-body row">
+
+        <div class="col-3">
+            <h5>Details</h5>
+            <hr class="bg-dark" />
+
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.QuoteID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.QuoteID)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quote.Customer)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Quote.Customer)
+                </dd>
+
+            </dl>
+
+        </div>
+
+        <div class="col-3">
+            <h5>FlyScreen Details</h5>
+            <hr class="bg-dark" />
+
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FlysScreenType.FlyScreenName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FlysScreenType.FlyScreenName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ColorType.ColorTypeName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ColorType.ColorTypeName)
+                </dd>
+
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Qty)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Qty)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Cost)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Cost)
+                </dd>
+
+            </dl>
+        </div>
+
+        <div class="col-3">
+            <h5>Depth/Width</h5>
+            <hr class="bg-dark" />
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Width)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Width)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Depth)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Depth)
+                </dd>
+
+            </dl>
+        </div>
+
+        <div class="col-3">
+            <h5>Details</h5>
+            <hr class="bg-dark" />
+
+            @{var picture = Model.FlysScreenType.FlyScreenName + ".PNG";}
+            <img class="p-3 img-fluid" src="~/images/@picture" />
+        </div>
+
+    </div>
+
+
+    <div class="card-footer">
+        @*@Html.ActionLink("Edit", "EditFlyScreenItem", new { id = Model.FlyScreenItemsID }, new { @class = "btn btn-primary" }) |*@
+        @*@Html.ActionLink("Back Details", "QuoteDetails", "Quotes", new { id = Model.QuoteID }, new { @class = "btn btn-secondary" })*@
+
+        <a href='@Url.Action("EditFlyScreenItem/"+ @Model.FlyScreenItemsID, "FlyScreenItems")' id="" class="btn btn-danger border-dark shadow"><i class="fa fa-edit"></i> Edit </a>
+        <a href='@Url.Action("QuoteDetails/"+ @Model.QuoteID, "Quotes")' id="" class="btn btn-secondary border-dark shadow"><i class="fa fa-arrow-circle-left"></i> Back to Quote </a>
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        // ********************************************************************************
+        // * Document loaded completed Trigger
+        // ********************************************************************************
+        $(document).ready(function () {
+            //ChangeDoorType();
+        });
+
+
+        function ChangeDoorType()
+        {
+            var picture = @Model.FlysScreenType.FlyScreenName;
+
+            picture = window.location.origin + '@Request.ApplicationPath' + '/images/' + picture + '.PNG';
+            console.log('Picture :' + picture);
+            $("#pic").attr("src", picture);
+        }
+
+
+    </script>
+
+}

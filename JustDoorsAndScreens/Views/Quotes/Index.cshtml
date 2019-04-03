@@ -1,0 +1,451 @@
+﻿@model IEnumerable<JustDoorsAndScreens.Quote>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+
+    .ui-jqgrid tr.jqgrow td {
+        height: 40px;
+    }
+
+    .text-large {
+        font-size: 120%;
+    }
+
+
+    /*.ui-jqgrid.ui-jqgrid-bootstrap .ui-jqgrid-titlebar .ui-jqgrid-title,
+    .ui-jqgrid.ui-jqgrid-bootstrap .ui-jqgrid-errorbar .ui-jqgrid-error,
+    .ui-jqdialog.ui-jqgrid-bootstrap .ui-jqdialog-titlebar .ui-jqdialog-title {
+        font-size: 18px;
+    }
+
+    .ui-jqdialog.ui-jqgrid-bootstrap .FormData .CaptionTD {
+        font-size: 16px;
+    }
+
+    .ui-jqgrid.ui-jqgrid-bootstrap > .ui-jqgrid-view,
+    .ui-jqgrid.ui-jqgrid-bootstrap .ui-pager-control .ui-pg-input,
+    .ui-jqgrid.ui-jqgrid-bootstrap > .ui-jqgrid-pager,
+    .ui-jqgrid.ui-jqgrid-bootstrap .ui-pager-control .ui-pg-selbox,
+    .ui-jqgrid > .ui-jqgrid-view input,
+    .ui-jqgrid > .ui-jqgrid-view select,
+    .ui-jqgrid > .ui-jqgrid-view textarea,
+    .ui-jqgrid > .ui-jqgrid-view button {
+        font-size: 14px;
+    }
+
+    .ui-jqgrid.ui-jqgrid-bootstrap > .ui-jqgrid-view .fa,
+    .ui-jqgrid.ui-jqgrid-bootstrap > .ui-jqgrid-pager .fa,
+    .jqgrow .ui-pg-div > span.fa {
+        font-size: 18px;
+    }*/
+
+    /*.ui-jqgrid .ui-jqgrid-htable th {
+        padding: 0 .3em 0 .3em;
+    }
+
+    .ui-jqgrid tr.jqgrow > td,
+    .ui-jqgrid tr.jqgroup > td,
+    .ui-jqgrid tr.jqfoot > td,
+    .ui-jqgrid tr.jqfoot > td,
+    .ui-jqgrid tr.jqgfirstrow > td {
+        padding: 0 .3em 0 .3em;
+    }*/
+
+    /*.ui-jqgrid.ui-jqgrid-bootstrap,
+    .ui-jqgrid-bootstrap.ui-jqdialog modal-content {
+        border: 1px solid #003380;
+    }*/
+
+    /*.ui-jqgrid.ui-jqgrid-bootstrap .ui-jqgrid-caption,
+    .ui-jqdialog.ui-jqgrid-bootstrap .ui-jqdialog-titlebar {
+        background-color: #0073e6;
+        color: white;
+    }
+
+    .ui-jqgrid.ui-jqgrid-bootstrap .ui-jqgrid-hdiv {
+        background-color: #99ccff;
+    }*/
+
+    /*.ui-jqgrid-bootstrap.ui-jqgrid .ui-jqgrid-toppager,
+    .ui-jqgrid-bootstrap.ui-jqgrid .ui-jqgrid-pager {
+        background-color: #cce6ff;
+    }*/
+
+    /*.table > thead > tr > td.active,
+    .table > tbody > tr > td.active,
+    .table > thead > tr > th.active,
+    .ui-pg-table .ui-pg-button.active,
+    .ui-jqgrid-actions .ui-pg-div.active {
+        background-color: #e6f2ff;
+    }
+
+    .ui-pg-table .ui-pg-button.active,
+    .ui-jqgrid-actions .ui-pg-div.active {
+        border-radius: .4em;
+    }*/
+
+    /*.ui-jqgrid-btable tr.jqgrow.success,
+    .ui-jqgrid-btable tr.jqgrow.success > td {
+        background-color: #ccffee;
+    }*/
+
+    /*.ui-jqgrid-btable tr.jqgrow.active,
+    .ui-jqgrid-btable tr.jqgrow.active > td
+    .ui-jqgrid-btable > tbody > tr.jqgrow.active > td:hover,
+    .ui-jqgrid-btable.table-hover > tbody > tr.jqgrow.active:hover > td,
+    .ui-jqgrid-btable.table-hover > tbody > tr.jqgrow:hover > .active,
+    .ui-jqgrid-btable.table-hover > tbody > tr.jqgrow.active:hover > th {
+        background-color: #ffffe6;
+    }*/
+
+    /*.ui-jqgrid-btable tr.jqgrow.active.success,
+    .ui-jqgrid-btable tr.jqgrow.active.success > td {
+        background-color: #e6e6ff;
+    }*/
+
+    /*.ui-jqdialog-titlebar-close.active {
+        background-color: #ccffee;
+    }*/
+
+ 
+    
+</style>
+
+
+<div class="card border border-dark shadow">
+
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Quotation List</strong></h4>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="">
+                    <div class="text-sm-center">
+                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Quoted This Week</label>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="text-secondary" id="quoted"><strong> 0 </strong></h4>
+                    </div>
+                    <div class="text-sm-center">
+                        <label class="text-success"><small class="text-secondary">Last Week : </small><small> 0 </small></label> &nbsp;&nbsp;
+                        <label class="text-success"><small class="text-secondary">Last Month : </small><small> 0 </small></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="">
+                    <div class="text-sm-center">
+                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Ordered This Week</label>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="text-secondary" id="ordered"> 0 </h4>
+                    </div>
+                    <div class="text-sm-center">
+                        <label class="text-success"><small class="text-secondary">Last Week : </small><small> 0 </small></label> &nbsp;&nbsp;
+                        <label class="text-success"><small class="text-secondary">Last Month : </small><small> 0 </small></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="">
+                    <div class="text-sm-center">
+                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Completed This Week</label>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="text-secondary" id="completed"> 0 </h4>
+                    </div>
+                    <div class="text-sm-center">
+                        <label class="text-success"><small class="text-secondary">Last Week : </small><small> 0 </small></label> &nbsp;&nbsp;
+                        <label class="text-success"><small class="text-secondary">Last Month : </small><small> 0 </small></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="">
+                    <div class="text-sm-center">
+                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Cancelled This Week</label>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="text-secondary" id="cancelled"> 0 </h4>
+                    </div>
+                    <div class="text-sm-center">
+                        <label class="text-success"><small class="text-secondary">Last Week : </small><small> 0 </small></label> &nbsp;&nbsp;
+                        <label class="text-success"><small class="text-secondary">Last Month : </small><small> 0 </small></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer border-dark bg-light">
+        @*@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })*@
+        <a href='@Url.Action("Create", "Quotes")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> New Quote </a>
+    </div>
+
+</div>
+
+<br />
+
+<div class="table-responsive border card border-dark shadow">
+    <table id="grid1b" class="ui-jqgrid text-large"></table>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+    // ********************************************************************************
+    // * Document loaded completed Trigger
+    // ********************************************************************************
+    $(document).ready(function () {
+        GenerateTable();
+        GetCompleted();
+        GetQuoted();
+        GetOrdered();
+        GetCancelled();
+    });
+
+    function GetCompleted() {
+        $.ajax({
+            "url": "@(Url.Action("GetCompletedQuotes", "Quotes"))",
+            "type": "POST",
+            "datatype": "json",
+            //"contentType": "application/json; charset=utf-8",
+            data: { },
+            success: function (response) {
+                retData = response.data;
+                console.log('GetCompletedQuotes: ' + retData);
+               $("#completed").text(retData);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("GetCompleted Status: " + textStatus); alert("GetCompleted Error: " + errorThrown);
+            }
+        });
+        };
+
+    function GetQuoted() {
+        $.ajax({
+            "url": "@(Url.Action("GetQuotedQuotes", "Quotes"))",
+            "type": "POST",
+            "datatype": "json",
+            //"contentType": "application/json; charset=utf-8",
+            data: { },
+            success: function (response) {
+                retData = response.data;
+                console.log('GetCompletedQuotes: ' + retData);
+               $("#quoted").text(retData);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("GetQuoted Status: " + textStatus); alert("GetQuoted Error: " + errorThrown);
+            }
+        });
+    };
+
+    function GetOrdered() {
+        $.ajax({
+            "url": "@(Url.Action("GetOrderedQuotes", "Quotes"))",
+            "type": "POST",
+            "datatype": "json",
+            //"contentType": "application/json; charset=utf-8",
+            data: { },
+            success: function (response) {
+                retData = response.data;
+                console.log('GetCompletedQuotes: ' + retData);
+               $("#ordered").text(retData);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("GetOrdered Status: " + textStatus); alert("GetOrdered Error: " + errorThrown);
+            }
+        });
+        };
+
+    function GetCancelled() {
+        $.ajax({
+            "url": "@(Url.Action("GetCancelledQuotes", "Quotes"))",
+            "type": "POST",
+            "datatype": "json",
+            //"contentType": "application/json; charset=utf-8",
+            data: { },
+            success: function (response) {
+                retData = response.data;
+                console.log('GetCompletedQuotes: ' + retData);
+               $("#cancelled").text(retData);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("GetCancelled Status: " + textStatus); alert("GetCancelled Error: " + errorThrown);
+            }
+        });
+    };
+
+    function GenerateTable() {
+        $.ajax({
+            "url": "@(Url.Action("GetList", "Quotes"))",
+            "type": "POST",
+            "datatype": "json",
+            //"contentType": "application/json; charset=utf-8",
+            data: { },
+            success: function (response) {
+                retData = response.data;
+                console.log('GetList: ' + retData);
+                DisplayTable(retData);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("GenerateTable Status: " + textStatus); alert("GenerateTable Error: " + errorThrown);
+            }
+        });
+    };
+
+    function DisplayTable(json) {
+        //"use strict";
+        $("#grid1b").jqGrid("GridUnload")
+        //$('grid1b').css('font-size', '20px');
+        $("#grid1b").jqGrid({
+        colModel: [
+            { name: "act", template: "actions", align: "left", width: 80 },
+            //{ name: "act", template: "actions", width: 100 },
+
+
+        //{
+        //    name: "Type", label: "Type", width: 53,
+
+        //    formatter: "select",
+        //    formatoptions: { value: "Flat:Flat;Rotary:Rotary", defaultValue: "Flat" },
+        //    stype: "select",
+        //    searchoptions: { value: ":Any;Flat:Flat;Rotary:Rotary" }
+        //},
+        //{
+        ////    name: "invdate", label: "Date", width: 90, align: "center", sorttype: "date",*
+        ////    formatter: "date", formatoptions: { newformat: "d-M-Y" },
+        ////    searchoptions: { sopt: ["eq"] }
+        //},
+            { name: "id", label: "ID", width: 20 },
+            { name: "Customer", label: "Customer", width: 40 },
+            { name: "Address", label: "Address", width: 60 },
+            { name: "Date", label: "Date", width: 30 },
+            { name: "Telephone", label: "Telephone", width: 30 },
+            { name: "Mobile", label: "Mobile", width: 30 },
+            { name: "Email", label: "Email", width: 60 },
+            { name: "Deposit", label: "Deposit", width: 25 },
+            { name: "TotalCost", label: "TotalCost", width: 25 },
+            { name: "Balance", label: "Balance", width: 25 },
+            { name: "Stage", label: "Stage", width: 25 },
+            { name: "Paid", label: "Paid", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "OrderDate", label: "Order Date", width: 30 },
+            { name: "CompletedDate", label: "Completed Date", width: 30 },
+
+        ],
+            data: json,
+        //height: 450,
+        caption: "",
+        autowidth: true,
+        guiStyle: "bootstrap",
+        iconSet: "fontAwesome",
+        //idPrefix: "gid_",
+        //shrinkToFit: false,
+        rownumbers: true,
+        sortname: "invdate",
+        sortorder: "desc",
+        threeStateSort: true,
+        sortIconsBeforeText: true,
+        headertitles: true,
+        toppager: false,
+        pager: true,
+            //pager: '#jqGridPager',
+        rowNum: 10,
+        viewrecords: true,
+        searching: {
+        defaultSearch: "cn"
+        },
+        actionsNavOptions: {
+            editbutton: false,
+            delbutton: false,
+            custom: [
+            {
+            action: "open", position: "first",
+            onClick: function (options) {
+                var rid = options.rowid;
+                var id = rid.replace("jqg","");
+                window.location = '@Url.Action("QuoteDetails", "Quotes")' + '?id=' + id;
+                }
+            },
+            {
+            action: "post", position: "first",
+            onClick: function (options) {
+                var rid = options.rowid;
+                var id = rid.replace("jqg", "");
+                window.location = '@Url.Action("Edit", "Quotes")' + '?id=' + id;
+                }
+            },
+            {
+            action: "delete", position: "first",
+            onClick: function (options) {
+                var rid = options.rowid;
+                var id = rid.replace("jqg", "");
+                window.location = '@Url.Action("Delete", "Quotes")' + '?id=' + id;
+                }
+            }
+            ],
+            posticon: "fa-pencil",
+            posttitle: "Edit",
+            openicon: "fa-folder-open-o",
+            opentitle: "Details",
+            deleteicon: "fa-trash",
+            deletetitle: "Delete",
+            isDisplayButtons: function (options, rowData) {
+                if (options.rowData.closed) { // or rowData.closed
+                return { post: { hidden: true }, del: { display: false } };
+                }
+            }
+        },
+
+        loadComplete: function () {
+            var rowIds = $('#grid1b').jqGrid('getDataIDs');
+            for (var i = 0; i < rowIds.length; i++) {//iterate over each row
+                rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
+                //set background style if ColValue === true\
+                console.log('Stage: ' + rowData['Stage']);
+
+                if (rowData['Stage'] === 'Completed') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-primary");
+                }
+                else if (rowData['Stage'] === 'Ordered') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
+                }
+                else if (rowData['Stage'] === 'In Progress') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+                }
+                else if (rowData['Stage'] === 'On Hold') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+                }
+                else if (rowData['Stage'] === 'Cancelled') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
+                }
+
+            } //for
+        }//loadComplete
+
+
+        
+        }).jqGrid("filterToolbar");
+
+
+
+    };
+
+
+
+
+    </script>
+
+}
+
