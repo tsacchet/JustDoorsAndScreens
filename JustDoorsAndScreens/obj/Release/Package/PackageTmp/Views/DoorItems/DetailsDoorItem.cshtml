@@ -9,24 +9,28 @@
 <div class="card border border-dark shadow">
     @*<h4>DoorItem</h4>
         <hr />*@
-    <div class="card-header bg-light border-dark">
+    <div class="card-header bg-light border-dark sticky-top">
         <h4 class="text-dark"><strong>Detail Door Item</strong></h4>
+        <span class="text-dark text-sm-center"><strong>Customer:</strong> @Model.Quote.Customer  <strong>Quote:</strong>  @Model.QuoteID</span>
     </div>
+
+
 
     <div class="card-body">
         <div class="row">
 
-            <div class="col-md-4">
-                <h5>Details</h5>
-                <hr class="bg-dark"/>
+            <div class="col-sm-4">
+                <h5><strong class="text-secondary">Details</strong></h5>
+                <hr class="bg-light" />
+
                 <dl class="dl-horizontal">
-                    <dt>
+                    @*<dt>
                         @Html.DisplayNameFor(model => model.Quote.Customer)
                     </dt>
 
                     <dd>
                         @Html.DisplayFor(model => model.Quote.Customer)
-                    </dd>
+                    </dd>*@
 
                     <dt>
                         @Html.DisplayNameFor(model => model.Description)
@@ -49,9 +53,9 @@
 
             </div>
 
-            <div class="col-md-2">
-                <h5>Description</h5>
-                <hr class="bg-dark" />
+            <div class="col-sm-2">
+                <h5><strong class="text-secondary">Description</strong></h5>
+                <hr class="bg-light" />
                 <dl class="dl-horizontal">
                     <dt>
                         @Html.DisplayNameFor(model => model.DoorType.DoorTypeName)
@@ -106,9 +110,9 @@
 
             </div>
 
-            <div class="col-md-2">
-                <h5>Height</h5>
-                <hr class="bg-dark" />
+            <div class="col-sm-2">
+                <h5><strong class="text-secondary">Height</strong></h5>
+                <hr class="bg-light" />
                 <dl class="dl-horizontal">
 
                     <dt>
@@ -123,18 +127,18 @@
             </div>
 
 
-            <div class="col-md-2">
-                <h5>Description</h5>
-                <hr class="bg-dark" />
+            <div class="col-sm-2">
+                <h5><strong class="text-secondary">Description</strong></h5>
+                <hr class="bg-light" />
                 @{var picture = Model.DoorType.DoorTypeName + ".PNG";}
                 <img class="p-3 img-fluid" id="pic" src="~/images/@picture" />
 
             </div>
 
 
-            <div class="col-md-2">
-                <h5>Widths</h5>
-                <hr class="bg-dark" />
+            <div class="col-sm-2">
+                <h5><strong class="text-secondary">Widths</strong></h5>
+                <hr class="bg-light" />
                 <dl class="dl-horizontal">
                     <dt>
                         Top

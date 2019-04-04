@@ -126,11 +126,12 @@
             <div class="col-sm-3">
                 <div class="">
                     <div class="text-sm-center">
-                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Quoted This Week</label>
+                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Quoted This Week <span class="text-secondary text-large font-weight-bold" id="quoted"><strong> 0 </strong></span></label>
+                        
                     </div>
-                    <div class="text-center">
-                        <h4 class="text-secondary" id="quoted"><strong> 0 </strong></h4>
-                    </div>
+                    @*<div class="text-center">*@
+                        @*<h4 class="text-secondary" id="quoted"><strong> 0 </strong></h4>*@
+                    @*</div>*@
                     <div class="text-sm-center">
                         <label class="text-success"><small class="text-secondary">Last Week : </small><small> 0 </small></label> &nbsp;&nbsp;
                         <label class="text-success"><small class="text-secondary">Last Month : </small><small> 0 </small></label>
@@ -141,11 +142,11 @@
             <div class="col-sm-3">
                 <div class="">
                     <div class="text-sm-center">
-                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Ordered This Week</label>
+                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Ordered This Week <span class="text-secondary text-large font-weight-bold" id="ordered"> 0 </span></label>
                     </div>
-                    <div class="text-center">
-                        <h4 class="text-secondary" id="ordered"> 0 </h4>
-                    </div>
+                    @*<div class="text-center">
+                        
+                    </div>*@
                     <div class="text-sm-center">
                         <label class="text-success"><small class="text-secondary">Last Week : </small><small> 0 </small></label> &nbsp;&nbsp;
                         <label class="text-success"><small class="text-secondary">Last Month : </small><small> 0 </small></label>
@@ -156,11 +157,11 @@
             <div class="col-sm-3">
                 <div class="">
                     <div class="text-sm-center">
-                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Completed This Week</label>
+                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Completed This Week <span class="text-secondary text-large font-weight-bold" id="completed"> 0 </span></label>
                     </div>
-                    <div class="text-center">
-                        <h4 class="text-secondary" id="completed"> 0 </h4>
-                    </div>
+                    @*<div class="text-center">
+                        
+                    </div>*@
                     <div class="text-sm-center">
                         <label class="text-success"><small class="text-secondary">Last Week : </small><small> 0 </small></label> &nbsp;&nbsp;
                         <label class="text-success"><small class="text-secondary">Last Month : </small><small> 0 </small></label>
@@ -171,11 +172,11 @@
             <div class="col-sm-3">
                 <div class="">
                     <div class="text-sm-center">
-                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Cancelled This Week</label>
+                        <span class="fa fa-clock-o text-secondary">&nbsp;</span><label class="text-secondary"> Cancelled This Week <span class="text-secondary text-large font-weight-bold" id="cancelled"> 0 </span></label>
                     </div>
-                    <div class="text-center">
-                        <h4 class="text-secondary" id="cancelled"> 0 </h4>
-                    </div>
+                    @*<div class="text-center">
+                        
+                    </div>*@
                     <div class="text-sm-center">
                         <label class="text-success"><small class="text-secondary">Last Week : </small><small> 0 </small></label> &nbsp;&nbsp;
                         <label class="text-success"><small class="text-secondary">Last Month : </small><small> 0 </small></label>
@@ -307,7 +308,7 @@
 
     function DisplayTable(json) {
         //"use strict";
-        $("#grid1b").jqGrid("GridUnload")
+        //$("#grid1b").jqGrid("GridUnload")
         //$('grid1b').css('font-size', '20px');
         $("#grid1b").jqGrid({
         colModel: [
@@ -328,20 +329,20 @@
         ////    formatter: "date", formatoptions: { newformat: "d-M-Y" },
         ////    searchoptions: { sopt: ["eq"] }
         //},
-            { name: "id", label: "ID", width: 20 },
-            { name: "Customer", label: "Customer", width: 40 },
-            { name: "Address", label: "Address", width: 60 },
-            { name: "Date", label: "Date", width: 30 },
-            { name: "Telephone", label: "Telephone", width: 30 },
-            { name: "Mobile", label: "Mobile", width: 30 },
-            { name: "Email", label: "Email", width: 60 },
-            { name: "Deposit", label: "Deposit", width: 25 },
-            { name: "TotalCost", label: "TotalCost", width: 25 },
-            { name: "Balance", label: "Balance", width: 25 },
-            { name: "Stage", label: "Stage", width: 25 },
-            { name: "Paid", label: "Paid", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "OrderDate", label: "Order Date", width: 30 },
-            { name: "CompletedDate", label: "Completed Date", width: 30 },
+            { name: "id", label: "QuoteID", width: 80 },
+            { name: "Customer", label: "Customer", width: 150 },
+            { name: "Address", label: "Address", width: 200 },
+            { name: "Date", label: "Date", width: 100 },
+            { name: "Telephone", label: "Telephone", width: 120 },
+            { name: "Mobile", label: "Mobile", width: 120 },
+            { name: "Email", label: "Email", width: 280 },
+            { name: "Deposit", label: "Deposit", width: 100 },
+            { name: "TotalCost", label: "TotalCost", width: 100 },
+            { name: "Balance", label: "Balance", width: 100 },
+            { name: "Stage", label: "Stage", width: 100 },
+            { name: "Paid", label: "Paid", width: 100, template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "OrderDate", label: "Order Date", width: 100 },
+            { name: "CompletedDate", label: "Completed Date", width: 100 },
 
         ],
             data: json,
@@ -351,7 +352,7 @@
         guiStyle: "bootstrap",
         iconSet: "fontAwesome",
         //idPrefix: "gid_",
-        //shrinkToFit: false,
+        shrinkToFit: false,
         rownumbers: true,
         sortname: "invdate",
         sortorder: "desc",

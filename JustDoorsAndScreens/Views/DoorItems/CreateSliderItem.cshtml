@@ -13,10 +13,13 @@
 
     @Html.HiddenFor(model => model.HingeType, new { Value = "1" })
 
+    @Html.HiddenFor(model => model.QuoteID, new { @Value = ViewBag.QuoteID })
+
     <div class="card border border-dark shadow">
 
-        <div class="card-header bg-light border-dark">
-            <h3 class="text-dark"><strong>Create Door Item</strong></h3>
+        <div class="card-header bg-light border-dark sticky-top">
+            <h3 class="text-dark"><strong>Create Slider Item</strong></h3>
+            <span class="text-dark text-sm-center"><strong>Customer:</strong> @ViewBag.Customer  <strong>Quote:</strong>  @ViewBag.QuoteID</span>
         </div>
 
 
@@ -27,20 +30,20 @@
                 <h5>Details</h5>
                 <hr class="bg-dark" />
 
-                <div class="form-group">
+                @*<div class="form-group">
                     <label class="control-label"><strong>Customer Name</strong></label>
                     <input type="text" class="form-control" value="@ViewBag.Customer" readonly="readonly">
-                </div>
+                </div>*@
 
-                <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.QuoteID, "QuoteID", htmlAttributes: new { @class = "control-label" })</strong>
+                @*<div class="form-group">
+                    <strong>@Html.LabelFor(model => model.QuoteID, "QuoteID", htmlAttributes: new { @class = "control-label" })</strong>*@
 
                     @*@Html.DropDownList("QuoteID", null, htmlAttributes: new { @class = "form-control" })*@
-                    @Html.EditorFor(model => model.QuoteID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.QuoteID, @readonly = "readonly" } })
+                    @*@Html.EditorFor(model => model.QuoteID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.QuoteID, @readonly = "readonly" } })
                     @Html.HiddenFor(model => model.QuoteID)
                     @Html.ValidationMessageFor(model => model.QuoteID, "", new { @class = "text-danger" })
 
-                </div>
+                </div>*@
 
                 <div class="form-group">
                     <strong>@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })</strong>

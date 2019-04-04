@@ -161,20 +161,20 @@ namespace JustDoorsAndScreens.Controllers
                 itm.Width1 = item.Width1;
                 itm.Width2 = item.Width2;
                 itm.Width3 = item.Width3;
-                itm.SliderTopTrack = item.SliderTopTrack;
-                itm.SliderBottomTrack = item.SliderBottomTrack;
-                itm.SliderSideChannel = item.SliderSideChannel;
-                itm.SliderFs = item.SliderFs;
-                itm.SliderZs = item.SliderZs;
+                itm.SliderTopTrackTypeName = item.SliderBottomTrackTypeName;
+                itm.SliderBottomTrackTypeName = item.SliderBottomTrackTypeName;
+                itm.SliderSideChannelTypeName = item.SliderSideChannelTypeName;
+                itm.F = item.F;
+                itm.Z = item.Z;
                 itm.SliderBugStrip = item.SliderBugStrip;
                 itm.Cost = item.Cost;
                 itm.DoorTypeName = item.DoorTypeName;
                 itm.DesignTypeName = item.DesignTypeName;
 
                 itm.HingeTypeName = item.HingeTypeName;
-                itm.SliderTopTrackTypeName = item.SliderTopTrackTypeName;
-                itm.SliderBottomTrackTypeName = item.SliderBottomTrackTypeName;
-                itm.SliderSideChannelTypeName = item.SliderSideChannelTypeName;
+                itm.SliderTopTrackWidth = item.SliderTopTrackWidth;
+                itm.SliderBottomTrackWidth = item.SliderBottomTrackWidth;
+                itm.SliderSideChannelWidth = item.SliderSideChannelWidth;
 
                 myList.Add(itm);
             }

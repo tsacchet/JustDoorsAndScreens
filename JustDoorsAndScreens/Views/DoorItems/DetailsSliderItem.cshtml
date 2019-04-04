@@ -9,24 +9,25 @@
 <div class="card border border-dark shadow">
     @*<h4>DoorItem</h4>
         <hr />*@
-    <div class="card-header bg-light border-dark">
-        <h4 class="text-dark"><strong>Detail Door Item</strong></h4>
+    <div class="card-header bg-light border-dark sticky-top">
+        <h4 class="text-dark"><strong>Detail Slider Item</strong></h4>
+        <span class="text-dark text-sm-center"><strong>Customer:</strong> @Model.Quote.Customer  <strong>Quote:</strong>  @Model.QuoteID</span>
     </div>
 
     <div class="card-body">
         <div class="row">
 
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <h5>Details</h5>
                 <hr class="bg-dark"/>
                 <dl class="dl-horizontal">
-                    <dt>
+                    @*<dt>
                         @Html.DisplayNameFor(model => model.Quote.Customer)
                     </dt>
 
                     <dd>
                         @Html.DisplayFor(model => model.Quote.Customer)
-                    </dd>
+                    </dd>*@
 
                     <dt>
                         @Html.DisplayNameFor(model => model.Description)
@@ -49,7 +50,7 @@
 
             </div>
 
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <h5>Description</h5>
                 <hr class="bg-dark" />
                 <dl class="dl-horizontal">
@@ -106,7 +107,7 @@
 
             </div>
 
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <h5>Height</h5>
                 <hr class="bg-dark" />
                 <dl class="dl-horizontal">
@@ -123,7 +124,7 @@
             </div>
 
 
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <h5>Description</h5>
                 <hr class="bg-dark" />
                 @{var picture = Model.DoorType.DoorTypeName + ".PNG";}
@@ -141,7 +142,7 @@
             </div>
 
 
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <h5>Sliders Stuff</h5>
                 <hr class="bg-dark" />
                 <dl class="dl-horizontal">
@@ -159,7 +160,7 @@
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.SliderTopTrackType)
+                        @ViewBag.SliderTop
                     </dd>
 
                     <dt>
@@ -185,7 +186,7 @@
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.SliderBottomTrackType)
+                        @ViewBag.SliderBottom
                     </dd>
 
                     <dt>
@@ -212,7 +213,7 @@
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.SliderSideChannelType)
+                        @ViewBag.SliderSideChannel
                     </dd>
 
 
@@ -228,7 +229,7 @@
             </div>
 
 
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <h5>Sliders Stuff</h5>
                 <hr class="bg-dark" />
                 <dl class="dl-horizontal">
@@ -298,7 +299,7 @@
     <div class="card-footer">
         @*@Html.ActionLink("Edit", "EditDoorItem", new { id = Model.DoorItemID }, new { @class = "btn btn-primary" }) |*@
         @*@Html.ActionLink("Back Details", "QuoteDetails", "Quotes", new { id = Model.QuoteID }, new { @class = "btn btn-secondary" })*@
-        <a href='@Url.Action("EditDoorItem/"+ @Model.DoorItemID, "DoorItems")' id="" class="btn btn-danger border-dark shadow"><i class="fa fa-edit"></i> Edit </a>
+        <a href='@Url.Action("EditSliderItem/"+ @Model.DoorItemID, "DoorItems")' id="" class="btn btn-danger border-dark shadow"><i class="fa fa-edit"></i> Edit </a>
         <a href='@Url.Action("QuoteDetails/"+ @Model.QuoteID, "Quotes")' id="" class="btn btn-secondary border-dark shadow"><i class="fa fa-arrow-circle-left"></i> Back to Quote </a>
     </div>
 </div>

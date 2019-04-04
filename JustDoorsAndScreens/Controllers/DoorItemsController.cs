@@ -68,6 +68,11 @@ namespace JustDoorsAndScreens.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.SliderTop = db.TrackTypes.Where(x => x.TrackTypeID == doorItem.SliderTopTrackType).Select(x => x.TrackTypeName).First(); 
+            ViewBag.SliderBottom = db.TrackTypes.Where(x => x.TrackTypeID == doorItem.SliderBottomTrackType).Select(x => x.TrackTypeName).First();
+            ViewBag.SliderSideChannel = db.TrackTypes.Where(x => x.TrackTypeID == doorItem.SliderSideChannelType).Select(x => x.TrackTypeName).First();
+
             return View(doorItem);
         }
 

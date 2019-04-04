@@ -13,111 +13,92 @@
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-<div class="card border border-dark shadow">
+    @Html.HiddenFor(model => model.QuoteID, new { @Value = ViewBag.QuoteID })
 
-    <div class="card-header bg-light border-dark">
-        <h3 class="text-dark"><strong>Create FlyScreen Item</strong></h3>
-    </div>
+    <div class="card border border-dark shadow">
 
-
-    <div class="card-body row">
-
-        <div class="col-sm-3">
-            <h5>Details</h5>
-            <hr class="bg-dark" />
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.QuoteID, "QuoteID", htmlAttributes: new { @class = "control-label" })
-
-                @Html.EditorFor(model => model.QuoteID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.QuoteID, @readonly = "readonly" } })
-                @Html.HiddenFor(model => model.QuoteID)
-                @Html.ValidationMessageFor(model => model.QuoteID, "", new { @class = "text-danger" })
-            </div>
-
-            <div class="form-group">
-                <label class="control-label"><strong>Customer Name : </strong></label>
-                <input type="text" class="form-control" id="usr" value="@ViewBag.Customer" readonly="readonly">
-            </div>
-
-            @*<div class="form-group">
-            @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label" })
-            @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
-        </div>*@
+        <div class="card-header bg-light border-dark sticky-top">
+            <h3 class="text-dark"><strong>Create FlyScreen Item</strong></h3>
+            <span class="text-dark text-sm-center"><strong>Customer:</strong> @ViewBag.Customer  <strong>Quote:</strong>  @ViewBag.QuoteID</span>
         </div>
 
-        <div class="col-sm-3">
-            <h5>FlyScreen Details</h5>
-            <hr class="bg-dark" />
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.FlyScreenTypeID, "FlyScreenTypeID", htmlAttributes: new { @class = "control-label" })
-                @Html.DropDownList("FlyScreenTypeID", null, htmlAttributes: new { @class = "form-control", @id = "DoorType", @onchange = "ChangeDoorType();" })
-                @Html.ValidationMessageFor(model => model.FlyScreenTypeID, "", new { @class = "text-danger" })
+        <div class="card-body row">
+
+
+
+            <div class="col-sm-4">
+                <h5>FlyScreen Details</h5>
+                <hr class="bg-dark" />
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FlyScreenTypeID, "FlyScreenTypeID", htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownList("FlyScreenTypeID", null, htmlAttributes: new { @class = "form-control", @id = "DoorType", @onchange = "ChangeDoorType();" })
+                    @Html.ValidationMessageFor(model => model.FlyScreenTypeID, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ColorTypeID, "ColorTypeID", htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownList("ColorTypeID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ColorTypeID, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Qty, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
+                </div>
+
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.ColorTypeID, "ColorTypeID", htmlAttributes: new { @class = "control-label" })
-                @Html.DropDownList("ColorTypeID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ColorTypeID, "", new { @class = "text-danger" })
+            <div class="col-sm-4">
+                <h5>Depth/Width</h5>
+                <hr class="bg-dark" />
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Width, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Depth, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Depth, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Depth, "", new { @class = "text-danger" })
+                </div>
+
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Qty, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger" })
-            </div>
+            <div class="col-sm-4">
+                <h5>Details</h5>
+                <hr class="bg-dark" />
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
-            </div>
-
-        </div>
-
-        <div class="col-sm-3">
-            <h5>Depth/Width</h5>
-            <hr class="bg-dark" />
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Width, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" })
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Depth, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.Depth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Depth, "", new { @class = "text-danger" })
+                <img class="p-3 img-fluid" id="pic" src="~/images/flyscreen_pins.PNG" />
             </div>
 
         </div>
 
-        <div class="col-sm-3">
-            <h5>Details</h5>
-            <hr class="bg-dark" />
 
-            <img class="p-3 img-fluid" id="pic" src="~/images/flyscreen_pins.PNG" />
+
+
+
+
+
+        <div class="card-footer">
+            @*<input type="submit" value="Create" class="btn btn-primary" /> |*@
+            <button type="submit" class="btn btn-primary border-dark shadow"><i class="fa fa-save"></i> Create</button>
+            @*@Html.ActionLink("Back Details", "QuoteDetails", "Quotes", new { id = ViewBag.QuoteID }, new { @class = "btn btn-secondary" })*@
+            <a href='@Url.Action("QuoteDetails/"+ ViewBag.QuoteID, "Quotes")' id="" class="btn btn-secondary border-dark shadow"><i class="fa fa-arrow-circle-left"></i> Back to Quote </a>
+
         </div>
 
     </div>
-
-
-
-
-
-
-
-    <div class="card-footer">
-        @*<input type="submit" value="Create" class="btn btn-primary" /> |*@
-        <button type="submit" class="btn btn-primary border-dark shadow"><i class="fa fa-save"></i> Create</button>
-        @*@Html.ActionLink("Back Details", "QuoteDetails", "Quotes", new { id = ViewBag.QuoteID }, new { @class = "btn btn-secondary" })*@
-        <a href='@Url.Action("QuoteDetails/"+ ViewBag.QuoteID, "Quotes")' id="" class="btn btn-secondary border-dark shadow"><i class="fa fa-arrow-circle-left"></i> Back to Quote </a>
-
-    </div>
-
-</div>
 }
 
 

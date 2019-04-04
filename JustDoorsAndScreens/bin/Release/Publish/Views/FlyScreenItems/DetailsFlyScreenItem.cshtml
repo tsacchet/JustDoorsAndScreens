@@ -8,39 +8,16 @@
 
 <div class="card border border-dark shadow">
 
-    <div class="card-header bg-light border-dark">
+    <div class="card-header bg-light border-dark sticky-top">
         <h4 class="text-dark"><strong>Detail FlyScreen Item</strong></h4>
+        <span class="text-dark text-sm-center"><strong>Customer:</strong> @Model.Quote.Customer  <strong>Quote:</strong>  @Model.QuoteID</span>
     </div>
 
     <div class="card-body row">
 
-        <div class="col-3">
-            <h5>Details</h5>
-            <hr class="bg-dark" />
 
-            <dl class="dl-horizontal">
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.QuoteID)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.QuoteID)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Quote.Customer)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Quote.Customer)
-                </dd>
-
-            </dl>
-
-        </div>
-
-        <div class="col-3">
+        <div class="col-sm-4">
             <h5>FlyScreen Details</h5>
             <hr class="bg-dark" />
 
@@ -83,7 +60,7 @@
             </dl>
         </div>
 
-        <div class="col-3">
+        <div class="col-sm-4">
             <h5>Depth/Width</h5>
             <hr class="bg-dark" />
 
@@ -107,7 +84,7 @@
             </dl>
         </div>
 
-        <div class="col-3">
+        <div class="col-sm-4">
             <h5>Details</h5>
             <hr class="bg-dark" />
 

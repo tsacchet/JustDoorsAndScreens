@@ -12,6 +12,11 @@
     .text-large {
         font-size: 120%;
     }
+
+    .ui-jqgrid tr.ui-jqgrid-labels div {
+        white-space: normal !important;
+    }
+
 </style>
 
 @*<h3 class="text-primary">Just Doors And Screens <strong class="text-success">Quotation</strong></h3>*@
@@ -61,14 +66,17 @@
             <div class="col-sm-4">
                 <h6>
                     <strong>Telephone : </strong>
-                    <strong class="text-warning">@Html.DisplayFor(model => model.Telephone)</strong>
+                    @*<strong class="text-warning">@Html.DisplayFor(model => model.Telephone)</strong>*@
+                    <a href="tel:{@Html.DisplayFor(model => model.Telephone)}">@Html.DisplayFor(model => model.Telephone)</a>
                 </h6>
             </div>
 
             <div class="col-sm-4">
                 <h6>
                     <strong>Mobile : </strong>
-                    <label id="MobileNo"><strong class="text-warning">@Html.DisplayFor(model => model.Mobile)</strong></label>
+                    @*<label id="MobileNo"><strong class="text-warning">@Html.DisplayFor(model => model.Mobile)</strong></label>*@
+                    @*<a href="tel:+{@Html.DisplayFor(model => model.Mobile)}">@Html.DisplayFor(model => model.Mobile)</a>*@
+                    <a href="tel:{@Html.DisplayFor(model => model.Mobile)}">@Html.DisplayFor(model => model.Mobile)</a>
                 </h6>
             </div>
 
@@ -141,20 +149,20 @@
     <div class="card-footer bg-light border-dark">
         @*@Html.ActionLink("Back to Quote List", "Index", null, new { @class = "btn btn-success" })*@
 
-        <a href='@Url.Action("Index", "Quotes")' id="" class="btn btn-success border-dark shadow"><i class="fa fa-arrow-circle-left"></i> Back to Quote List </a>
+        <a href='@Url.Action("Index", "Quotes")' id="" class="btn btn-success border-dark shadow"><i class="fa fa-arrow-circle-left"></i> Quote List </a>
 
         @*@Html.ActionLink("Edit", "Edit", new { id = Model.QuoteID }, new { @class = "btn btn-warning" })*@
 
-        <a href='@Url.Action("Edit/" + Model.QuoteID, "Quotes")' id="" class="btn btn-warning border-dark shadow"><i class="fa fa-edit"></i> Edit Quote Details </a>
+        <a href='@Url.Action("Edit/" + Model.QuoteID, "Quotes")' id="" class="btn btn-warning border-dark shadow"><i class="fa fa-edit"></i> Edit Quote </a>
 
-        <a href='@Url.Action("QuoteDetailsPDF/" + Model.QuoteID, "Quotes")' id="" class="btn btn-outline-secondary shadow"><i class="fa fa-file-text"></i> View Quote PDF </a>
+        <a href='@Url.Action("QuoteDetailsPDF/" + Model.QuoteID, "Quotes")' id="" class="btn btn-outline-secondary shadow"><i class="fa fa-file-text"></i> View Quote </a>
 
-        <a href='@Url.Action("SendEmailTo/" + Model.QuoteID, "Quotes")' id="" class="btn btn-primary border-dark shadow" onclick="$('#myModal').modal('show');"><i class="fa fa-envelope"></i> Send Quote PDF </a>
+        <a href='@Url.Action("SendEmailTo/" + Model.QuoteID, "Quotes")' id="" class="btn btn-primary border-dark shadow" onclick="$('#myModal').modal('show');"><i class="fa fa-envelope"></i> Send Quote </a>
 
         @*<a href='@Url.Action("SendSMS/" + Model.QuoteID, "Quotes")' id="" class="btn btn-primary"><i class="fa fa-envelope"></i> Send SMS Quote PDF </a>*@
 
         @*<button type="button" class="btn btn-danger" onclick="GenerateSMS();">Danger</button>*@
-        <a href='@Url.Action("PrintPDF/" + Model.QuoteID, "Quotes")' id="" class="btn btn-secondary shadow"><i class="fa fa-cloud-download"></i> Download Quote PDF </a>
+        <a href='@Url.Action("PrintPDF/" + Model.QuoteID, "Quotes")' id="" class="btn btn-secondary shadow"><i class="fa fa-cloud-download"></i> Download Quote </a>
     </div>
 </div>
 
@@ -165,9 +173,9 @@
 <div class="form-inline pb-2">
     @* @Html.ActionLink("Add Door", "CreateDoorItem/" + Model.QuoteID, "DoorItems", null, new { @class = "btn btn-primary" })>*@
 
-    <a href='@Url.Action("CreateDoorItem/" + Model.QuoteID, "DoorItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add New Door </a>
+    <a href='@Url.Action("CreateDoorItem/" + Model.QuoteID, "DoorItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add Door </a>
 
-    <div class="mx-auto"><h4><strong>List of Door Items</strong></h4></div>
+    <div class="mx-auto"><h4><strong>Door Items</strong></h4></div>
 </div>
 
 
@@ -180,9 +188,9 @@
 <div class="form-inline pb-2">
     @* @Html.ActionLink("Add Door", "CreateDoorItem/" + Model.QuoteID, "DoorItems", null, new { @class = "btn btn-primary" })>*@
 
-    <a href='@Url.Action("CreateSliderItem/" + Model.QuoteID, "DoorItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add New Slider </a>
+    <a href='@Url.Action("CreateSliderItem/" + Model.QuoteID, "DoorItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add Slider </a>
 
-    <div class="mx-auto"><h4><strong>List of Slider Items</strong></h4></div>
+    <div class="mx-auto"><h4><strong>Slider Items</strong></h4></div>
 </div>
 
 
@@ -196,9 +204,9 @@
 
 <div class="form-inline pb-2">
     @*@Html.ActionLink("Add FlyScreen", "CreateFlyScreenItem/" + Model.QuoteID, "FlyScreenItems", null, new { @class = "btn btn-primary" })*@
-    <a href='@Url.Action("CreateFlyScreenItem/" + Model.QuoteID, "FlyScreenItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add New FlyScreen </a>
+    <a href='@Url.Action("CreateFlyScreenItem/" + Model.QuoteID, "FlyScreenItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add FlyScreen </a>
 
-    <div class="mx-auto"><h4><strong>List of FlyScreen Items</strong></h4></div>
+    <div class="mx-auto"><h4><strong>FlyScreen Items</strong></h4></div>
 </div>
 
 
@@ -334,7 +342,7 @@
     function DisplayDoorTable(json) {
         //"use strict";
         $("#grid1b").jqGrid("GridUnload")
-        $('grid1b').css('font-size', '20px');
+        //$('grid1b').css('font-size', '20px');
         $("#grid1b").jqGrid({
         colModel: [
         { name: "act", template: "actions", align: "left", width: 80 },
@@ -353,48 +361,48 @@
         ////    searchoptions: { sopt: ["eq"] }
         //},
 
-            { name: "id", label: "DoorItemID", width: 20 },
+            { name: "id", label: "ID", width: 60 },
             //{ name: "QuoteID", label: "QuoteID", width: 30 },
-            { name: "Description", label: "Description", width: 30 },
-            { name: "ColorTypeName", label: "ColorType", width: 30 },
-            { name: "LockTypeName", label: "LockType", width: 30 },
-            { name: "LockHeight", label: "LockHeight", width: 30 },
-            { name: "DoorTypeName", label: "DoorType", width: 30 },
-            { name: "DesignTypeName", label: "DesignType", width: 30 },
-            { name: "Height", label: "Height", width: 20 },
-            { name: "Width1", label: "Width1", width: 20 },
-            { name: "Width2", label: "Width2", width: 20 },
-            { name: "Width3", label: "Width3", width: 20 },
+            { name: "Description", label: "Description", width: 200 },
+            { name: "ColorTypeName", label: "ColorType", width: 100 },
+            { name: "LockTypeName", label: "LockType", width: 100 },
+            { name: "LockHeight", label: "LockHeight", width: 100 },
+            { name: "DoorTypeName", label: "DoorType", width: 120 },
+            { name: "DesignTypeName", label: "DesignType", width: 120 },
+            { name: "Height", label: "Height", width: 100 },
+            { name: "Width1", label: "Width1", width: 100 },
+            { name: "Width2", label: "Width2", width: 100 },
+            { name: "Width3", label: "Width3", width: 100 },
             //{ name: "SliderTopTrack", label: "SliderTopTrack", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
             //{ name: "SliderBottomTrack", label: "SliderBottomTrack", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
             //{ name: "SliderSideChannel", label: "SliderSideChannel", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
             //{ name: "SliderFs", label: "SliderFs", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
             //{ name: "SliderZs", label: "SliderZs", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
             //{ name: "SliderBugStrip", label: "SliderBugStrip", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "Cost", label: "Cost", width: 20 },
+            { name: "Cost", label: "Cost", width: 100 },
 
 
         ],
-        data: json,
-        //height: 450,
-        caption: "",
-        autowidth: true,
-        guiStyle: "bootstrap",
-        iconSet: "fontAwesome",
-        //idPrefix: "gid_",
-        //shrinkToFit: false,
-        rownumbers: true,
-        sortname: "invdate",
-        sortorder: "desc",
-        threeStateSort: true,
-        sortIconsBeforeText: true,
-        headertitles: true,
-        toppager: false,
-        pager: false,
-        rowNum: 10,
-        viewrecords: true,
-        searching: {
-        defaultSearch: "cn"
+            data: json,
+            //height: 450,
+            caption: "",
+            autowidth: true,
+            guiStyle: "bootstrap",
+            iconSet: "fontAwesome",
+            //idPrefix: "gid_",
+            shrinkToFit: false,
+            rownumbers: true,
+            sortname: "invdate",
+            sortorder: "desc",
+            threeStateSort: true,
+            sortIconsBeforeText: true,
+            headertitles: true,
+            toppager: false,
+            pager: false,
+            rowNum: 10,
+            viewrecords: true,
+            searching: {
+                defaultSearch: "cn"
         },
         actionsNavOptions: {
             editbutton: false,
@@ -438,31 +446,31 @@
             }
         },
 
-        loadComplete: function () {
-            var rowIds = $('#grid1b').jqGrid('getDataIDs');
-            for (var i = 0; i < rowIds.length; i++) {//iterate over each row
-                rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
-                //set background style if ColValue === true\
-                console.log('Stage: ' + rowData['Stage']);
+        //loadComplete: function () {
+        //    var rowIds = $('#grid1b').jqGrid('getDataIDs');
+        //    for (var i = 0; i < rowIds.length; i++) {//iterate over each row
+        //        rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
+        //        //set background style if ColValue === true\
+        //        console.log('Stage: ' + rowData['Stage']);
 
-                if (rowData['Stage'] === 'Completed') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-                }
-                else if (rowData['Stage'] === 'Ordered') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
-                }
-                else if (rowData['Stage'] === 'In Progress') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
-                }
-                else if (rowData['Stage'] === 'On Hold') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
-                }
-                else if (rowData['Stage'] === 'Canceled') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-                }
+        //        if (rowData['Stage'] === 'Completed') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+        //        }
+        //        else if (rowData['Stage'] === 'Ordered') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
+        //        }
+        //        else if (rowData['Stage'] === 'In Progress') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+        //        }
+        //        else if (rowData['Stage'] === 'On Hold') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
+        //        }
+        //        else if (rowData['Stage'] === 'Canceled') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+        //        }
 
-            } //for
-        }//loadComplete
+        //    } //for
+        //}//loadComplete
 
 
 
@@ -473,7 +481,7 @@
     function DisplaySliderTable(json) {
         //"use strict";
         $("#grid3b").jqGrid("GridUnload")
-        $('grid3b').css('font-size', '20px');
+        //$('grid3b').css('font-size', '20px');
         $("#grid3b").jqGrid({
         colModel: [
         { name: "act", template: "actions", align: "left", width: 80 },
@@ -492,25 +500,31 @@
         ////    searchoptions: { sopt: ["eq"] }
         //},
 
-            { name: "id", label: "DoorItemID", width: 20 },
+            { name: "id", label: "ID", width: 60 },
             //{ name: "QuoteID", label: "QuoteID", width: 30 },
-            { name: "Description", label: "Description", width: 30 },
-            { name: "ColorTypeName", label: "ColorType", width: 30 },
-            { name: "LockTypeName", label: "LockType", width: 30 },
-            { name: "LockHeight", label: "LockHeight", width: 30 },
-            { name: "DoorTypeName", label: "DoorType", width: 30 },
-            { name: "DesignTypeName", label: "DesignType", width: 30 },
-            { name: "Height", label: "Height", width: 20 },
-            { name: "Width1", label: "Width", width: 20 },
+            { name: "Description", label: "Description", width: 200 },
+            { name: "ColorTypeName", label: "ColorType", width: 100 },
+            { name: "LockTypeName", label: "LockType", width: 100 },
+            { name: "LockHeight", label: "LockHeight", width: 100 },
+            { name: "DoorTypeName", label: "DoorType", width: 120 },
+            { name: "DesignTypeName", label: "DesignType", width: 120 },
+            { name: "Height", label: "Height", width: 100 },
+            { name: "Width1", label: "Width", width: 100 },
             //{ name: "Width2", label: "Width2", width: 20 },
             //{ name: "Width3", label: "Width3", width: 20 },
-            { name: "SliderTopTrack", label: "SliderTopTrack", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "SliderBottomTrack", label: "SliderBottomTrack", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "SliderSideChannel", label: "SliderSideChannel", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "SliderFs", label: "SliderFs", width: 20, template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "SliderZs", label: "SliderZs", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "SliderBugStrip", label: "SliderBugStrip", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
-            { name: "Cost", label: "Cost", width: 20 },
+            { name: "SliderTopTrackTypeName", label: "TopTrack", width: 100 },
+            { name: "SliderTopTrackWidth", label: "TopTrack Width", width: 100 },
+
+            { name: "SliderBottomTrackTypeName", label: "BottomTrack", width: 100 },
+            { name: "SliderBottomTrackWidth", label: "BottomTrack Width", width: 100 },
+
+            { name: "SliderSideChannelTypeName", label: "SideChannel", width: 100 },        
+            { name: "SliderSideChannelWidth", label: "SideChannel Width", width: 100 },
+
+            { name: "F", label: "Fs Qty", width: 50 },
+            { name: "Z", label: "Zs Qty", width: 50 },
+            { name: "SliderBugStrip", label: "BugStrip Qty", width: 70 , template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "Cost", label: "Cost", width: 100 },
 
 
         ],
@@ -521,7 +535,7 @@
         guiStyle: "bootstrap",
         iconSet: "fontAwesome",
         //idPrefix: "gid_",
-        //shrinkToFit: false,
+        shrinkToFit: false,
         rownumbers: true,
         sortname: "invdate",
         sortorder: "desc",
@@ -577,31 +591,31 @@
             }
         },
 
-        loadComplete: function () {
-            var rowIds = $('#grid1b').jqGrid('getDataIDs');
-            for (var i = 0; i < rowIds.length; i++) {//iterate over each row
-                rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
-                //set background style if ColValue === true\
-                console.log('Stage: ' + rowData['Stage']);
+        //loadComplete: function () {
+        //    var rowIds = $('#grid1b').jqGrid('getDataIDs');
+        //    for (var i = 0; i < rowIds.length; i++) {//iterate over each row
+        //        rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
+        //        //set background style if ColValue === true\
+        //        console.log('Stage: ' + rowData['Stage']);
 
-                if (rowData['Stage'] === 'Completed') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-                }
-                else if (rowData['Stage'] === 'Ordered') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
-                }
-                else if (rowData['Stage'] === 'In Progress') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
-                }
-                else if (rowData['Stage'] === 'On Hold') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
-                }
-                else if (rowData['Stage'] === 'Canceled') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-                }
+        //        if (rowData['Stage'] === 'Completed') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+        //        }
+        //        else if (rowData['Stage'] === 'Ordered') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
+        //        }
+        //        else if (rowData['Stage'] === 'In Progress') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+        //        }
+        //        else if (rowData['Stage'] === 'On Hold') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
+        //        }
+        //        else if (rowData['Stage'] === 'Canceled') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+        //        }
 
-            } //for
-        }//loadComplete
+        //    } //for
+        //}//loadComplete
 
 
 
@@ -615,7 +629,7 @@
     function DisplayFlyScreenTable(json) {
         //"use strict";
         $("#grid2b").jqGrid("GridUnload")
-        $('grid2b').css('font-size', '20px');
+        //$('grid2b').css('font-size', '20px');
         $("#grid2b").jqGrid({
         colModel: [
         { name: "act", template: "actions", align: "left", width: 80 },
@@ -634,14 +648,14 @@
         ////    searchoptions: { sopt: ["eq"] }
         //},
 
-            { name: "id", label: "FlyScreenID", width: 20 },
+            { name: "id", label: "ID", width: 60 },
             //{ name: "QuoteID", label: "QuoteID", width: 30 },
-            { name: "FlyScreenName", label: "FlyScreen", width: 30 },
-            { name: "ColorTypeName", label: "Color Type", width: 30 },
-            { name: "Width", label: "Width", width: 30 },
-            { name: "Depth", label: "Depth", width: 30 },
-            { name: "Qty", label: "Qty", width: 30 },
-            { name: "Cost", label: "Cost", width: 30 },
+            { name: "FlyScreenName", label: "FlyScreen", width: 180 },
+            { name: "ColorTypeName", label: "Color Type", width: 100 },
+            { name: "Width", label: "Width", width: 100 },
+            { name: "Depth", label: "Depth", width: 100 },
+            { name: "Qty", label: "Qty", width: 100 },
+            { name: "Cost", label: "Cost", width: 100 },
 
         ],
         data: json,
@@ -651,7 +665,7 @@
         guiStyle: "bootstrap",
         iconSet: "fontAwesome",
         //idPrefix: "gid_",
-        //shrinkToFit: false,
+        shrinkToFit: false,
         rownumbers: true,
         sortname: "invdate",
         sortorder: "desc",
@@ -707,31 +721,31 @@
             }
         },
 
-        loadComplete: function () {
-            var rowIds = $('#grid1b').jqGrid('getDataIDs');
-            for (var i = 0; i < rowIds.length; i++) {//iterate over each row
-                rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
-                //set background style if ColValue === true\
-                console.log('Stage: ' + rowData['Stage']);
+        //loadComplete: function () {
+        //    var rowIds = $('#grid1b').jqGrid('getDataIDs');
+        //    for (var i = 0; i < rowIds.length; i++) {//iterate over each row
+        //        rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
+        //        //set background style if ColValue === true\
+        //        console.log('Stage: ' + rowData['Stage']);
 
-                if (rowData['Stage'] === 'Completed') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-                }
-                else if (rowData['Stage'] === 'Ordered') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
-                }
-                else if (rowData['Stage'] === 'In Progress') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
-                }
-                else if (rowData['Stage'] === 'On Hold') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
-                }
-                else if (rowData['Stage'] === 'Canceled') {
-                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-                }
+        //        if (rowData['Stage'] === 'Completed') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+        //        }
+        //        else if (rowData['Stage'] === 'Ordered') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
+        //        }
+        //        else if (rowData['Stage'] === 'In Progress') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+        //        }
+        //        else if (rowData['Stage'] === 'On Hold') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
+        //        }
+        //        else if (rowData['Stage'] === 'Canceled') {
+        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+        //        }
 
-            } //for
-        }//loadComplete
+        //    } //for
+        //}//loadComplete
 
 
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - JustDoors</title>
 
 
     <!-- Google fonts - Roboto -->
@@ -16,11 +16,11 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            
+
             <!-- Brand/logo -->
             <a class="navbar-brand" href="@Url.Action("Index", "Home")">
 
-                <img class="img-fluid" src="~/images/JustDoorsAndScreenTitle.PNG" style="width:120px;height:45px"/>
+                <img class="img-fluid" src="~/images/JustDoorsAndScreenTitle.PNG" style="width:120px;height:45px" />
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,19 +29,19 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav mr-auto">
                     @*<li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>*@
+                        <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>*@
 
                     @*<li class="nav-item">@Html.ActionLink("Stages", "Index", "StagesTypes", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Locks", "Index", "LockTypes", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("FlyScreenTypes", "Index", "FlysScreenTypes", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("DoorTypes", "Index", "DoorTypes", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("DesignTypes", "Index", "DesignTypes", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("ColourTypes", "Index", "ColorTypes", null, new { @class = "nav-link" })</li>*@
+                        <li class="nav-item">@Html.ActionLink("Locks", "Index", "LockTypes", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("FlyScreenTypes", "Index", "FlysScreenTypes", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("DoorTypes", "Index", "DoorTypes", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("DesignTypes", "Index", "DesignTypes", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("ColourTypes", "Index", "ColorTypes", null, new { @class = "nav-link" })</li>*@
 
                     <li class="nav-item">@Html.ActionLink("Quote", "Index", "Quotes", null, new { @class = "nav-link" })</li>
                     @*<li class="nav-item">@Html.ActionLink("DoorItem", "Index", "DoorItems", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("FlyScreenItem", "Index", "FlyScreenItems", null, new { @class = "nav-link" })</li>*@
+                        <li class="nav-item">@Html.ActionLink("FlyScreenItem", "Index", "FlyScreenItems", null, new { @class = "nav-link" })</li>*@
 
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
@@ -68,15 +68,17 @@
     <div class="container-fluid body-content">
         <br />
         @RenderBody()
-        
+
         <br />
-        <footer class="bg-white p-2 border border-dark shadow">
-            <div class="clearfix">
-                <span class="float-left"><img class="img-fluid" src="~/images/JustDoorsAndScreenTitle.PNG" style="width:120px;height:45px" /></span>
-                <span class="float-right">&copy; @DateTime.Now.Year - JustDoorsAndScreens</span>
-            </div>
-        </footer>
+
     </div>
+
+    <footer class="bg-white p-2 border border-dark shadow">
+        <div class="clearfix">
+            <span class="float-left"><img class="img-fluid" src="~/images/JustDoorsAndScreenTitle.PNG" style="width:120px;height:45px" /></span>
+            <span class="float-right">&copy; @DateTime.Now.Year - JustDoorsAndScreens</span>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
