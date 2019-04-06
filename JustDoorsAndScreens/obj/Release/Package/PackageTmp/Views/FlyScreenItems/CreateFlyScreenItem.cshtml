@@ -27,60 +27,286 @@
 
 
 
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <h5>FlyScreen Details</h5>
                 <hr class="bg-dark" />
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.FlyScreenTypeID, "FlyScreenTypeID", htmlAttributes: new { @class = "control-label" })
+                    <strong>@Html.LabelFor(model => model.FlyScreenTypeID, "FlyScreenTypeID", htmlAttributes: new { @class = "control-label" })</strong>
                     @Html.DropDownList("FlyScreenTypeID", null, htmlAttributes: new { @class = "form-control", @id = "DoorType", @onchange = "ChangeDoorType();" })
                     @Html.ValidationMessageFor(model => model.FlyScreenTypeID, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ColorTypeID, "ColorTypeID", htmlAttributes: new { @class = "control-label" })
+                    <strong>@Html.LabelFor(model => model.ColorTypeID, "ColorTypeID", htmlAttributes: new { @class = "control-label" })</strong>
                     @Html.DropDownList("ColorTypeID", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.ColorTypeID, "", new { @class = "text-danger" })
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Qty, htmlAttributes: new { @class = "control-label" })
-                    @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger" })
-                </div>
+                @*<div class="form-group">
+            <strong>@Html.LabelFor(model => model.Qty, htmlAttributes: new { @class = "control-label" })</strong>
+            @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger" })
+        </div>*@
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label" })
-                    @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                    <strong class="text-danger">Cost Per Item</strong>
+                    @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "border-danger form-control", @id = "COST", @Value="0" ,@onchange = "AddQty();" } })
                     @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
                 </div>
 
-            </div>
-
-            <div class="col-sm-4">
-                <h5>Depth/Width</h5>
-                <hr class="bg-dark" />
-
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Width, htmlAttributes: new { @class = "control-label" })
-                    @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <strong>Cost Per Item</strong>
+                            @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "QTY", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-sm-6">
+                            <strong><label>Total Cost</label></strong>
+                            <input type="text" class="form-control" id="TOT" style="width: 80px" readonly="readonly">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Depth, htmlAttributes: new { @class = "control-label" })
-                    @Html.EditorFor(model => model.Depth, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Depth, "", new { @class = "text-danger" })
-                </div>
-
-            </div>
-
-            <div class="col-sm-4">
                 <h5>Details</h5>
                 <hr class="bg-dark" />
 
                 <img class="p-3 img-fluid" id="pic" src="~/images/flyscreen_pins.PNG" />
+
             </div>
+
+            <div class="col-sm-6">
+                <h5>Depth/Width</h5>
+                <hr class="bg-dark" />
+
+                @*<div class="form-group">
+            @Html.LabelFor(model => model.Width, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Depth, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Depth, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Depth, "", new { @class = "text-danger" })
+        </div>*@
+
+                <h5> Width / Depth / Qty</h5>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W1, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W1, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D1, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D1, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q1, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q1", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q1, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W2, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D2, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D2, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q2, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q2", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q2, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W3, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W3, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D3, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D3, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q3, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q3", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q3, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W4, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W4, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D4, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D4, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q4, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q4", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q4, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W5, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W5, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D5, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D5, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q5, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q5", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q5, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W6, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W6, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D6, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D6, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q6, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q6", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q6, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W7, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W7, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D7, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D7, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q7, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q7", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q7, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W8, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W8, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D8, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D8, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q8, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q8", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q8, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W9, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W9, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D9, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D9, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q9, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q9", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q9, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W10, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W10, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D10, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D10, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q10, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q10", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q10, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W11, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W11, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D11, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D11, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q11, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q11", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q11, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W12, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W12, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D12, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D12, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q12, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q12", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q12, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W13, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W13, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D13, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D13, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q13, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q13", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q13, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W14, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W14, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D14, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D14, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q14, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q14", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q14, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-inline pb-1">
+                    <strong>W</strong>&nbsp;
+                    @Html.EditorFor(model => model.W15, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.W15, "", new { @class = "text-danger" }) &nbsp;
+
+                    <strong>D</strong>&nbsp;
+                    @Html.EditorFor(model => model.D15, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
+                    @Html.ValidationMessageFor(model => model.D15, "", new { @class = "text-danger" })&nbsp;&nbsp;
+
+                    <strong>QTY</strong>&nbsp;
+                    @Html.EditorFor(model => model.Q15, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q15", @onchange = "AddQty();" } })
+                    @Html.ValidationMessageFor(model => model.Q15, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+
 
         </div>
 
@@ -113,6 +339,7 @@
         // ********************************************************************************
         $(document).ready(function () {
             ChangeDoorType();
+            AddQty();
         });
 
 
@@ -124,6 +351,19 @@
             $("#pic").attr("src", picture);
         }
 
+        function AddQty() {
+            var qty = 0;
+            for (i = 1; i < 16; i++) {
+                var v = $('#Q' + i).val();
+                qty = Number(qty) + Number(v);
+            }
+
+
+            $('#QTY').val(qty);
+
+            var cst = $('#COST').val();
+            $('#TOT').val(Number(qty) * Number(cst));
+        };
 
     </script>
 

@@ -166,6 +166,7 @@ namespace JustDoorsAndScreens.Controllers
                 itm.SliderSideChannelTypeName = item.SliderSideChannelTypeName;
                 itm.F = item.F;
                 itm.Z = item.Z;
+                itm.BugStrip = item.BugStrip;
                 itm.SliderBugStrip = item.SliderBugStrip;
                 itm.Cost = item.Cost;
                 itm.DoorTypeName = item.DoorTypeName;
@@ -202,6 +203,7 @@ namespace JustDoorsAndScreens.Controllers
                 itm.Depth = item.Depth;
                 itm.Qty = item.Qty;
                 itm.Cost = item.Cost;
+                itm.TotalCost = item.TotalCost;
 
                 myList.Add(itm);
             }

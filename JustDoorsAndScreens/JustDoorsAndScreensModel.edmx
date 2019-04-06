@@ -52,6 +52,7 @@
           <Property Name="F" Type="int" />
           <Property Name="Z" Type="int" />
           <Property Name="HingeType" Type="int" />
+          <Property Name="BugStrip" Type="int" />
         </EntityType>
         <EntityType Name="DoorType">
           <Key>
@@ -69,9 +70,54 @@
           <Property Name="FlyScreenTypeID" Type="int" />
           <Property Name="Width" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Depth" Type="numeric" Precision="18" Scale="2" />
-          <Property Name="Qty" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Qty" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Cost" Type="numeric" Precision="18" Scale="2" />
           <Property Name="ColorTypeID" Type="int" />
+          <Property Name="W1" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D1" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q1" Type="int" />
+          <Property Name="W2" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D2" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q2" Type="int" />
+          <Property Name="W3" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D3" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q3" Type="int" />
+          <Property Name="W4" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D4" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q4" Type="int" />
+          <Property Name="W5" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D5" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q5" Type="int" />
+          <Property Name="W6" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D6" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q6" Type="int" />
+          <Property Name="W7" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D7" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q7" Type="int" />
+          <Property Name="W8" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D8" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q8" Type="int" />
+          <Property Name="W9" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D9" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q9" Type="int" />
+          <Property Name="W10" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D10" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q10" Type="int" />
+          <Property Name="W11" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D11" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q11" Type="int" />
+          <Property Name="W12" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D12" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q12" Type="int" />
+          <Property Name="W13" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D13" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q13" Type="int" />
+          <Property Name="W14" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D14" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q14" Type="int" />
+          <Property Name="W15" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D15" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q15" Type="int" />
         </EntityType>
         <EntityType Name="FlysScreenType">
           <Key>
@@ -161,6 +207,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwDoorItems' does not have
           <Property Name="TrackTypes" Type="nvarchar" MaxLength="50" />
           <Property Name="F" Type="int" />
           <Property Name="Z" Type="int" />
+          <Property Name="BugStrip" Type="int" />
           <Property Name="Cost" Type="numeric" Precision="18" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -174,9 +221,55 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwFlyScreenItems' does not
           <Property Name="FlyScreenName" Type="nvarchar" MaxLength="50" />
           <Property Name="Width" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Depth" Type="numeric" Precision="18" Scale="2" />
-          <Property Name="Qty" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Qty" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Cost" Type="numeric" Precision="18" Scale="2" />
           <Property Name="ColorTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalCost" Type="numeric" Precision="37" Scale="4" />
+          <Property Name="W1" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D1" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q1" Type="int" />
+          <Property Name="W2" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D2" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q2" Type="int" />
+          <Property Name="W3" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D3" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q3" Type="int" />
+          <Property Name="W4" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D4" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q4" Type="int" />
+          <Property Name="W5" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D5" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q5" Type="int" />
+          <Property Name="W6" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D6" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q6" Type="int" />
+          <Property Name="W7" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D7" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q7" Type="int" />
+          <Property Name="W8" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D8" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q8" Type="int" />
+          <Property Name="W9" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D9" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q9" Type="int" />
+          <Property Name="W10" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D10" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q10" Type="int" />
+          <Property Name="W11" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D11" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q11" Type="int" />
+          <Property Name="W12" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D12" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q12" Type="int" />
+          <Property Name="W13" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D13" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q13" Type="int" />
+          <Property Name="W14" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D14" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q14" Type="int" />
+          <Property Name="W15" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="D15" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Q15" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwQuoteReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -407,6 +500,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
     [vwDoorItems].[TrackTypes] AS [TrackTypes], 
     [vwDoorItems].[F] AS [F], 
     [vwDoorItems].[Z] AS [Z], 
+    [vwDoorItems].[BugStrip] AS [BugStrip], 
     [vwDoorItems].[Cost] AS [Cost]
     FROM [dbo].[vwDoorItems] AS [vwDoorItems]</DefiningQuery>
           </EntitySet>
@@ -419,7 +513,53 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
     [vwFlyScreenItems].[Depth] AS [Depth], 
     [vwFlyScreenItems].[Qty] AS [Qty], 
     [vwFlyScreenItems].[Cost] AS [Cost], 
-    [vwFlyScreenItems].[ColorTypeName] AS [ColorTypeName]
+    [vwFlyScreenItems].[ColorTypeName] AS [ColorTypeName], 
+    [vwFlyScreenItems].[TotalCost] AS [TotalCost], 
+    [vwFlyScreenItems].[W1] AS [W1], 
+    [vwFlyScreenItems].[D1] AS [D1], 
+    [vwFlyScreenItems].[Q1] AS [Q1], 
+    [vwFlyScreenItems].[W2] AS [W2], 
+    [vwFlyScreenItems].[D2] AS [D2], 
+    [vwFlyScreenItems].[Q2] AS [Q2], 
+    [vwFlyScreenItems].[W3] AS [W3], 
+    [vwFlyScreenItems].[D3] AS [D3], 
+    [vwFlyScreenItems].[Q3] AS [Q3], 
+    [vwFlyScreenItems].[W4] AS [W4], 
+    [vwFlyScreenItems].[D4] AS [D4], 
+    [vwFlyScreenItems].[Q4] AS [Q4], 
+    [vwFlyScreenItems].[W5] AS [W5], 
+    [vwFlyScreenItems].[D5] AS [D5], 
+    [vwFlyScreenItems].[Q5] AS [Q5], 
+    [vwFlyScreenItems].[W6] AS [W6], 
+    [vwFlyScreenItems].[D6] AS [D6], 
+    [vwFlyScreenItems].[Q6] AS [Q6], 
+    [vwFlyScreenItems].[W7] AS [W7], 
+    [vwFlyScreenItems].[D7] AS [D7], 
+    [vwFlyScreenItems].[Q7] AS [Q7], 
+    [vwFlyScreenItems].[W8] AS [W8], 
+    [vwFlyScreenItems].[D8] AS [D8], 
+    [vwFlyScreenItems].[Q8] AS [Q8], 
+    [vwFlyScreenItems].[W9] AS [W9], 
+    [vwFlyScreenItems].[D9] AS [D9], 
+    [vwFlyScreenItems].[Q9] AS [Q9], 
+    [vwFlyScreenItems].[W10] AS [W10], 
+    [vwFlyScreenItems].[D10] AS [D10], 
+    [vwFlyScreenItems].[Q10] AS [Q10], 
+    [vwFlyScreenItems].[W11] AS [W11], 
+    [vwFlyScreenItems].[D11] AS [D11], 
+    [vwFlyScreenItems].[Q11] AS [Q11], 
+    [vwFlyScreenItems].[W12] AS [W12], 
+    [vwFlyScreenItems].[D12] AS [D12], 
+    [vwFlyScreenItems].[Q12] AS [Q12], 
+    [vwFlyScreenItems].[W13] AS [W13], 
+    [vwFlyScreenItems].[D13] AS [D13], 
+    [vwFlyScreenItems].[Q13] AS [Q13], 
+    [vwFlyScreenItems].[W14] AS [W14], 
+    [vwFlyScreenItems].[D14] AS [D14], 
+    [vwFlyScreenItems].[Q14] AS [Q14], 
+    [vwFlyScreenItems].[W15] AS [W15], 
+    [vwFlyScreenItems].[D15] AS [D15], 
+    [vwFlyScreenItems].[Q15] AS [Q15]
     FROM [dbo].[vwFlyScreenItems] AS [vwFlyScreenItems]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwQuoteReport" EntityType="Self.vwQuoteReport" store:Type="Views" store:Schema="dbo">
@@ -697,6 +837,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <NavigationProperty Name="TrackType" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType" FromRole="DoorItem" ToRole="TrackType" />
           <NavigationProperty Name="TrackType1" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType1" FromRole="DoorItem" ToRole="TrackType" />
           <NavigationProperty Name="TrackType2" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType2" FromRole="DoorItem" ToRole="TrackType" />
+          <Property Name="BugStrip" Type="Int32" />
         </EntityType>
         <Association Name="FK_DoorItems_ColorType">
           <End Type="JustDoorsAndScreensModel.ColorType" Role="ColorType" Multiplicity="0..1" />
@@ -767,12 +908,57 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Property Name="FlyScreenTypeID" Type="Int32" />
           <Property Name="Width" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Depth" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Qty" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Qty" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="FlysScreenType" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_FlysScreenType" FromRole="FlyScreenItem" ToRole="FlysScreenType" />
           <NavigationProperty Name="Quote" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_Quote" FromRole="FlyScreenItem" ToRole="Quote" />
           <Property Name="ColorTypeID" Type="Int32" />
           <NavigationProperty Name="ColorType" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_ColorType" FromRole="FlyScreenItem" ToRole="ColorType" />
+          <Property Name="W1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q1" Type="Int32" />
+          <Property Name="W2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q2" Type="Int32" />
+          <Property Name="W3" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D3" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q3" Type="Int32" />
+          <Property Name="W4" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D4" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q4" Type="Int32" />
+          <Property Name="W5" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D5" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q5" Type="Int32" />
+          <Property Name="W6" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D6" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q6" Type="Int32" />
+          <Property Name="W7" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D7" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q7" Type="Int32" />
+          <Property Name="W8" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D8" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q8" Type="Int32" />
+          <Property Name="W9" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D9" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q9" Type="Int32" />
+          <Property Name="W10" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D10" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q10" Type="Int32" />
+          <Property Name="W11" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D11" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q11" Type="Int32" />
+          <Property Name="W12" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D12" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q12" Type="Int32" />
+          <Property Name="W13" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D13" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q13" Type="Int32" />
+          <Property Name="W14" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D14" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q14" Type="Int32" />
+          <Property Name="W15" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D15" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q15" Type="Int32" />
         </EntityType>
         <Association Name="FK_FlyScreenItem_FlysScreenType">
           <End Type="JustDoorsAndScreensModel.FlysScreenType" Role="FlysScreenType" Multiplicity="0..1" />
@@ -807,9 +993,55 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Property Name="FlyScreenName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Width" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Depth" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Qty" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Qty" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="ColorTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalCost" Type="Decimal" Precision="37" Scale="4" />
+          <Property Name="W1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q1" Type="Int32" />
+          <Property Name="W2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q2" Type="Int32" />
+          <Property Name="W3" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D3" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q3" Type="Int32" />
+          <Property Name="W4" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D4" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q4" Type="Int32" />
+          <Property Name="W5" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D5" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q5" Type="Int32" />
+          <Property Name="W6" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D6" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q6" Type="Int32" />
+          <Property Name="W7" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D7" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q7" Type="Int32" />
+          <Property Name="W8" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D8" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q8" Type="Int32" />
+          <Property Name="W9" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D9" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q9" Type="Int32" />
+          <Property Name="W10" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D10" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q10" Type="Int32" />
+          <Property Name="W11" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D11" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q11" Type="Int32" />
+          <Property Name="W12" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D12" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q12" Type="Int32" />
+          <Property Name="W13" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D13" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q13" Type="Int32" />
+          <Property Name="W14" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D14" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q14" Type="Int32" />
+          <Property Name="W15" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="D15" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Q15" Type="Int32" />
         </EntityType>
         <Association Name="FK_FlyScreenItem_ColorType">
           <End Type="JustDoorsAndScreensModel.ColorType" Role="ColorType" Multiplicity="0..1" />
@@ -950,6 +1182,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Property Name="F" Type="Int32" />
           <Property Name="Z" Type="Int32" />
           <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BugStrip" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1027,6 +1260,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <EntitySetMapping Name="DoorItems">
             <EntityTypeMapping TypeName="JustDoorsAndScreensModel.DoorItem">
               <MappingFragment StoreEntitySet="DoorItems">
+                <ScalarProperty Name="BugStrip" ColumnName="BugStrip" />
                 <ScalarProperty Name="HingeType" ColumnName="HingeType" />
                 <ScalarProperty Name="Z" ColumnName="Z" />
                 <ScalarProperty Name="F" ColumnName="F" />
@@ -1062,6 +1296,51 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <EntitySetMapping Name="FlyScreenItems">
             <EntityTypeMapping TypeName="JustDoorsAndScreensModel.FlyScreenItem">
               <MappingFragment StoreEntitySet="FlyScreenItem">
+                <ScalarProperty Name="Q15" ColumnName="Q15" />
+                <ScalarProperty Name="D15" ColumnName="D15" />
+                <ScalarProperty Name="W15" ColumnName="W15" />
+                <ScalarProperty Name="Q14" ColumnName="Q14" />
+                <ScalarProperty Name="D14" ColumnName="D14" />
+                <ScalarProperty Name="W14" ColumnName="W14" />
+                <ScalarProperty Name="Q13" ColumnName="Q13" />
+                <ScalarProperty Name="D13" ColumnName="D13" />
+                <ScalarProperty Name="W13" ColumnName="W13" />
+                <ScalarProperty Name="Q12" ColumnName="Q12" />
+                <ScalarProperty Name="D12" ColumnName="D12" />
+                <ScalarProperty Name="W12" ColumnName="W12" />
+                <ScalarProperty Name="Q11" ColumnName="Q11" />
+                <ScalarProperty Name="D11" ColumnName="D11" />
+                <ScalarProperty Name="W11" ColumnName="W11" />
+                <ScalarProperty Name="Q10" ColumnName="Q10" />
+                <ScalarProperty Name="D10" ColumnName="D10" />
+                <ScalarProperty Name="W10" ColumnName="W10" />
+                <ScalarProperty Name="Q9" ColumnName="Q9" />
+                <ScalarProperty Name="D9" ColumnName="D9" />
+                <ScalarProperty Name="W9" ColumnName="W9" />
+                <ScalarProperty Name="Q8" ColumnName="Q8" />
+                <ScalarProperty Name="D8" ColumnName="D8" />
+                <ScalarProperty Name="W8" ColumnName="W8" />
+                <ScalarProperty Name="Q7" ColumnName="Q7" />
+                <ScalarProperty Name="D7" ColumnName="D7" />
+                <ScalarProperty Name="W7" ColumnName="W7" />
+                <ScalarProperty Name="Q6" ColumnName="Q6" />
+                <ScalarProperty Name="D6" ColumnName="D6" />
+                <ScalarProperty Name="W6" ColumnName="W6" />
+                <ScalarProperty Name="Q5" ColumnName="Q5" />
+                <ScalarProperty Name="D5" ColumnName="D5" />
+                <ScalarProperty Name="W5" ColumnName="W5" />
+                <ScalarProperty Name="Q4" ColumnName="Q4" />
+                <ScalarProperty Name="D4" ColumnName="D4" />
+                <ScalarProperty Name="W4" ColumnName="W4" />
+                <ScalarProperty Name="Q3" ColumnName="Q3" />
+                <ScalarProperty Name="D3" ColumnName="D3" />
+                <ScalarProperty Name="W3" ColumnName="W3" />
+                <ScalarProperty Name="Q2" ColumnName="Q2" />
+                <ScalarProperty Name="D2" ColumnName="D2" />
+                <ScalarProperty Name="W2" ColumnName="W2" />
+                <ScalarProperty Name="Q1" ColumnName="Q1" />
+                <ScalarProperty Name="D1" ColumnName="D1" />
+                <ScalarProperty Name="W1" ColumnName="W1" />
                 <ScalarProperty Name="ColorTypeID" ColumnName="ColorTypeID" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Qty" ColumnName="Qty" />
@@ -1076,6 +1355,52 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <EntitySetMapping Name="vwFlyScreenItems">
             <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwFlyScreenItem">
               <MappingFragment StoreEntitySet="vwFlyScreenItems">
+                <ScalarProperty Name="Q15" ColumnName="Q15" />
+                <ScalarProperty Name="D15" ColumnName="D15" />
+                <ScalarProperty Name="W15" ColumnName="W15" />
+                <ScalarProperty Name="Q14" ColumnName="Q14" />
+                <ScalarProperty Name="D14" ColumnName="D14" />
+                <ScalarProperty Name="W14" ColumnName="W14" />
+                <ScalarProperty Name="Q13" ColumnName="Q13" />
+                <ScalarProperty Name="D13" ColumnName="D13" />
+                <ScalarProperty Name="W13" ColumnName="W13" />
+                <ScalarProperty Name="Q12" ColumnName="Q12" />
+                <ScalarProperty Name="D12" ColumnName="D12" />
+                <ScalarProperty Name="W12" ColumnName="W12" />
+                <ScalarProperty Name="Q11" ColumnName="Q11" />
+                <ScalarProperty Name="D11" ColumnName="D11" />
+                <ScalarProperty Name="W11" ColumnName="W11" />
+                <ScalarProperty Name="Q10" ColumnName="Q10" />
+                <ScalarProperty Name="D10" ColumnName="D10" />
+                <ScalarProperty Name="W10" ColumnName="W10" />
+                <ScalarProperty Name="Q9" ColumnName="Q9" />
+                <ScalarProperty Name="D9" ColumnName="D9" />
+                <ScalarProperty Name="W9" ColumnName="W9" />
+                <ScalarProperty Name="Q8" ColumnName="Q8" />
+                <ScalarProperty Name="D8" ColumnName="D8" />
+                <ScalarProperty Name="W8" ColumnName="W8" />
+                <ScalarProperty Name="Q7" ColumnName="Q7" />
+                <ScalarProperty Name="D7" ColumnName="D7" />
+                <ScalarProperty Name="W7" ColumnName="W7" />
+                <ScalarProperty Name="Q6" ColumnName="Q6" />
+                <ScalarProperty Name="D6" ColumnName="D6" />
+                <ScalarProperty Name="W6" ColumnName="W6" />
+                <ScalarProperty Name="Q5" ColumnName="Q5" />
+                <ScalarProperty Name="D5" ColumnName="D5" />
+                <ScalarProperty Name="W5" ColumnName="W5" />
+                <ScalarProperty Name="Q4" ColumnName="Q4" />
+                <ScalarProperty Name="D4" ColumnName="D4" />
+                <ScalarProperty Name="W4" ColumnName="W4" />
+                <ScalarProperty Name="Q3" ColumnName="Q3" />
+                <ScalarProperty Name="D3" ColumnName="D3" />
+                <ScalarProperty Name="W3" ColumnName="W3" />
+                <ScalarProperty Name="Q2" ColumnName="Q2" />
+                <ScalarProperty Name="D2" ColumnName="D2" />
+                <ScalarProperty Name="W2" ColumnName="W2" />
+                <ScalarProperty Name="Q1" ColumnName="Q1" />
+                <ScalarProperty Name="D1" ColumnName="D1" />
+                <ScalarProperty Name="W1" ColumnName="W1" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
                 <ScalarProperty Name="ColorTypeName" ColumnName="ColorTypeName" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Qty" ColumnName="Qty" />
@@ -1135,6 +1460,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <EntitySetMapping Name="vwDoorItems">
             <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwDoorItem">
               <MappingFragment StoreEntitySet="vwDoorItems">
+                <ScalarProperty Name="BugStrip" ColumnName="BugStrip" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Z" ColumnName="Z" />
                 <ScalarProperty Name="F" ColumnName="F" />

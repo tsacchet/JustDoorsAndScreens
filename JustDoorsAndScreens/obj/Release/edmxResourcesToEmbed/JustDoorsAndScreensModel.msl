@@ -71,6 +71,7 @@
     <EntitySetMapping Name="DoorItems">
       <EntityTypeMapping TypeName="JustDoorsAndScreensModel.DoorItem">
         <MappingFragment StoreEntitySet="DoorItems">
+          <ScalarProperty Name="BugStrip" ColumnName="BugStrip" />
           <ScalarProperty Name="HingeType" ColumnName="HingeType" />
           <ScalarProperty Name="Z" ColumnName="Z" />
           <ScalarProperty Name="F" ColumnName="F" />
@@ -106,6 +107,51 @@
     <EntitySetMapping Name="FlyScreenItems">
       <EntityTypeMapping TypeName="JustDoorsAndScreensModel.FlyScreenItem">
         <MappingFragment StoreEntitySet="FlyScreenItem">
+          <ScalarProperty Name="Q15" ColumnName="Q15" />
+          <ScalarProperty Name="D15" ColumnName="D15" />
+          <ScalarProperty Name="W15" ColumnName="W15" />
+          <ScalarProperty Name="Q14" ColumnName="Q14" />
+          <ScalarProperty Name="D14" ColumnName="D14" />
+          <ScalarProperty Name="W14" ColumnName="W14" />
+          <ScalarProperty Name="Q13" ColumnName="Q13" />
+          <ScalarProperty Name="D13" ColumnName="D13" />
+          <ScalarProperty Name="W13" ColumnName="W13" />
+          <ScalarProperty Name="Q12" ColumnName="Q12" />
+          <ScalarProperty Name="D12" ColumnName="D12" />
+          <ScalarProperty Name="W12" ColumnName="W12" />
+          <ScalarProperty Name="Q11" ColumnName="Q11" />
+          <ScalarProperty Name="D11" ColumnName="D11" />
+          <ScalarProperty Name="W11" ColumnName="W11" />
+          <ScalarProperty Name="Q10" ColumnName="Q10" />
+          <ScalarProperty Name="D10" ColumnName="D10" />
+          <ScalarProperty Name="W10" ColumnName="W10" />
+          <ScalarProperty Name="Q9" ColumnName="Q9" />
+          <ScalarProperty Name="D9" ColumnName="D9" />
+          <ScalarProperty Name="W9" ColumnName="W9" />
+          <ScalarProperty Name="Q8" ColumnName="Q8" />
+          <ScalarProperty Name="D8" ColumnName="D8" />
+          <ScalarProperty Name="W8" ColumnName="W8" />
+          <ScalarProperty Name="Q7" ColumnName="Q7" />
+          <ScalarProperty Name="D7" ColumnName="D7" />
+          <ScalarProperty Name="W7" ColumnName="W7" />
+          <ScalarProperty Name="Q6" ColumnName="Q6" />
+          <ScalarProperty Name="D6" ColumnName="D6" />
+          <ScalarProperty Name="W6" ColumnName="W6" />
+          <ScalarProperty Name="Q5" ColumnName="Q5" />
+          <ScalarProperty Name="D5" ColumnName="D5" />
+          <ScalarProperty Name="W5" ColumnName="W5" />
+          <ScalarProperty Name="Q4" ColumnName="Q4" />
+          <ScalarProperty Name="D4" ColumnName="D4" />
+          <ScalarProperty Name="W4" ColumnName="W4" />
+          <ScalarProperty Name="Q3" ColumnName="Q3" />
+          <ScalarProperty Name="D3" ColumnName="D3" />
+          <ScalarProperty Name="W3" ColumnName="W3" />
+          <ScalarProperty Name="Q2" ColumnName="Q2" />
+          <ScalarProperty Name="D2" ColumnName="D2" />
+          <ScalarProperty Name="W2" ColumnName="W2" />
+          <ScalarProperty Name="Q1" ColumnName="Q1" />
+          <ScalarProperty Name="D1" ColumnName="D1" />
+          <ScalarProperty Name="W1" ColumnName="W1" />
           <ScalarProperty Name="ColorTypeID" ColumnName="ColorTypeID" />
           <ScalarProperty Name="Cost" ColumnName="Cost" />
           <ScalarProperty Name="Qty" ColumnName="Qty" />
@@ -120,6 +166,52 @@
     <EntitySetMapping Name="vwFlyScreenItems">
       <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwFlyScreenItem">
         <MappingFragment StoreEntitySet="vwFlyScreenItems">
+          <ScalarProperty Name="Q15" ColumnName="Q15" />
+          <ScalarProperty Name="D15" ColumnName="D15" />
+          <ScalarProperty Name="W15" ColumnName="W15" />
+          <ScalarProperty Name="Q14" ColumnName="Q14" />
+          <ScalarProperty Name="D14" ColumnName="D14" />
+          <ScalarProperty Name="W14" ColumnName="W14" />
+          <ScalarProperty Name="Q13" ColumnName="Q13" />
+          <ScalarProperty Name="D13" ColumnName="D13" />
+          <ScalarProperty Name="W13" ColumnName="W13" />
+          <ScalarProperty Name="Q12" ColumnName="Q12" />
+          <ScalarProperty Name="D12" ColumnName="D12" />
+          <ScalarProperty Name="W12" ColumnName="W12" />
+          <ScalarProperty Name="Q11" ColumnName="Q11" />
+          <ScalarProperty Name="D11" ColumnName="D11" />
+          <ScalarProperty Name="W11" ColumnName="W11" />
+          <ScalarProperty Name="Q10" ColumnName="Q10" />
+          <ScalarProperty Name="D10" ColumnName="D10" />
+          <ScalarProperty Name="W10" ColumnName="W10" />
+          <ScalarProperty Name="Q9" ColumnName="Q9" />
+          <ScalarProperty Name="D9" ColumnName="D9" />
+          <ScalarProperty Name="W9" ColumnName="W9" />
+          <ScalarProperty Name="Q8" ColumnName="Q8" />
+          <ScalarProperty Name="D8" ColumnName="D8" />
+          <ScalarProperty Name="W8" ColumnName="W8" />
+          <ScalarProperty Name="Q7" ColumnName="Q7" />
+          <ScalarProperty Name="D7" ColumnName="D7" />
+          <ScalarProperty Name="W7" ColumnName="W7" />
+          <ScalarProperty Name="Q6" ColumnName="Q6" />
+          <ScalarProperty Name="D6" ColumnName="D6" />
+          <ScalarProperty Name="W6" ColumnName="W6" />
+          <ScalarProperty Name="Q5" ColumnName="Q5" />
+          <ScalarProperty Name="D5" ColumnName="D5" />
+          <ScalarProperty Name="W5" ColumnName="W5" />
+          <ScalarProperty Name="Q4" ColumnName="Q4" />
+          <ScalarProperty Name="D4" ColumnName="D4" />
+          <ScalarProperty Name="W4" ColumnName="W4" />
+          <ScalarProperty Name="Q3" ColumnName="Q3" />
+          <ScalarProperty Name="D3" ColumnName="D3" />
+          <ScalarProperty Name="W3" ColumnName="W3" />
+          <ScalarProperty Name="Q2" ColumnName="Q2" />
+          <ScalarProperty Name="D2" ColumnName="D2" />
+          <ScalarProperty Name="W2" ColumnName="W2" />
+          <ScalarProperty Name="Q1" ColumnName="Q1" />
+          <ScalarProperty Name="D1" ColumnName="D1" />
+          <ScalarProperty Name="W1" ColumnName="W1" />
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
           <ScalarProperty Name="ColorTypeName" ColumnName="ColorTypeName" />
           <ScalarProperty Name="Cost" ColumnName="Cost" />
           <ScalarProperty Name="Qty" ColumnName="Qty" />
@@ -179,6 +271,7 @@
     <EntitySetMapping Name="vwDoorItems">
       <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwDoorItem">
         <MappingFragment StoreEntitySet="vwDoorItems">
+          <ScalarProperty Name="BugStrip" ColumnName="BugStrip" />
           <ScalarProperty Name="Cost" ColumnName="Cost" />
           <ScalarProperty Name="Z" ColumnName="Z" />
           <ScalarProperty Name="F" ColumnName="F" />

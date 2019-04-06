@@ -43,6 +43,7 @@ namespace JustDoorsAndScreens
         public Nullable<int> F { get; set; }
         public Nullable<int> Z { get; set; }
         public Nullable<int> HingeType { get; set; }
+        public Nullable<int> BugStrip { get; set; }
     
         public virtual ColorType ColorType { get; set; }
         public virtual DesignType DesignType { get; set; }

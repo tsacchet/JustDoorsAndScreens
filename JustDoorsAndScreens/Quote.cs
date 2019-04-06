@@ -21,7 +21,7 @@ namespace JustDoorsAndScreens
             this.DoorItems = new HashSet<DoorItem>();
             this.FlyScreenItems = new HashSet<FlyScreenItem>();
         }
-    
+
         public int QuoteID { get; set; }
         public string Customer { get; set; }
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
@@ -38,7 +38,7 @@ namespace JustDoorsAndScreens
         public Nullable<System.DateTime> OrderDate { get; set; }
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> CompletedDate { get; set; }
-    
+
         public virtual StagesType StagesType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DoorItem> DoorItems { get; set; }

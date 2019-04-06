@@ -16,15 +16,17 @@
     .ui-jqgrid tr.ui-jqgrid-labels div {
         white-space: normal !important;
     }
-
 </style>
 
 @*<h3 class="text-primary">Just Doors And Screens <strong class="text-success">Quotation</strong></h3>*@
 
+
 <div class="card border border-dark shadow">
 
-    <div class="card-header bg-light border-dark">
+    <div class="card-header bg-light border-dark sticky-top">
         <h4 class="text-dark"><strong>Quotation</strong></h4>
+        <strong>Quote ID : </strong> <strong class="text-warning"> @Html.DisplayFor(model => model.QuoteID)</strong>
+        <strong>Customer : </strong> <strong class="text-warning"> @Html.DisplayFor(model => model.Customer)</strong>
     </div>
 
     <div class="card-body">
@@ -45,7 +47,7 @@
 
             <div class="col-sm-4">
                 <h6>
-                    <strong>Customer Name : </strong>
+                    <strong>Customer : </strong>
                     <strong class="text-warning">@Html.DisplayFor(model => model.Customer)</strong>
                 </h6>
             </div>
@@ -102,14 +104,14 @@
             <div class="col-sm-4">
                 <h6>
                     <strong>Total Cost : </strong>
-                    <strong class="text-warning">@Html.DisplayFor(model => model.TotalCost)</strong>
+                    <strong class="text-success">@Html.DisplayFor(model => model.TotalCost)</strong>
                 </h6>
             </div>
 
             <div class="col-sm-4">
                 <h6>
                     <strong>Balance : </strong>
-                    <strong class="text-warning">@Html.DisplayFor(model => model.Balance)</strong>
+                    <strong class="text-danger">@Html.DisplayFor(model => model.Balance)</strong>
                 </h6>
             </div>
 
@@ -146,12 +148,9 @@
         </div>
 
     </div>
-    <div class="card-footer bg-light border-dark">
-        @*@Html.ActionLink("Back to Quote List", "Index", null, new { @class = "btn btn-success" })*@
+    <div class="card-footer bg-light border ">
 
         <a href='@Url.Action("Index", "Quotes")' id="" class="btn btn-success border-dark shadow"><i class="fa fa-arrow-circle-left"></i> Quote List </a>
-
-        @*@Html.ActionLink("Edit", "Edit", new { id = Model.QuoteID }, new { @class = "btn btn-warning" })*@
 
         <a href='@Url.Action("Edit/" + Model.QuoteID, "Quotes")' id="" class="btn btn-warning border-dark shadow"><i class="fa fa-edit"></i> Edit Quote </a>
 
@@ -159,101 +158,106 @@
 
         <a href='@Url.Action("SendEmailTo/" + Model.QuoteID, "Quotes")' id="" class="btn btn-primary border-dark shadow" onclick="$('#myModal').modal('show');"><i class="fa fa-envelope"></i> Send Quote </a>
 
-        @*<a href='@Url.Action("SendSMS/" + Model.QuoteID, "Quotes")' id="" class="btn btn-primary"><i class="fa fa-envelope"></i> Send SMS Quote PDF </a>*@
-
-        @*<button type="button" class="btn btn-danger" onclick="GenerateSMS();">Danger</button>*@
         <a href='@Url.Action("PrintPDF/" + Model.QuoteID, "Quotes")' id="" class="btn btn-secondary shadow"><i class="fa fa-cloud-download"></i> Download Quote </a>
     </div>
-</div>
-
-<br />
 
 
 
-<div class="form-inline pb-2">
-    @* @Html.ActionLink("Add Door", "CreateDoorItem/" + Model.QuoteID, "DoorItems", null, new { @class = "btn btn-primary" })>*@
-
-    <a href='@Url.Action("CreateDoorItem/" + Model.QuoteID, "DoorItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add Door </a>
-
-    <div class="mx-auto"><h4><strong>Door Items</strong></h4></div>
-</div>
 
 
-<div class="table-responsive border card border-dark shadow">
-    <table id="grid1b" class="ui-jqgrid text-large"></table>
-</div>
+    <div class="form-inline p-2">
 
-<br />
+        <a href='@Url.Action("CreateDoorItem/" + Model.QuoteID, "DoorItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add Door </a>
 
-<div class="form-inline pb-2">
-    @* @Html.ActionLink("Add Door", "CreateDoorItem/" + Model.QuoteID, "DoorItems", null, new { @class = "btn btn-primary" })>*@
+        <div class="mx-auto"><h4><strong>Door Items</strong></h4></div>
+    </div>
 
-    <a href='@Url.Action("CreateSliderItem/" + Model.QuoteID, "DoorItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add Slider </a>
-
-    <div class="mx-auto"><h4><strong>Slider Items</strong></h4></div>
-</div>
-
-
-<div class="table-responsive border card border-dark shadow">
-    <table id="grid3b" class="ui-jqgrid text-large"></table>
-</div>
-
-
-<br />
-
-
-<div class="form-inline pb-2">
-    @*@Html.ActionLink("Add FlyScreen", "CreateFlyScreenItem/" + Model.QuoteID, "FlyScreenItems", null, new { @class = "btn btn-primary" })*@
-    <a href='@Url.Action("CreateFlyScreenItem/" + Model.QuoteID, "FlyScreenItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add FlyScreen </a>
-
-    <div class="mx-auto"><h4><strong>FlyScreen Items</strong></h4></div>
-</div>
-
-
-<div class="table-responsive border card border-dark shadow">
-    <table id="grid2b" class="ui-jqgrid text-large"></table>
-</div>
-
-
-
-<!-- The Modal for submit page-->
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header bg-danger text-white">
-                <h4 class="modal-title">Saving Data... <i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></h4>
-                @*<button type="button" class="close" data-dismiss="modal">&times;</button>*@
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body bg-danger text-white">
-                Please waiting while data is saved..
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer bg-danger text-white">
-                @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>*@
-            </div>
-
+    <div class="form-inline p-2">
+        <div class="table-responsive border card border-dark shadow">
+            <table id="grid1b" class="ui-jqgrid text-large"></table>
         </div>
     </div>
-</div>
+
+        <br />
+
+        <div class="form-inline p-2">
+
+            <a href='@Url.Action("CreateSliderItem/" + Model.QuoteID, "DoorItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add Slider </a>
+
+            <div class="mx-auto"><h4><strong>Slider Items</strong></h4></div>
+        </div>
+
+        <div class="form-inline p-2">
+            <div class="table-responsive border card border-dark shadow">
+                <table id="grid3b" class="ui-jqgrid text-large"></table>
+            </div>
+        </div>
+
+        <br />
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+        <div class="form-inline p-2">
+            @*@Html.ActionLink("Add FlyScreen", "CreateFlyScreenItem/" + Model.QuoteID, "FlyScreenItems", null, new { @class = "btn btn-primary" })*@
+            <a href='@Url.Action("CreateFlyScreenItem/" + Model.QuoteID, "FlyScreenItems")' id="" class="btn btn-primary border-dark shadow"><i class="fa fa-plus"></i> Add FlyScreen </a>
 
-    <script>
-        $("#myform").submit(function () {
-            //$("#WaitDialog").modalDialog();
-            $('#myModal').modal('show');
-        });
-    </script>
+            <div class="mx-auto"><h4><strong>FlyScreen Items</strong></h4></div>
+        </div>
+
+        <div class="form-inline p-2">
+            <div class="table-responsive border card border-dark shadow">
+                <table id="grid2b" class="ui-jqgrid text-large"></table>
+            </div>
+        </div>
 
 
-    <script>
+    </div>
+
+    <br />
+
+
+
+
+
+
+
+    <!-- The Modal for submit page-->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header bg-danger text-white">
+                    <h4 class="modal-title">Saving Data... <i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></h4>
+                    @*<button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body bg-danger text-white">
+                    Please waiting while data is saved..
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer bg-danger text-white">
+                    @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>*@
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+        <script>
+            $("#myform").submit(function () {
+                //$("#WaitDialog").modalDialog();
+                $('#myModal').modal('show');
+            });
+        </script>
+
+
+        <script>
         // ********************************************************************************
     // * Document loaded completed Trigger
     // ********************************************************************************
@@ -518,12 +522,12 @@
             { name: "SliderBottomTrackTypeName", label: "BottomTrack", width: 100 },
             { name: "SliderBottomTrackWidth", label: "BottomTrack Width", width: 100 },
 
-            { name: "SliderSideChannelTypeName", label: "SideChannel", width: 100 },        
+            { name: "SliderSideChannelTypeName", label: "SideChannel", width: 100 },
             { name: "SliderSideChannelWidth", label: "SideChannel Width", width: 100 },
 
-            { name: "F", label: "Fs Qty", width: 50 },
-            { name: "Z", label: "Zs Qty", width: 50 },
-            { name: "SliderBugStrip", label: "BugStrip Qty", width: 70 , template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "F", label: "Fs Qty", width: 100 },
+            { name: "Z", label: "Zs Qty", width: 100 },
+            { name: "BugStrip", label: "BugStrip Qty", width: 100 },
             { name: "Cost", label: "Cost", width: 100 },
 
 
@@ -652,10 +656,11 @@
             //{ name: "QuoteID", label: "QuoteID", width: 30 },
             { name: "FlyScreenName", label: "FlyScreen", width: 180 },
             { name: "ColorTypeName", label: "Color Type", width: 100 },
-            { name: "Width", label: "Width", width: 100 },
-            { name: "Depth", label: "Depth", width: 100 },
+            //{ name: "Width", label: "Width", width: 100 },
+            //{ name: "Depth", label: "Depth", width: 100 },
             { name: "Qty", label: "Qty", width: 100 },
-            { name: "Cost", label: "Cost", width: 100 },
+            { name: "Cost", label: "Cost Per Item", width: 120 },
+            { name: "TotalCost", label: "Total Cost", width: 120 },
 
         ],
         data: json,
@@ -753,6 +758,6 @@
     };
 
 
-    </script>
+        </script>
 
-}
+    }

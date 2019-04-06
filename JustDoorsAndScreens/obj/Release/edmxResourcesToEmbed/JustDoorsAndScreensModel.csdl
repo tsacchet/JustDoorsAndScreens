@@ -193,6 +193,7 @@
     <NavigationProperty Name="TrackType" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType" FromRole="DoorItem" ToRole="TrackType" />
     <NavigationProperty Name="TrackType1" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType1" FromRole="DoorItem" ToRole="TrackType" />
     <NavigationProperty Name="TrackType2" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType2" FromRole="DoorItem" ToRole="TrackType" />
+    <Property Name="BugStrip" Type="Int32" />
   </EntityType>
   <Association Name="FK_DoorItems_ColorType">
     <End Type="JustDoorsAndScreensModel.ColorType" Role="ColorType" Multiplicity="0..1" />
@@ -263,12 +264,57 @@
     <Property Name="FlyScreenTypeID" Type="Int32" />
     <Property Name="Width" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Depth" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="Qty" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Qty" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
     <NavigationProperty Name="FlysScreenType" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_FlysScreenType" FromRole="FlyScreenItem" ToRole="FlysScreenType" />
     <NavigationProperty Name="Quote" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_Quote" FromRole="FlyScreenItem" ToRole="Quote" />
     <Property Name="ColorTypeID" Type="Int32" />
     <NavigationProperty Name="ColorType" Relationship="JustDoorsAndScreensModel.FK_FlyScreenItem_ColorType" FromRole="FlyScreenItem" ToRole="ColorType" />
+    <Property Name="W1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q1" Type="Int32" />
+    <Property Name="W2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q2" Type="Int32" />
+    <Property Name="W3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q3" Type="Int32" />
+    <Property Name="W4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q4" Type="Int32" />
+    <Property Name="W5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q5" Type="Int32" />
+    <Property Name="W6" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D6" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q6" Type="Int32" />
+    <Property Name="W7" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D7" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q7" Type="Int32" />
+    <Property Name="W8" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D8" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q8" Type="Int32" />
+    <Property Name="W9" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D9" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q9" Type="Int32" />
+    <Property Name="W10" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D10" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q10" Type="Int32" />
+    <Property Name="W11" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D11" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q11" Type="Int32" />
+    <Property Name="W12" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D12" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q12" Type="Int32" />
+    <Property Name="W13" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D13" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q13" Type="Int32" />
+    <Property Name="W14" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D14" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q14" Type="Int32" />
+    <Property Name="W15" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D15" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q15" Type="Int32" />
   </EntityType>
   <Association Name="FK_FlyScreenItem_FlysScreenType">
     <End Type="JustDoorsAndScreensModel.FlysScreenType" Role="FlysScreenType" Multiplicity="0..1" />
@@ -303,9 +349,55 @@
     <Property Name="FlyScreenName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Width" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Depth" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="Qty" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Qty" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="ColorTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalCost" Type="Decimal" Precision="37" Scale="4" />
+    <Property Name="W1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q1" Type="Int32" />
+    <Property Name="W2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q2" Type="Int32" />
+    <Property Name="W3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q3" Type="Int32" />
+    <Property Name="W4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D4" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q4" Type="Int32" />
+    <Property Name="W5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D5" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q5" Type="Int32" />
+    <Property Name="W6" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D6" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q6" Type="Int32" />
+    <Property Name="W7" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D7" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q7" Type="Int32" />
+    <Property Name="W8" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D8" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q8" Type="Int32" />
+    <Property Name="W9" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D9" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q9" Type="Int32" />
+    <Property Name="W10" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D10" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q10" Type="Int32" />
+    <Property Name="W11" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D11" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q11" Type="Int32" />
+    <Property Name="W12" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D12" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q12" Type="Int32" />
+    <Property Name="W13" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D13" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q13" Type="Int32" />
+    <Property Name="W14" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D14" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q14" Type="Int32" />
+    <Property Name="W15" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="D15" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Q15" Type="Int32" />
   </EntityType>
   <Association Name="FK_FlyScreenItem_ColorType">
     <End Type="JustDoorsAndScreensModel.ColorType" Role="ColorType" Multiplicity="0..1" />
@@ -446,5 +538,6 @@
     <Property Name="F" Type="Int32" />
     <Property Name="Z" Type="Int32" />
     <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BugStrip" Type="Int32" />
   </EntityType>
 </Schema>
