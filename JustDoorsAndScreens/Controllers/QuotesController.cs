@@ -161,7 +161,7 @@ namespace JustDoorsAndScreens.Controllers
                 itm.Width1 = item.Width1;
                 itm.Width2 = item.Width2;
                 itm.Width3 = item.Width3;
-                itm.SliderTopTrackTypeName = item.SliderBottomTrackTypeName;
+                itm.SliderTopTrackTypeName = item.SliderTopTrackTypeName;
                 itm.SliderBottomTrackTypeName = item.SliderBottomTrackTypeName;
                 itm.SliderSideChannelTypeName = item.SliderSideChannelTypeName;
                 itm.F = item.F;
