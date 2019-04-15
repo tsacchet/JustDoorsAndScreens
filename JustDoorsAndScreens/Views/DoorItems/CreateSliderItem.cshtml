@@ -69,7 +69,7 @@
                 <hr class="bg-dark" />
 
                 <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.DoorTypeID, "DoorTypeID", htmlAttributes: new { @class = "control-label" })</strong>
+                    <strong>Door</strong>
 
                     @Html.DropDownList("DoorTypeID", null, htmlAttributes: new { @class = "form-control", @id = "DoorType", @onchange = "ChangeDoorType();" })
                     @Html.ValidationMessageFor(model => model.DoorTypeID, "", new { @class = "text-danger" })
@@ -77,21 +77,21 @@
                 </div>
 
                 <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.DesignTypeID, "DesignTypeID", htmlAttributes: new { @class = "control-label" })</strong>
+                    <strong>Design</strong>
 
                     @Html.DropDownList("DesignTypeID", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.DesignTypeID, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.ColorTypeID, "ColorTypeID", htmlAttributes: new { @class = "control-label" })</strong>
+                    <strong>Colour</strong>
 
                     @Html.DropDownList("ColorTypeID", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.ColorTypeID, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.LockTypeID, "LockTypeID", htmlAttributes: new { @class = "control-label" })</strong>
+                    <strong>Lock</strong>
 
                     @Html.DropDownList("LockTypeID", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.LockTypeID, "", new { @class = "text-danger" })
@@ -142,17 +142,17 @@
 
             <div class="col-sm-2">
 
-                <h5>Sliders Stuff</h5>
+                <h5>Sliders Track</h5>
                 <hr class="bg-dark" />
 
                 <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.SliderTopTrackType, "SliderTopTrackType", htmlAttributes: new { @class = "control-label" })</strong>
+                    <strong>Slider Top Track</strong>
                     @Html.DropDownList("SliderTopTrackType", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.SliderTopTrackType, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.SliderTopTrackWidth, htmlAttributes: new { @class = "control-label" })</strong>
+                    <strong>Length</strong>
 
                     @Html.EditorFor(model => model.SliderTopTrackWidth, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.SliderTopTrackWidth, "", new { @class = "text-danger" })
@@ -162,13 +162,13 @@
 
 
                 <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.SliderBottomTrackType, "SliderBottomTrackType", htmlAttributes: new { @class = "control-label" })</strong>
+                    <strong>Slider Bottom Track</strong>
                     @Html.DropDownList("SliderBottomTrackType", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.SliderBottomTrackType, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.SliderBottomTrackWidth, htmlAttributes: new { @class = "control-label" })</strong>
+                    <strong>Length</strong>
 
                     @Html.EditorFor(model => model.SliderBottomTrackWidth, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.SliderBottomTrackWidth, "", new { @class = "text-danger" })
@@ -178,13 +178,13 @@
 
 
                 <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.SliderSideChannelType, "SliderSideChannelType", htmlAttributes: new { @class = "control-label" })</strong>
+                    <strong>Slider Side Channel</strong>
                     @Html.DropDownList("SliderSideChannelType", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.SliderSideChannelType, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group">
-                    <strong>@Html.LabelFor(model => model.SliderSideChannelWidth, htmlAttributes: new { @class = "control-label" })</strong>
+                    <strong>Length</strong>
 
                     @Html.EditorFor(model => model.SliderSideChannelWidth, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.SliderSideChannelWidth, "", new { @class = "text-danger" })
@@ -194,17 +194,17 @@
             </div>
 
             <div class="col-sm-2">
-                <h5>Sliders Stuff</h5>
+                <h5>Sliders Track</h5>
                 <hr class="bg-dark" />
 
 
-                <div class="form-group">
+                @*<div class="form-group">
                     <strong>@Html.LabelFor(model => model.SliderBugStrip, htmlAttributes: new { @class = "control-label" })</strong>
                     <div class="checkbox">
                         @Html.EditorFor(model => model.SliderBugStrip)
                         @Html.ValidationMessageFor(model => model.SliderBugStrip, "", new { @class = "text-danger" })
                     </div>
-                </div>
+                </div>*@
 
 
                 <div class="form-group">

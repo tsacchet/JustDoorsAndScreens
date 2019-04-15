@@ -263,7 +263,7 @@
                         <th>Colour</th>
                         <th>Lock</th>
                         <th>Height</th>
-                        <th>Widths</th>
+                        <th>Tracks</th>
                         <th>Pic</th>
                         <th>Description</th>
                         <th>Cost</th>
@@ -275,7 +275,7 @@
                     {
                         //string picture = @Html.Raw(str.DoorTypeName) + ".PNG";
                         string picture = @Request.Url.Scheme + "://" + @Request.Url.Host + ":" + @Request.Url.Port + "/" + @Request.ApplicationPath + "/images/" + @Html.Raw(str.DoorTypeName) + ".PNG";
-                        <tr> <td><br />@Html.Raw(str.DesignTypeName)</td> <td><br />@Html.Raw(str.ColorTypeName)</td>  <td> <br /><br /><br /><br /><br /><br /><br /> <strong>Lock Type : </strong>@Html.Raw(str.LockTypeName) <br /><br /><strong>Lock Height : </strong>@Html.Raw(str.LockHeight)</td>  <td><br /><strong>Height : </strong>@Html.Raw(str.Height) </td> <td><br /><br /><br /><strong>Width : </strong>@Html.Raw(str.Width1)  <br /> <hr /> <strong>Top Track Type : </strong>@Html.Raw(str.SliderTopTrackTypeName)  <br /><br /> <strong>Top Track Width : </strong>@Html.Raw(str.SliderTopTrackWidth)  <br /><hr /> <strong>Bottom Track Type : </strong>@Html.Raw(str.SliderBottomTrackTypeName)  <br /><br /> <strong>Bottom Track Width : </strong>@Html.Raw(str.SliderBottomTrackWidth)  <br /><hr /> <strong>Side Channel Track Type : </strong>@Html.Raw(str.SliderSideChannelTypeName)    <br /><br /> <strong>Side Channel Width : </strong>@Html.Raw(str.SliderSideChannelWidth)   <hr /><strong>Fs </strong>@Html.Raw(str.F) <hr /><strong>Zs </strong>@Html.Raw(str.Z) <hr /><strong>BugStrip </strong>@Html.Raw(str.BugStrip)</td>     <td> <h5>@Html.Raw(str.DoorTypeName)</h5>  <img src='@picture' /></td> <td><br />@Html.Raw(str.Description)</td> <td><br />@Html.Raw(str.Cost)</td> </tr>
+                        <tr> <td><br />@Html.Raw(str.DesignTypeName)</td> <td><br />@Html.Raw(str.ColorTypeName)</td>  <td> <br /><br /><br /><br /><br /><br /><br /> <strong>Lock Type : </strong>@Html.Raw(str.LockTypeName) <br /><br /><strong>Lock Height : </strong>@Html.Raw(str.LockHeight)</td>  <td><br /><strong>Height : </strong>@Html.Raw(str.Height) </td> <td><br /><br /><br /><strong>Top Track : </strong>@Html.Raw(str.SliderTopTrackTypeName)  <br /><br /> <strong>Top Track Width : </strong>@Html.Raw(str.SliderTopTrackWidth)  <br /><hr /> <strong>Bottom Track : </strong>@Html.Raw(str.SliderBottomTrackTypeName)  <br /><br /> <strong>Bottom Track Width : </strong>@Html.Raw(str.SliderBottomTrackWidth)  <br /><hr /> <strong>Side Channel Track : </strong>@Html.Raw(str.SliderSideChannelTypeName)    <br /><br /> <strong>Side Channel Width : </strong>@Html.Raw(str.SliderSideChannelWidth)   <hr /><strong>Fs </strong>@Html.Raw(str.F) <hr /><strong>Zs </strong>@Html.Raw(str.Z) <hr /><strong>BugStrip </strong>@Html.Raw(str.BugStrip)</td>     <td> <h5>@Html.Raw(str.DoorTypeName)</h5>  <img src='@picture' /> <hr /><strong>Width : </strong>@Html.Raw(str.Width1)  <br /> </td> <td><br />@Html.Raw(str.Description)</td> <td><br />@Html.Raw(str.Cost)</td> </tr>
                     }
 
                 </tbody>

@@ -1,0 +1,90 @@
+﻿@model JustDoorsAndScreens.Supplier
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card border border-dark shadow">
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Detail Suppliers</strong></h4>
+    </div>
+    <div class="card-body">
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierABN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierABN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierContact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierContact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierContactAndNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierContactAndNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierBankAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierBankAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierComments)
+        </dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.SupplierID }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>

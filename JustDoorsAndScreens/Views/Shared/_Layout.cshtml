@@ -29,38 +29,61 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav mr-auto">
                     @*<li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>*@
+        <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
+        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>*@
 
                     @*<li class="nav-item">@Html.ActionLink("Stages", "Index", "StagesTypes", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("Locks", "Index", "LockTypes", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("FlyScreenTypes", "Index", "FlysScreenTypes", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("DoorTypes", "Index", "DoorTypes", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("DesignTypes", "Index", "DesignTypes", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("ColourTypes", "Index", "ColorTypes", null, new { @class = "nav-link" })</li>*@
+        <li class="nav-item">@Html.ActionLink("Locks", "Index", "LockTypes", null, new { @class = "nav-link" })</li>
+        <li class="nav-item">@Html.ActionLink("FlyScreenTypes", "Index", "FlysScreenTypes", null, new { @class = "nav-link" })</li>
+        <li class="nav-item">@Html.ActionLink("DoorTypes", "Index", "DoorTypes", null, new { @class = "nav-link" })</li>
+        <li class="nav-item">@Html.ActionLink("DesignTypes", "Index", "DesignTypes", null, new { @class = "nav-link" })</li>
+        <li class="nav-item">@Html.ActionLink("ColourTypes", "Index", "ColorTypes", null, new { @class = "nav-link" })</li>*@
 
                     <li class="nav-item">@Html.ActionLink("Quote", "Index", "Quotes", null, new { @class = "nav-link" })</li>
                     @*<li class="nav-item">@Html.ActionLink("DoorItem", "Index", "DoorItems", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("FlyScreenItem", "Index", "FlyScreenItems", null, new { @class = "nav-link" })</li>*@
+        <li class="nav-item">@Html.ActionLink("FlyScreenItem", "Index", "FlyScreenItems", null, new { @class = "nav-link" })</li>*@
 
-                    <!-- Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            Settings
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="@Url.Action("Index", "DesignTypes")">Design Type</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "LockTypes")">Lock Type</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "DoorTypes")">Door Type</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "FlysScreenTypes")">FlyScreen Type</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "ColorTypes")">Colour Type</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "TrackTypes")">Track Type</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "HingeTypes")">Hinge Type</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", "StagesTypes")">Stage</a>
-                        </div>
-                    </li>
+                    @if (Session["Role"] != null)
+                    {
+                        if (@HttpContext.Current.Session["Role"].ToString() == "Administrator")
+                        {
+                            <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Settings
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="@Url.Action("Index", "DesignTypes")">Design Type</a>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "LockTypes")">Lock Type</a>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "DoorTypes")">Door Type</a>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "FlysScreenTypes")">FlyScreen Type</a>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "ColorTypes")">Colour Type</a>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "TrackTypes")">Track Type</a>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "HingeTypes")">Hinge Type</a>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "StagesTypes")">Stage</a>
+                                </div>
+                            </li>
 
+                            <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Users
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="@Url.Action("Index", "Users")">Users</a>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "Roles")">Roles</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">@Html.ActionLink("Suppliers", "Index", "Suppliers", null, new { @class = "nav-link" })</li>
+                        }
+                    }
+                    </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">@Html.ActionLink("Logout", "Logout", "Users", null, new { @class = "nav-link" })</li>
                 </ul>
+
             </div>
         </div>
     </nav>

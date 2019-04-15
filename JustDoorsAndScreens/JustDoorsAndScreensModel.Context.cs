@@ -40,5 +40,8 @@ namespace JustDoorsAndScreens
         public virtual DbSet<TrackType> TrackTypes { get; set; }
         public virtual DbSet<HingeType> HingeTypes { get; set; }
         public virtual DbSet<vwDoorItem> vwDoorItems { get; set; }
+        public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

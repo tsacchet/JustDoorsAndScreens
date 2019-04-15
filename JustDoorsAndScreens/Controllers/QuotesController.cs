@@ -270,23 +270,7 @@ namespace JustDoorsAndScreens.Controllers
         }
 
 
-        public ActionResult SendSMS(int QuoteID, string MobileNo)
-        {
-            //var client = new Client(creds: new Nexmo.Api.Request.Credentials
-            //{
-            //    ApiKey = "e4a62e38",
-            //    ApiSecret = "pUtvKbdA7R096lUP"
-            //});
-            //var results = client.SMS.Send(request: new SMS.SMSRequest
-            //{
-            //    from = "JustDoorsAndScreens",
-            //    //to = "61412437060",
-            //    to = MobileNo,
-            //    text = "Hello from JustDoorsAndScreens"
-            //});
 
-            return Json(new { data = "SMS Sent" }, JsonRequestBehavior.AllowGet);
-        }
 
         //********************************************************************************************
         // 
@@ -306,8 +290,26 @@ namespace JustDoorsAndScreens.Controllers
             return RedirectToAction("QuoteDetails/" + id);
         }
 
+        //********************************************************************************************
+        // 
+        //********************************************************************************************
+        public ActionResult SendEmailToSupp(int QuoteID, string email)
+        {
+            SaveSuppPDF(QuoteID);
+
+            SendSuppEmail(email, QuoteID);
+
+            //var quote = db.vwQuoteReports.Where(t => t.QuoteID == id);
+
+            //Redirect("QuoteDetails/" + id);
+
+            return RedirectToAction("QuoteDetails/" + QuoteID);
+        }
 
 
+        //********************************************************************************************
+        // 
+        //********************************************************************************************
         public ActionResult PrintPDF(int id)
         {
             // read parameters from the webpage
@@ -352,7 +354,37 @@ namespace JustDoorsAndScreens.Controllers
                 var fullPath = fileloc + filename;
 
                 SelectPdf.HtmlToPdf converter = new SelectPdf.HtmlToPdf();
-                string url = Request.Url.Authority + Request.ApplicationPath + "/Quotes/QuoteDetailsPDF/" + id;
+                string url = Request.Url.Authority + Request.ApplicationPath + "/Quotes/QuoteDetailsCustPDF/" + id;
+                converter.Options.PdfPageSize = SelectPdf.PdfPageSize.A4;
+                converter.Options.PdfPageOrientation = SelectPdf.PdfPageOrientation.Portrait;
+
+                SelectPdf.PdfDocument doc = converter.ConvertUrl(url);
+
+                doc.Save(fullPath);
+                doc.Close();
+
+            }
+            catch (Exception ex)
+            {
+                //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+            }
+
+        }
+
+        //********************************************************************************************
+        // Save PDF
+        //********************************************************************************************
+        private void SaveSuppPDF(int id)
+        {
+            try
+            {
+                var tempFilesFolder = Server.MapPath(ConfigurationManager.AppSettings["TempFilesRoot"]);
+                var filename = id + "_Quote.pdf";
+                var fileloc = tempFilesFolder + "\\";
+                var fullPath = fileloc + filename;
+
+                SelectPdf.HtmlToPdf converter = new SelectPdf.HtmlToPdf();
+                string url = Request.Url.Authority + Request.ApplicationPath + "/Quotes/QuoteDetailsSuppPDF/" + id;
                 converter.Options.PdfPageSize = SelectPdf.PdfPageSize.A4;
                 converter.Options.PdfPageOrientation = SelectPdf.PdfPageOrientation.Portrait;
 
@@ -427,10 +459,150 @@ namespace JustDoorsAndScreens.Controllers
             }
         }
 
+
+        //********************************************************************************************
+        // Send Email
+        //********************************************************************************************
+        private void SendSuppEmail(string ToEmail, int QuoteID)
+        {
+            try
+            {
+                var EmailFrom = ConfigurationManager.AppSettings["FromEmail"];
+                var SupplierName = db.Suppliers.Where(t => t.SupplierEmail == ToEmail).Select(t => t.SupplierName).First();
+                string Status = db.vwQuoteReports.Where(t => t.QuoteID == QuoteID).Select(t => t.Stage).First();
+                var FilesFolder = Server.MapPath(ConfigurationManager.AppSettings["TempFilesRoot"]);
+
+                //string img = "~/images/JustDoorsAndScreenTitle.PNG";
+
+                using (MailMessage mm = new MailMessage(EmailFrom, ToEmail))
+                {
+                    mm.Subject = " JustDoorsAndScreens : " + QuoteID;
+                    string body = "Hello " + SupplierName + ",<br />";
+                    body += "<br /> Please find attached work order. ";
+                    body += "<br />";
+                    body += "<br /><br /><strong>Thank you</strong>";
+                    body += "<br /><h3><strong>JustDoorsAndScreens </strong></h3>";
+                    mm.Body = body.Replace('*', '"');
+                    mm.IsBodyHtml = true;
+
+                    // Get All Attachments
+                    try
+                    {
+                        string qpdf = FilesFolder + "\\" + QuoteID + "_Quote.pdf";
+                        if (System.IO.File.Exists(qpdf))
+                        {
+                            var pdf = new Attachment(FilesFolder + "\\" + QuoteID + "_Quote.pdf");
+                            mm.Attachments.Add(pdf);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        //throw new Exception("Email Class unable to add Attachments.", ex);
+                        //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+                    }
+
+                    // Send Mail
+                    using (var smtp = new SmtpClient())
+                    {
+                        smtp.Send(mm);
+                        Console.Write("Mail Sent: Email sent Sucessfully: Function Mail() :");
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+            }
+        }
+
+
+        //********************************************************************************************
+        // Get Suppliers: name and email
+        //********************************************************************************************
+        public ActionResult GetSuppliers()
+        {
+
+            var quotes = db.Suppliers.Select(x => new
+            {
+                x.SupplierName,
+                x.SupplierEmail
+            });
+
+            return Json(new { data = quotes.ToList() }, JsonRequestBehavior.AllowGet);
+        }
+
+
+
         //********************************************************************************************
         // Display Quote PDF
         //********************************************************************************************
         public ActionResult QuoteDetailsPDF(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            vwQuoteReport quote = db.vwQuoteReports.Find(id);
+
+            if (quote == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            var doors = db.vwDoorItems.Where(t => t.QuoteID == id && t.DoorTypeName.ToUpper().Contains("DOOR")).ToList();
+            ViewBag.Doors = doors;
+            ViewBag.DoorsCnt = doors.Count();
+
+            var sliders = db.vwDoorItems.Where(t => t.QuoteID == id && t.DoorTypeName.ToUpper().Contains("SLIDER")).ToList();
+            ViewBag.Sliders = sliders;
+            ViewBag.SlidersCnt = sliders.Count();
+
+            var flyscreens = db.vwFlyScreenItems.Where(t => t.QuoteID == id).ToList();
+            ViewBag.FlyScreen = flyscreens;
+            ViewBag.FlyScreenCnt = flyscreens.Count();
+
+            return View(quote);
+        }
+
+        //********************************************************************************************
+        // Display Quote PDF
+        //********************************************************************************************
+        public ActionResult QuoteDetailsCustPDF(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            vwQuoteReport quote = db.vwQuoteReports.Find(id);
+
+            if (quote == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            var doors = db.vwDoorItems.Where(t => t.QuoteID == id && t.DoorTypeName.ToUpper().Contains("DOOR")).ToList();
+            ViewBag.Doors = doors;
+            ViewBag.DoorsCnt = doors.Count();
+
+            var sliders = db.vwDoorItems.Where(t => t.QuoteID == id && t.DoorTypeName.ToUpper().Contains("SLIDER")).ToList();
+            ViewBag.Sliders = sliders;
+            ViewBag.SlidersCnt = sliders.Count();
+
+            var flyscreens = db.vwFlyScreenItems.Where(t => t.QuoteID == id).ToList();
+            ViewBag.FlyScreen = flyscreens;
+            ViewBag.FlyScreenCnt = flyscreens.Count();
+
+            return View(quote);
+        }
+
+        //********************************************************************************************
+        // Display Quote PDF
+        //********************************************************************************************
+        public ActionResult QuoteDetailsSuppPDF(int? id)
         {
             if (id == null)
             {

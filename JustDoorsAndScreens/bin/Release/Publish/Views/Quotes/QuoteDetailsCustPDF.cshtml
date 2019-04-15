@@ -1,0 +1,378 @@
+﻿@model JustDoorsAndScreens.vwQuoteReport
+
+@{
+    ViewBag.Title = "QuoteDetailsCustPDF";
+
+    Layout = "~/Views//Shared/_LayoutPrint.cshtml";
+}
+
+@*<style>
+        .table th {
+            background-color: black;
+            color: blue
+        }
+    </style>*@
+
+<STYLE TYPE='text/css'>
+
+    table {
+        page-break-inside: auto
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto
+    }
+
+    thead {
+        display: table-header-group
+    }
+
+    tfoot {
+        display: table-footer-group
+    }
+
+    P.pagebreakbefore {
+        page-break-before: always
+    }
+
+    P.pagebreakafter {
+        page-break-after: always
+    }
+
+    table.table-bordered {
+        border: 1px solid black;
+        margin-top: 20px;
+    }
+
+        table.table-bordered > thead > tr > th {
+            border: 1px solid black;
+        }
+
+        table.table-bordered > tbody > tr > td {
+            border: 1px solid black;
+        }
+</STYLE>
+
+
+<table class="table table-borderless table-sm">
+    <thead>
+        <tr>
+            <th> </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img class="img-fluid" src="~/images/JustDoorsAndScreens.PNG" /></td>
+            <td><br /><h3><strong class="text-danger">@Html.DisplayFor(model => model.QuoteID)</strong></h3></td>
+        </tr>
+    </tbody>
+</table>
+
+
+@*<hr class="bg-dark" />*@
+
+
+
+<div class="card border-dark bg-light">
+
+    <div class="card-body">
+        <table class="table table-borderless table-sm">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <h6>
+                            <strong>Quote ID : </strong>
+                            <strong class="text-danger">@Html.DisplayFor(model => model.QuoteID)</strong>
+                        </h6>
+                    </td>
+                    <td>
+                        <h6>
+                            <strong>Customer : </strong>
+                            <strong class="text-dark">@Html.DisplayFor(model => model.Customer)</strong>
+                        </h6>
+                    </td>
+                    <td>
+                        <h6>
+                            @{string dt = Model.Date.ToString();}
+                            <strong>Quote Date : </strong>
+                            <strong class="text-dark">@dt.Substring(0, 10)   </strong>
+                        </h6>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h6>
+                            <strong>Telephone : </strong>
+                            <strong class="text-dark">@Html.DisplayFor(model => model.Telephone)</strong>
+                        </h6>
+                    </td>
+                    <td>
+                        <h6>
+                            <strong>Mobile : </strong>
+                            <strong class="text-dark">@Html.DisplayFor(model => model.Mobile)</strong>
+                        </h6>
+                    </td>
+                    <td>
+                        <h6>
+                            <strong>Email : </strong>
+                            <strong class="text-dark">@Html.DisplayFor(model => model.Email)</strong>
+                        </h6>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h6>
+                            <strong>Stage : </strong>
+                            <strong class="text-primary">@Html.DisplayFor(model => model.Stage)</strong>
+                        </h6>
+                    </td>
+                    <td>
+                        <h6>
+                            <strong>Address : </strong>
+                            <strong class="text-dark">@Html.DisplayFor(model => model.Address)</strong>
+                        </h6>
+                    </td>
+                    <td>
+                        <h6>
+                            @{var paid = Model.Paid;}
+                            <strong>Paid : </strong>
+                            @if (paid == true)
+                            {
+                                <strong class="text-dark">Yes</strong>
+                            }
+                            else
+                            {
+                                <strong class="text-dark">No</strong>
+                            }
+                        </h6>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+@*<hr class="bg-dark" />*@
+
+@if (ViewBag.DoorsCnt > 0)
+{
+    @*<P CLASS="pagebreakhere" />*@
+
+    <div id="DoorItems">
+        <div class="table-responsive">
+            <h5><strong>Door Items</strong></h5>
+            <table class="table table-bordered table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Design</th>
+                        <th>Colour</th>
+                        <th>Lock/Hinge</th>
+                        @*<th>Height</th>*@
+                        @*<th>Widths</th>*@
+                        <th>Pic</th>
+                        <th>Description</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var str in ViewBag.Doors)
+                    {
+                        string picture = @Request.Url.Scheme + "://"+ @Request.Url.Host + ":" + @Request.Url.Port +"/"+ @Request.ApplicationPath + "/images/" +@Html.Raw(str.DoorTypeName) + ".PNG";
+                        <tr class="border-dark"> <td><br />@Html.Raw(str.DesignTypeName)</td> <td><br />@Html.Raw(str.ColorTypeName)</td>  <td> <br /><br /><br /><br /><br /><br /><br /> <strong>Lock Type : </strong>@Html.Raw(str.LockTypeName) <br /><br /> <strong>Hinge Type : </strong>@Html.Raw(str.HingeTypeName)</td>          <td> <h6>@Html.Raw(str.DoorTypeName)</h6>  <img src='@picture' />  </td> <td>@Html.Raw(str.Description)</td> <td><br />@Html.Raw(str.Cost)</td> </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @*<P CLASS="pagebreakhere" />*@
+
+        @*<div id="DoorItems">
+            <div class="table-responsive">
+                <h5><strong>Door Items</strong></h5>
+
+                @{int count = 1;}
+                @foreach (var str in ViewBag.Doors)
+                {
+                    <table class="table table-bordered table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Design</th>
+                                <th>Colour</th>
+                                <th>Lock</th>
+                                <th>Height</th>
+                                <th>Widths</th>
+                                <th>Pic</th>
+                                <th>Description</th>
+                                <th>Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{string picture = @Html.Raw(str.DoorTypeName) + ".PNG";}
+                            <tr class="border-dark"> <td><br />@Html.Raw(str.DesignTypeName)</td> <td><br />@Html.Raw(str.ColorTypeName)</td>  <td> <br /><br /><br /><br /><br /><br /><br /> <strong>Lock Type : </strong>@Html.Raw(str.LockTypeName) <br /><br /><strong>Lock Height : </strong>@Html.Raw(str.LockHeight)</td>  <td><br /><strong>Height : </strong>@Html.Raw(str.Height)   <br /><br /><br />     </td> <td> <br /><strong>Hinge Type : </strong>@Html.Raw(str.HingeTypeName)<br /><br /><strong>Top : </strong>@Html.Raw(str.Width1) <br /><br /><br /><br /><br /><strong>Middle : </strong>@Html.Raw(str.Width2) <br /><br /><br /><br /><br /><strong>Bottom : </strong>@Html.Raw(str.Width3) </td> <td> <h6>@Html.Raw(str.DoorTypeName)</h6>  <img src='/images/@picture' />  </td> <td>@Html.Raw(str.Description)</td> <td><br />@Html.Raw(str.Cost)</td> </tr>
+                        </tbody>
+                    </table>
+
+                    if ((count % 2) == 0)
+                    {
+                        <P CLASS="pagebreakbefore" />
+                        <h5><strong>Door Items</strong></h5>
+                        
+                    }
+
+                    count++;
+                }
+
+
+            </div>
+        </div>*@
+
+
+}
+
+@if (ViewBag.SlidersCnt > 0)
+{
+
+    <P CLASS="pagebreakafter" />
+
+    <div id="SliderItems">
+        <div class="table-responsive">
+            <h4><strong>Slider Items</strong></h4>
+            @*<p>Items selected the qty and the cost of each.</p>*@
+            <table class="table table-bordered table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Design</th>
+                        <th>Colour</th>
+                        <th>Lock</th>
+                        @*<th>Height</th>*@
+                        @*<th>Tracks</th>*@
+                        <th>Pic</th>
+                        <th>Description</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var str in ViewBag.Sliders)
+                    {
+                        //string picture = @Html.Raw(str.DoorTypeName) + ".PNG";
+                        string picture = @Request.Url.Scheme + "://" + @Request.Url.Host + ":" + @Request.Url.Port + "/" + @Request.ApplicationPath + "/images/" + @Html.Raw(str.DoorTypeName) + ".PNG";
+                        <tr> <td><br />@Html.Raw(str.DesignTypeName)</td> <td><br />@Html.Raw(str.ColorTypeName)</td>  <td> <br /><br /><br /><br /><br /><br /><br /> <strong>Lock Type : </strong>@Html.Raw(str.LockTypeName) <br /><br />@*<strong>Lock Height : </strong>@Html.Raw(str.LockHeight)*@</td>  @*<td><br /><strong>Height : </strong>@Html.Raw(str.Height) </td>*@ @*<td><br /><br /><br /><strong>Top Track : </strong>@Html.Raw(str.SliderTopTrackTypeName)  <br /><br /> <strong>Top Track Width : </strong>@Html.Raw(str.SliderTopTrackWidth)  <br /><hr /> <strong>Bottom Track : </strong>@Html.Raw(str.SliderBottomTrackTypeName)  <br /><br /> <strong>Bottom Track Width : </strong>@Html.Raw(str.SliderBottomTrackWidth)  <br /><hr /> <strong>Side Channel Track : </strong>@Html.Raw(str.SliderSideChannelTypeName)    <br /><br /> <strong>Side Channel Width : </strong>@Html.Raw(str.SliderSideChannelWidth)   <hr /><strong>Fs </strong>@Html.Raw(str.F) <hr /><strong>Zs </strong>@Html.Raw(str.Z) <hr /><strong>BugStrip </strong>@Html.Raw(str.BugStrip)</td>*@     <td> <h5>@Html.Raw(str.DoorTypeName)</h5>  <img src='@picture' /> @*<hr /><strong>Width : </strong>@Html.Raw(str.Width1)  <br />*@ </td> <td><br />@Html.Raw(str.Description)</td> <td><br />@Html.Raw(str.Cost)</td> </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+}
+
+@if (ViewBag.FlyScreenCnt > 0)
+{
+    <P CLASS="pagebreakafter" />
+
+    <div id="FlyScreenItems">
+        <div class="table-responsive">
+            <h4><strong>FlyScreen Item</strong></h4>
+            @*<p>Items selected the qty and the cost of each.</p>*@
+            <table class="table table-bordered table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Colour</th>
+                        @*<th>Width</th>*@
+                        @*<th>Depth</th>*@
+                        @*<th>Qty</th>*@
+                        <th>Pic</th>
+                        <th>Qty</th>
+                        <th>Cost PerItem</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var str in ViewBag.FlyScreen)
+                    {
+                        //var picture = @Html.Raw(str.FlyScreenName) + ".PNG";
+                        string picture = @Request.Url.Scheme + "://" + @Request.Url.Host + ":" + @Request.Url.Port + "/" + @Request.ApplicationPath + "/images/" + @Html.Raw(str.FlyScreenName) + ".PNG";
+                    <tr>   <td><br />@Html.Raw(str.ColorTypeName)</td>     <td><h5>@Html.Raw(str.FlyScreenName)</h5><img src='@picture' /></td>  <td><br />@Html.Raw(str.Qty)</td>      <td><br />@Html.Raw(str.Cost)</td>   <td><br />@Html.Raw(str.Cost * str.Qty)</td> </tr>
+                    }
+
+                    @*<tr> <td></td> <td> </td> <td> </td> <td><strong>@Model.Cost.ToString("C2")</strong>  </td> </tr>*@
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+<hr class="bg-dark" />
+
+
+<div class="table-responsive">
+    <table class="table table-borderless table-sm">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img class="img-fluid" src="~/images/JustDoorsAndScreenFooter.PNG" /></td>
+
+                <td>
+                    <h6>
+                        <label class="control-label col-md-7">TOTAL PRICE inc GST : </label>
+                        <strong class="text-dark col-md-5">@Html.DisplayFor(model => model.TotalCost)</strong>
+                    </h6>
+                    <h6>
+                        <label class="control-label col-md-7">DEPOSIT : </label>
+                        <strong class="text-dark col-md-5">@Html.DisplayFor(model => model.Deposit)</strong>
+                    </h6>
+
+                    <h6>
+                        <hr class="bg-dark" />
+                        <label class="control-label col-md-7"><strong>BALANCE OWING : </strong></label>
+                        <strong class="text-dark col-md-5">@Html.DisplayFor(model => model.Balance)</strong>
+                    </h6>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+
+<hr class="bg-dark" />
+
+<div class="clearfix">
+    <span class="float-left">.</span>
+    <span class="float-right">.</span>
+</div>
+
+@*<img class="img-fluid" src="~/images/JustDoorsAndScreenFooter.PNG" />*@
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.QuoteID }) |*@
+    @*@Html.ActionLink("Back to List", "Index")*@
+    @Html.ActionLink("Back Details", "QuoteDetails", "Quotes", new { id = Model.QuoteID }, new { @class = "btn btn-secondary" })
+</p>
+
+
+

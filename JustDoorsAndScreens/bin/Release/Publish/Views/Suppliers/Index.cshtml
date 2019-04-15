@@ -1,0 +1,95 @@
+﻿@model IEnumerable<JustDoorsAndScreens.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="card border border-dark shadow">
+
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Suppliers List</strong></h4>
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-sm table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierABN)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierAddress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierPhoneNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierContact)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierContactAndNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierEmail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierBankAccount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierComments)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierABN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierPhoneNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierContact)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierContactAndNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierEmail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierBankAccount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierComments)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.SupplierID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.SupplierID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.SupplierID })
+                            </td>
+                        </tr>
+                    }
+
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    </div>
+
+</div>

@@ -33,6 +33,10 @@
         <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_SliderType1" />
         <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_SliderType2" />
         <EntityTypeShape EntityType="JustDoorsAndScreensModel.vwDoorItem" Width="2" PointX="12.875" PointY="6.625" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.Supplier" Width="1.875" PointX="10" PointY="12.875" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.Role" Width="1.5" PointX="15.375" PointY="1.375" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.User" Width="1.5" PointX="17.625" PointY="1" />
+        <AssociationConnector Association="JustDoorsAndScreensModel.FK_Users_Roles" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

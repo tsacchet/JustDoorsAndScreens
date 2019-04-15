@@ -500,8 +500,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LockTypesController.cs" />
     <Compile Include="Controllers\QuotesController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\StagesTypesController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Controllers\TrackTypesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DesignType.cs">
       <DependentUpon>JustDoorsAndScreensModel.tt</DependentUpon>
     </Compile>
@@ -545,10 +548,19 @@
     <Compile Include="Quote.cs">
       <DependentUpon>JustDoorsAndScreensModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>JustDoorsAndScreensModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="StagesType.cs">
       <DependentUpon>JustDoorsAndScreensModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>JustDoorsAndScreensModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TrackType.cs">
+      <DependentUpon>JustDoorsAndScreensModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
       <DependentUpon>JustDoorsAndScreensModel.tt</DependentUpon>
     </Compile>
     <Compile Include="vwDoorItem.cs">
@@ -1003,6 +1015,25 @@
     <Content Include="Views\DoorItems\CreateSliderItem.cshtml" />
     <Content Include="Views\DoorItems\DetailsSliderItem.cshtml" />
     <Content Include="Views\DoorItems\EditSliderItem.cshtml" />
+    <Content Include="Views\Quotes\QuoteDetailsCustPDF.cshtml" />
+    <Content Include="Views\Quotes\QuoteDetailsSuppPDF.cshtml" />
+    <Content Include="Views\Suppliers\Create.cshtml" />
+    <Content Include="Views\Suppliers\Delete.cshtml" />
+    <Content Include="Views\Suppliers\Details.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -461,7 +461,7 @@ C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Debug\Ju
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Debug\JustDoorsAndScreens.csproj.CopyComplete
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Debug\JustDoorsAndScreens.dll
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Debug\JustDoorsAndScreens.pdb
-C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Debug\JustDoorsAndScreens.csprojAssemblyReference.cache
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\bin\Select.Html.dep
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\bin\Select.HtmlToPdf.dll
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\bin\Select.HtmlToPdf.xml
+C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Debug\JustDoorsAndScreens.csprojAssemblyReference.cache

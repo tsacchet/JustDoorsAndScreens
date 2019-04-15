@@ -1,0 +1,66 @@
+﻿@model JustDoorsAndScreens.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card border border-dark shadow">
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>Detail User</strong></h4>
+    </div>
+    <div class="card-body">
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastLoginDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastLoginDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.RoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.RoleName)
+        </dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>

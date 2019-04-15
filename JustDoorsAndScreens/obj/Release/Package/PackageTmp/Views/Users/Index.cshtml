@@ -1,0 +1,77 @@
+﻿@model IEnumerable<JustDoorsAndScreens.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="card border border-dark shadow">
+
+    <div class="card-header bg-light border-dark">
+        <h4 class="text-dark"><strong>User List</strong></h4>
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-sm table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Username)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Password)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastLoginDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Role.RoleName)
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Username)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Password)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastLoginDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Role.RoleName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+                            </td>
+                        </tr>
+                    }
+
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    </div>
+
+
+</div>

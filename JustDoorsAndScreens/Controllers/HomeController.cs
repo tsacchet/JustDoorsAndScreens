@@ -11,7 +11,7 @@ namespace JustDoorsAndScreens.Controllers
         public ActionResult Index()
         {
             //return View();
-            return RedirectToAction("Index", "Quotes");
+            return RedirectToAction("Login", "Users");
         }
 
         public ActionResult About()

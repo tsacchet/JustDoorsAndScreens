@@ -1,0 +1,110 @@
+﻿@model JustDoorsAndScreens.Supplier
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@*<h2>Edit</h2>*@
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card border border-dark shadow">
+        <div class="card-header bg-light border-dark">
+            <h4 class="text-dark"><strong>Edit Suppliers</strong></h4>
+        </div>
+        <div class="card-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.SupplierID)
+
+            <div class="form-group">
+                <strong>@Html.LabelFor(model => model.SupplierName, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SupplierName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SupplierName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong>@Html.LabelFor(model => model.SupplierABN, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SupplierABN, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SupplierABN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong>@Html.LabelFor(model => model.SupplierAddress, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SupplierAddress, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SupplierAddress, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong>@Html.LabelFor(model => model.SupplierPhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SupplierPhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SupplierPhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong>@Html.LabelFor(model => model.SupplierContact, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SupplierContact, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SupplierContact, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong>@Html.LabelFor(model => model.SupplierContactAndNumber, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SupplierContactAndNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SupplierContactAndNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong>@Html.LabelFor(model => model.SupplierEmail, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SupplierEmail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SupplierEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong>@Html.LabelFor(model => model.SupplierBankAccount, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SupplierBankAccount, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SupplierBankAccount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong>@Html.LabelFor(model => model.SupplierComments, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SupplierComments, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SupplierComments, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
