@@ -514,6 +514,7 @@ namespace JustDoorsAndScreens.Controllers
             catch (Exception ex)
             {
                 //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+                Console.WriteLine("email: " + ex.Message);
             }
         }
 
