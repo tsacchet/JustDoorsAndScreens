@@ -61,10 +61,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/21/2017 19:57:54</publishTime>
     </File>
     <File Include="bin/JustDoorsAndScreens.dll">
-      <publishTime>04/22/2019 19:46:21</publishTime>
+      <publishTime>04/23/2019 22:30:48</publishTime>
     </File>
     <File Include="bin/JustDoorsAndScreens.pdb">
-      <publishTime>04/22/2019 19:46:21</publishTime>
+      <publishTime>04/23/2019 22:30:48</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>11/01/2018 13:23:02</publishTime>
@@ -1086,19 +1086,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/flyscreen_11mm.PNG">
       <publishTime>03/25/2019 13:02:48</publishTime>
     </File>
+    <File Include="images/flyscreen_11mm_4Pins.PNG">
+      <publishTime>04/22/2019 20:10:04</publishTime>
+    </File>
+    <File Include="images/flyscreen_11mm_4Pins_Skirt.PNG">
+      <publishTime>04/22/2019 20:11:49</publishTime>
+    </File>
     <File Include="images/flyscreen_11mm_Pins.PNG">
       <publishTime>03/20/2019 17:10:05</publishTime>
     </File>
     <File Include="images/flyscreen_11mm_Pins_Plate.PNG">
       <publishTime>03/20/2019 17:10:05</publishTime>
     </File>
+    <File Include="images/flyscreen_11mm_Pins_Skirt.PNG">
+      <publishTime>03/20/2019 17:10:05</publishTime>
+    </File>
     <File Include="images/flyscreen_11mm_Plate.PNG">
       <publishTime>03/20/2019 17:10:05</publishTime>
+    </File>
+    <File Include="images/flyscreen_11mm_SideChannels.PNG">
+      <publishTime>04/22/2019 20:18:54</publishTime>
+    </File>
+    <File Include="images/flyscreen_11mm_Skirt.PNG">
+      <publishTime>03/20/2019 17:10:05</publishTime>
+    </File>
+    <File Include="images/flyscreen_11mm_Spings.PNG">
+      <publishTime>04/22/2019 20:15:10</publishTime>
+    </File>
+    <File Include="images/flyscreen_11mm_Springs.PNG">
+      <publishTime>04/22/2019 20:15:10</publishTime>
     </File>
     <File Include="images/flyscreen_37x11.PNG">
       <publishTime>03/20/2019 17:10:05</publishTime>
     </File>
     <File Include="images/flyscreen_37x11_Plate.PNG">
+      <publishTime>03/20/2019 17:10:05</publishTime>
+    </File>
+    <File Include="images/flyscreen_37x11_Skirt.PNG">
       <publishTime>03/20/2019 17:10:05</publishTime>
     </File>
     <File Include="images/flyscreen_37x11_Table.PNG">
@@ -1113,8 +1137,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/flyscreen_9mm_Pins_Plate.PNG">
       <publishTime>03/25/2019 13:06:06</publishTime>
     </File>
+    <File Include="images/flyscreen_9mm_Pins_Skirt.PNG">
+      <publishTime>03/25/2019 13:06:06</publishTime>
+    </File>
     <File Include="images/flyscreen_9mm_Plate.PNG">
       <publishTime>03/25/2019 13:07:15</publishTime>
+    </File>
+    <File Include="images/flyscreen_9mm_Skirt.PNG">
+      <publishTime>03/25/2019 13:07:15</publishTime>
+    </File>
+    <File Include="images/flyscreen_9mm_Spings.PNG">
+      <publishTime>04/22/2019 20:15:10</publishTime>
+    </File>
+    <File Include="images/flyscreen_9mm_Springs.PNG">
+      <publishTime>04/22/2019 20:15:10</publishTime>
     </File>
     <File Include="images/JustDoorsAndScreenFooter.PNG">
       <publishTime>03/25/2019 13:55:01</publishTime>
@@ -1124,6 +1160,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="images/JustDoorsAndScreenTitle.PNG">
       <publishTime>03/20/2019 17:13:02</publishTime>
+    </File>
+    <File Include="images/Signature.PNG">
+      <publishTime>04/23/2019 21:26:31</publishTime>
     </File>
     <File Include="images/Slider_LH.PNG">
       <publishTime>03/20/2019 17:10:05</publishTime>
@@ -2053,7 +2092,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/02/2019 12:28:27</publishTime>
     </File>
     <File Include="Views/Quotes/Index.cshtml">
-      <publishTime>04/04/2019 21:29:12</publishTime>
+      <publishTime>04/23/2019 20:45:05</publishTime>
     </File>
     <File Include="Views/Quotes/QuoteDetails.cshtml">
       <publishTime>04/10/2019 12:15:10</publishTime>
@@ -2086,7 +2125,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/01/2019 17:32:41</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/10/2019 11:27:10</publishTime>
+      <publishTime>04/23/2019 22:22:38</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutPrint.cshtml">
       <publishTime>03/23/2019 00:16:47</publishTime>
@@ -2155,7 +2194,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2019 11:51:06</publishTime>
     </File>
     <File Include="Views/Users/Login.cshtml">
-      <publishTime>04/10/2019 10:54:45</publishTime>
+      <publishTime>04/23/2019 22:15:19</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/01/2019 17:32:41</publishTime>
