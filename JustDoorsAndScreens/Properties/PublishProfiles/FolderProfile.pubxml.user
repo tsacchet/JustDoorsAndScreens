@@ -61,10 +61,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/21/2017 19:57:54</publishTime>
     </File>
     <File Include="bin/JustDoorsAndScreens.dll">
-      <publishTime>04/23/2019 22:30:48</publishTime>
+      <publishTime>04/28/2019 16:39:05</publishTime>
     </File>
     <File Include="bin/JustDoorsAndScreens.pdb">
-      <publishTime>04/23/2019 22:30:48</publishTime>
+      <publishTime>04/28/2019 16:39:05</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>11/01/2018 13:23:02</publishTime>
@@ -1062,6 +1062,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Global.asax">
       <publishTime>03/01/2019 17:32:41</publishTime>
     </File>
+    <File Include="images/Doors_Double_LH_Lock.png">
+      <publishTime>04/28/2019 16:28:48</publishTime>
+    </File>
+    <File Include="images/Doors_Double_LH_Tripple_Lock.png">
+      <publishTime>04/28/2019 16:33:37</publishTime>
+    </File>
+    <File Include="images/Doors_Double_RH_Lock.png">
+      <publishTime>04/28/2019 16:19:20</publishTime>
+    </File>
+    <File Include="images/Doors_Double_RH_Tripple_Lock.png">
+      <publishTime>04/28/2019 16:32:22</publishTime>
+    </File>
     <File Include="images/Door_LH.PNG">
       <publishTime>03/20/2019 17:10:05</publishTime>
     </File>
@@ -1163,6 +1175,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="images/Signature.PNG">
       <publishTime>04/23/2019 21:26:31</publishTime>
+    </File>
+    <File Include="images/SignatureSmall.png">
+      <publishTime>04/24/2019 11:16:39</publishTime>
     </File>
     <File Include="images/Slider_LH.PNG">
       <publishTime>03/20/2019 17:10:05</publishTime>
@@ -2098,13 +2113,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2019 12:15:10</publishTime>
     </File>
     <File Include="Views/Quotes/QuoteDetailsCustPDF.cshtml">
-      <publishTime>04/09/2019 15:25:45</publishTime>
+      <publishTime>04/24/2019 10:05:45</publishTime>
     </File>
     <File Include="Views/Quotes/QuoteDetailsPDF.cshtml">
-      <publishTime>04/07/2019 18:35:14</publishTime>
+      <publishTime>04/28/2019 16:34:47</publishTime>
     </File>
     <File Include="Views/Quotes/QuoteDetailsSuppPDF.cshtml">
-      <publishTime>04/09/2019 14:59:51</publishTime>
+      <publishTime>04/24/2019 09:38:25</publishTime>
     </File>
     <File Include="Views/Roles/Create.cshtml">
       <publishTime>04/10/2019 11:51:06</publishTime>
@@ -2194,7 +2209,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2019 11:51:06</publishTime>
     </File>
     <File Include="Views/Users/Login.cshtml">
-      <publishTime>04/23/2019 22:15:19</publishTime>
+      <publishTime>04/24/2019 12:08:12</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/01/2019 17:32:41</publishTime>

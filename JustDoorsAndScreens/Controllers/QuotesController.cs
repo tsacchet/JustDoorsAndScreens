@@ -414,23 +414,24 @@ namespace JustDoorsAndScreens.Controllers
                 string Status = db.vwQuoteReports.Where(t => t.QuoteID == QuoteID).Select(t => t.Stage).First();
                 var FilesFolder = Server.MapPath(ConfigurationManager.AppSettings["TempFilesRoot"]);
 
-                string picture = Request.Url.Scheme + "://" + Request.Url.Host + ":" + Request.Url.Port + "/" + Request.ApplicationPath + "/images/Signature.PNG";
+                string picture = Request.Url.Scheme + "://" + Request.Url.Host + ":" + Request.Url.Port + "/" + Request.ApplicationPath + "/images/SignatureSmall.PNG";
 
                 using (MailMessage mm = new MailMessage(EmailFrom, ToEmail))
                 {
-                    mm.Subject = " JustDoorsAndScreens : " + QuoteID;
-                    string body = "Hello " + CustomerName + ",<br />";
+                    mm.Subject = "JustDoorsAndScreens Quote No.: " + QuoteID;
+                    string body = "<h3>JustDoorsAndScreens</h3>";
+                    body += "Hello " + CustomerName + ",<br />";
                     body += "<br /> Please find attached the quote: " + QuoteID;
                     body += "<br />";
                     body += "<br /><br />Regards,";
-                    body += "<br /><br />";
-                    body += "Alex Sacchetta";
+                    body += "<br />";
+                    body += "<br />Alex Sacchetta";
                     body += "<br />Director";
                     //body += "<br />Phone: 0439 316 641";
                     body += "<br /><a href = tel:{0439316641}>Phone: 0439 316 641</a>";
                     body += "<br /><a href='https://www.justdoorsandscreens.com.au'>Website: www.justdoorsandscreens.com.au</a>";
                     body += "<br /><br />";
-                    body += "<br /><img style=*width:50%;height:50%;* class=*img-fluid* src=*" + picture + "* />";
+                    body += "<br /><img src='" + picture + "' />";
                     mm.Body = body.Replace('*', '"');
                     mm.IsBodyHtml = true;
 
@@ -449,6 +450,7 @@ namespace JustDoorsAndScreens.Controllers
                     {
                         //throw new Exception("Email Class unable to add Attachments.", ex);
                         //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+                        Console.Write("Mail Error: Email Attachment failed: " + ex.Message);
                     }
 
                     // Send Mail
@@ -479,23 +481,24 @@ namespace JustDoorsAndScreens.Controllers
                 string Status = db.vwQuoteReports.Where(t => t.QuoteID == QuoteID).Select(t => t.Stage).First();
                 var FilesFolder = Server.MapPath(ConfigurationManager.AppSettings["TempFilesRoot"]);
 
-                string picture = Request.Url.Scheme + "://" + Request.Url.Host + ":" + Request.Url.Port + "/" + Request.ApplicationPath + "/images/Signature.PNG";
+                string picture = Request.Url.Scheme + "://" + Request.Url.Host + ":" + Request.Url.Port + "/" + Request.ApplicationPath + "/images/SignatureSmall.PNG";
 
                 using (MailMessage mm = new MailMessage(EmailFrom, ToEmail))
                 {
-                    mm.Subject = " JustDoorsAndScreens : " + QuoteID;
-                    string body = "Hello " + SupplierName + ",<br />";
+                    mm.Subject = "JustDoorsAndScreens Order No. : " + QuoteID;
+                    string body = "<h3>JustDoorsAndScreens</h3>";
+                    body += "Hello " + SupplierName + ",<br />";
                     body += "<br /> Please find attached work order: " + QuoteID;
                     body += "<br />";
                     body += "<br /><br />Regards,";
-                    body += "<br /><br />";
-                    body += "Alex Sacchetta";
+                    body += "<br />";
+                    body += "<br />Alex Sacchetta";
                     body += "<br />Director";
                     //body += "<br />Phone: 0439 316 641";
                     body += "<br /><a href = tel:{0439316641}>Phone: 0439 316 641</a>";
                     body += "<br /><a href='https://www.justdoorsandscreens.com.au'>Website: www.justdoorsandscreens.com.au</a>";
-                    body += "<br /><br />";
-                    body += "<br /><img style=*width:50%;height:50%* class=*img-fluid* src=*" + picture + "* />";
+                    body += "<br />";
+                    body += "<br /><img src='" + picture + "' />";
                     mm.Body = body.Replace('*', '"');
                     mm.IsBodyHtml = true;
 
@@ -514,6 +517,7 @@ namespace JustDoorsAndScreens.Controllers
                     {
                         //throw new Exception("Email Class unable to add Attachments.", ex);
                         //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+                        Console.Write("Mail Error: Email Attachment failed: " + ex.Message);
                     }
 
                     // Send Mail
@@ -528,7 +532,7 @@ namespace JustDoorsAndScreens.Controllers
             catch (Exception ex)
             {
                 //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
-                Console.WriteLine("email: " + ex.Message);
+                Console.WriteLine("Mail Error: " + ex.Message);
             }
         }
 

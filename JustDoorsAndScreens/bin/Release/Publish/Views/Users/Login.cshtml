@@ -5,55 +5,52 @@
     Layout = "~/Views/Shared/_login.cshtml";
 }
 
-<div class="">
+@*<div class="container">*@
     @*<img class="mx-auto d-block img-fluid border border-secondary shadow" src="~/images/JustDoorsAndScreenTitle.PNG" />*@
-    <img class="mx-auto d-block img-fluid border border-secondary shadow" src="~/images/Signature.PNG" />
-    <h5 class="text-secondary mx-auto">Login</h5>
-</div>
+    
+    <br />
+@*</div>*@
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="card mx-auto bg-white shadow">
+<div class="card mx-auto bg-white shadow">
 
-        <div class="form-horizontal">
+    <div class="card-header bg-white">
+        <img class="mx-auto d-block img-fluid" src="~/images/Signature.PNG" />
+        <h4 class="mx-auto text-center display-4">Login</h4>
+    </div>
 
-            <h5 class="text-danger">@ViewBag.Message</h5>
+    <div class="card-body">
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <strong>@Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-                </div>
-            </div>
+        <h5 class="text-danger">@ViewBag.Message</h5>
 
-            <div class="form-group">
-                <strong>@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })</strong>
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Login" class="btn btn-primary" />
-                </div>
-            </div>
-        </div>
+        <strong>@Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label " })</strong>
+
+        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+
+
+
+        <strong>@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })</strong>
+
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
     </div>
+
+    <div class="card-footer bg-white">
+        <input type="submit" value="Login" class="btn btn-primary btn-block btn-lg" />
+    </div>
+
+
+
+</div>
 }
 
-@*<div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>*@
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

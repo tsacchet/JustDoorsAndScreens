@@ -633,6 +633,10 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\Doors_Double_LH_Lock.png" />
+    <Content Include="images\Doors_Double_LH_Tripple_Lock.png" />
+    <Content Include="images\Doors_Double_RH_Lock.png" />
+    <Content Include="images\Doors_Double_RH_Tripple_Lock.png" />
     <Content Include="images\Door_LH.PNG" />
     <Content Include="images\Door_LH_tripple.PNG" />
     <Content Include="images\Door_RH.PNG" />
@@ -662,6 +666,7 @@
     <Content Include="images\Door_Panel_LH.PNG" />
     <Content Include="images\Door_Panel_RH.PNG" />
     <Content Include="images\Signature.PNG" />
+    <Content Include="images\SignatureSmall.png" />
     <Content Include="images\Slider_LH.PNG" />
     <Content Include="images\Slider_LH_tripple.PNG" />
     <Content Include="images\Slider_RH.PNG" />
