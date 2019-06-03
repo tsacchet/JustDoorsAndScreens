@@ -67,6 +67,8 @@ namespace JustDoorsAndScreens
         public Nullable<decimal> W15 { get; set; }
         public Nullable<decimal> D15 { get; set; }
         public Nullable<int> Q15 { get; set; }
+        public string Description { get; set; }
+        public Nullable<bool> Required { get; set; }
     
         public virtual FlysScreenType FlysScreenType { get; set; }
         public virtual Quote Quote { get; set; }

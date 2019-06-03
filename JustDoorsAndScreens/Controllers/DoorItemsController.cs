@@ -99,7 +99,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip")] DoorItem doorItem)
+        public ActionResult Create([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip,Required")] DoorItem doorItem)
         {
             if (ModelState.IsValid)
             {
@@ -148,7 +148,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateDoorItem([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip")] DoorItem doorItem)
+        public ActionResult CreateDoorItem([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip,Required")] DoorItem doorItem)
         {
             if (ModelState.IsValid)
             {
@@ -209,7 +209,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditDoorItem([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip")] DoorItem doorItem)
+        public ActionResult EditDoorItem([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip,Required")] DoorItem doorItem)
         {
             if (ModelState.IsValid)
             {
@@ -268,7 +268,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateSliderItem([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip")] DoorItem doorItem)
+        public ActionResult CreateSliderItem([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip,Required")] DoorItem doorItem)
         {
             if (ModelState.IsValid)
             {
@@ -329,7 +329,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditSliderItem([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip")] DoorItem doorItem)
+        public ActionResult EditSliderItem([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip,Required")] DoorItem doorItem)
         {
             if (ModelState.IsValid)
             {
@@ -386,7 +386,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip")] DoorItem doorItem)
+        public ActionResult Edit([Bind(Include = "DoorItemID,QuoteID,Description,ColorTypeID,LockTypeID,Height,Width1,Width2,Width3,SliderTopTrack,SliderBottomTrack,SliderSideChannel,SliderFs,SliderZs,SliderBugStrip,Cost,DoorTypeID,DesignTypeID,LockHeight,SliderTopTrackWidth,SliderBottomTrackWidth,SliderSideChannelWidth,TrackTypes,F,Z,SliderTopTrackType,SliderBottomTrackType,SliderSideChannelType,HingeType,BugStrip,Required")] DoorItem doorItem)
         {
             if (ModelState.IsValid)
             {

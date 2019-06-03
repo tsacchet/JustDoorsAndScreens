@@ -11,16 +11,14 @@ namespace JustDoorsAndScreens
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class User
     {
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
-        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public System.DateTime CreatedDate { get; set; }
         public Nullable<System.DateTime> LastLoginDate { get; set; }
         public Nullable<int> RoleId { get; set; }
     

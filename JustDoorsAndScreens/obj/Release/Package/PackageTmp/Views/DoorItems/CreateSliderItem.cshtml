@@ -15,6 +15,8 @@
 
     @Html.HiddenFor(model => model.QuoteID, new { @Value = ViewBag.QuoteID })
 
+    @Html.HiddenFor(model => model.Required, new { @Value = "1" })
+
     <div class="card border border-dark shadow">
 
         <div class="card-header bg-light border-dark sticky-top">
@@ -31,19 +33,19 @@
                 <hr class="bg-dark" />
 
                 @*<div class="form-group">
-                    <label class="control-label"><strong>Customer Name</strong></label>
-                    <input type="text" class="form-control" value="@ViewBag.Customer" readonly="readonly">
-                </div>*@
+            <label class="control-label"><strong>Customer Name</strong></label>
+            <input type="text" class="form-control" value="@ViewBag.Customer" readonly="readonly">
+        </div>*@
 
                 @*<div class="form-group">
-                    <strong>@Html.LabelFor(model => model.QuoteID, "QuoteID", htmlAttributes: new { @class = "control-label" })</strong>*@
+        <strong>@Html.LabelFor(model => model.QuoteID, "QuoteID", htmlAttributes: new { @class = "control-label" })</strong>*@
 
-                    @*@Html.DropDownList("QuoteID", null, htmlAttributes: new { @class = "form-control" })*@
-                    @*@Html.EditorFor(model => model.QuoteID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.QuoteID, @readonly = "readonly" } })
-                    @Html.HiddenFor(model => model.QuoteID)
-                    @Html.ValidationMessageFor(model => model.QuoteID, "", new { @class = "text-danger" })
+                @*@Html.DropDownList("QuoteID", null, htmlAttributes: new { @class = "form-control" })*@
+                @*@Html.EditorFor(model => model.QuoteID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.QuoteID, @readonly = "readonly" } })
+            @Html.HiddenFor(model => model.QuoteID)
+            @Html.ValidationMessageFor(model => model.QuoteID, "", new { @class = "text-danger" })
 
-                </div>*@
+        </div>*@
 
                 <div class="form-group">
                     <strong>@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })</strong>
@@ -56,11 +58,18 @@
 
                 <div class="form-group">
                     <strong>@Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label" })</strong>
-
                     @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
-
                 </div>
+
+                <div class="form-group">
+                    @Html.HiddenFor(model => model.Required, new { id = "Required", @Value = "True" })
+                    <div class="checkbox icheck-alizarin">
+                        <input type="checkbox" id="required" name="prepresssnewartwork" onclick="CheckBoxChange();" />
+                        <label for="required" class="control-label">@Html.LabelFor(model => model.Required)</label>
+                    </div>
+                </div>
+
             </div>
 
             <div class="col-sm-2">
@@ -199,12 +208,12 @@
 
 
                 @*<div class="form-group">
-                    <strong>@Html.LabelFor(model => model.SliderBugStrip, htmlAttributes: new { @class = "control-label" })</strong>
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.SliderBugStrip)
-                        @Html.ValidationMessageFor(model => model.SliderBugStrip, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
+                        <strong>@Html.LabelFor(model => model.SliderBugStrip, htmlAttributes: new { @class = "control-label" })</strong>
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.SliderBugStrip)
+                            @Html.ValidationMessageFor(model => model.SliderBugStrip, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
 
 
                 <div class="form-group">
@@ -250,8 +259,13 @@
 
 
 
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/icheck-bootstrap.css" rel="stylesheet" />
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
 
     <script>
 
@@ -270,27 +284,8 @@
                 }
             });
 
-            //$('.multiselect-container div.aweCheckbox').each(function (index) {
-
-            //    var id = 'multiselect-' + index,
-            //        $input = $(this).find('input');
-
-            //    // Associate the label and the input
-            //    $(this).find('label').attr('for', id);
-            //    $input.attr('id', id);
-
-            //    // Remove the input from the label wrapper
-            //    $input.detach();
-
-            //    // Place the input back in before the label
-            //    $input.prependTo($(this));
-
-            //    $(this).click(function (e) {
-            //        // Prevents the click from bubbling up and hiding the dropdown
-            //        e.stopPropagation();
-            //    });
-
-            //});
+            $('#required').prop('checked', true);
+            $("#Required").val(true);
 
         });
 

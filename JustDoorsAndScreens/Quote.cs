@@ -11,8 +11,7 @@ namespace JustDoorsAndScreens
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Quote
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +20,9 @@ namespace JustDoorsAndScreens
             this.DoorItems = new HashSet<DoorItem>();
             this.FlyScreenItems = new HashSet<FlyScreenItem>();
         }
-
+    
         public int QuoteID { get; set; }
         public string Customer { get; set; }
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Date { get; set; }
         public string Telephone { get; set; }
         public string Mobile { get; set; }
@@ -34,11 +32,9 @@ namespace JustDoorsAndScreens
         public Nullable<int> StageID { get; set; }
         public Nullable<bool> Paid { get; set; }
         public string Address { get; set; }
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> OrderDate { get; set; }
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> CompletedDate { get; set; }
-
+    
         public virtual StagesType StagesType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DoorItem> DoorItems { get; set; }

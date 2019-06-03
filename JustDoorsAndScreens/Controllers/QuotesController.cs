@@ -45,6 +45,7 @@ namespace JustDoorsAndScreens.Controllers
             public Boolean Paid { get; set; }
             public string OrderDate { get; set; }
             public string CompletedDate { get; set; }
+            public Boolean Required { get; set; }
         }
 
 
@@ -133,6 +134,7 @@ namespace JustDoorsAndScreens.Controllers
                 itm.SliderTopTrackTypeName = item.SliderTopTrackTypeName;
                 itm.SliderBottomTrackTypeName = item.SliderBottomTrackTypeName;
                 itm.SliderSideChannelTypeName = item.SliderSideChannelTypeName;
+                itm.Required = item.Required;
 
                 myList.Add(itm);
             }
@@ -176,6 +178,7 @@ namespace JustDoorsAndScreens.Controllers
                 itm.SliderTopTrackWidth = item.SliderTopTrackWidth;
                 itm.SliderBottomTrackWidth = item.SliderBottomTrackWidth;
                 itm.SliderSideChannelWidth = item.SliderSideChannelWidth;
+                itm.Required = item.Required;
 
                 myList.Add(itm);
             }
@@ -204,6 +207,8 @@ namespace JustDoorsAndScreens.Controllers
                 itm.Qty = item.Qty;
                 itm.Cost = item.Cost;
                 itm.TotalCost = item.TotalCost;
+                itm.Required = item.Required;
+                itm.Description = item.Description;
 
                 myList.Add(itm);
             }

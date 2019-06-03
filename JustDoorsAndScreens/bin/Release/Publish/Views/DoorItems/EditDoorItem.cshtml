@@ -56,6 +56,18 @@
                         @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
 
                     </div>
+
+                    <div class="form-group">
+                        @Html.HiddenFor(model => model.Required, new { id = "Required" })
+
+                        <div class="checkbox icheck-alizarin">
+                            <input type="checkbox" id="required" name="prepresssnewartwork" checked="@Model.Required" onclick="CheckBoxChange();" />
+                            <label for="required" class="control-label">@Html.LabelFor(model => model.Required)</label>
+                        </div>
+
+                    </div>
+
+
                 </div>
 
                 <div class="col-sm-2">
@@ -184,10 +196,13 @@
     </div>
 }
 
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/icheck-bootstrap.css" rel="stylesheet" />
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
 
     <script>
 
@@ -198,38 +213,12 @@
 
             ChangeDoorType();
 
-            //$('#TrackTypeID').multiselect({
-            //    buttonClass: 'btn btn-secondary',
-            //    //buttonWidth: '280px',
-            //    templates: {
-            //        li: '<li class="checkList"><a tabindex="0"><div class="aweCheckbox aweCheckbox-danger"><label for=""></label></div></a></li>',
-            //    }
-            //});
-
-            //$('.multiselect-container div.aweCheckbox').each(function (index) {
-
-            //    var id = 'multiselect-' + index,
-            //        $input = $(this).find('input');
-
-            //    // Associate the label and the input
-            //    $(this).find('label').attr('for', id);
-            //    $input.attr('id', id);
-
-            //    // Remove the input from the label wrapper
-            //    $input.detach();
-
-            //    // Place the input back in before the label
-            //    $input.prependTo($(this));
-
-            //    $(this).click(function (e) {
-            //        // Prevents the click from bubbling up and hiding the dropdown
-            //        e.stopPropagation();
-            //    });
-
-            //});
-
-
         });
+
+
+        function CheckBoxChange() {
+            if ($("#required").is(':checked')) $("#Required").val(true); else $("#Required").val(false);
+        }
 
 
         function ChangeDoorType() {
@@ -240,22 +229,6 @@
             $("#pic").attr("src", picture);
         }
 
-
-        //function GetSelectedTracks() {
-        //    var trck='';
-        //    $("#TrackTypeID option:selected").each(function () {
-        //        var $this = $(this);
-        //        if ($this.length) {
-        //            var selText = $this.text();
-        //            var selValue = $this.val();
-        //            console.log('Select TrackID : ' + selText + ' - Selected Track Value : ' + selValue);
-
-        //            trck = trck + selText + ', ';
-        //        }
-        //    });
-
-        //    $('#tracks').val(trck.slice(0, -2));
-        //};
 
     </script>
 

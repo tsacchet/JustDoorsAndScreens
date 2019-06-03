@@ -466,7 +466,7 @@
         //},
 
             { name: "id", label: "ID", width: 60 },
-            //{ name: "QuoteID", label: "QuoteID", width: 30 },
+            { name: "Required", label: "Required", width: 60, template: "booleanCheckbox", firstsortorder: "desc" },
             { name: "Description", label: "Description", width: 200 },
             { name: "ColorTypeName", label: "ColorType", width: 100 },
             { name: "LockTypeName", label: "LockType", width: 100 },
@@ -484,7 +484,7 @@
             //{ name: "SliderZs", label: "SliderZs", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
             //{ name: "SliderBugStrip", label: "SliderBugStrip", width: 20 , template: "booleanCheckbox", firstsortorder: "desc" },
             { name: "Cost", label: "Cost", width: 100 },
-
+            
 
         ],
             data: json,
@@ -502,7 +502,7 @@
             sortIconsBeforeText: true,
             headertitles: true,
             toppager: false,
-            pager: false,
+            pager: true,
             rowNum: 10,
             viewrecords: true,
             searching: {
@@ -550,31 +550,31 @@
             }
         },
 
-        //loadComplete: function () {
-        //    var rowIds = $('#grid1b').jqGrid('getDataIDs');
-        //    for (var i = 0; i < rowIds.length; i++) {//iterate over each row
-        //        rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
-        //        //set background style if ColValue === true\
-        //        console.log('Stage: ' + rowData['Stage']);
+        loadComplete: function () {
+            var rowIds = $('#grid1b').jqGrid('getDataIDs');
+            for (var i = 0; i < rowIds.length; i++) {//iterate over each row
+                rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
+                //set background style if ColValue === true\
+                console.log('Required: ' + rowData['Required']);
 
-        //        if (rowData['Stage'] === 'Completed') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-        //        }
-        //        else if (rowData['Stage'] === 'Ordered') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
-        //        }
-        //        else if (rowData['Stage'] === 'In Progress') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
-        //        }
-        //        else if (rowData['Stage'] === 'On Hold') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
-        //        }
-        //        else if (rowData['Stage'] === 'Canceled') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-        //        }
+                if (rowData['Required'] === 'false') {
+                    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+                }
+                //else if (rowData['Stage'] === 'Ordered') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
+                //}
+                //else if (rowData['Stage'] === 'In Progress') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+                //}
+                //else if (rowData['Stage'] === 'On Hold') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
+                //}
+                //else if (rowData['Required'] === 'false') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+                //}
 
-        //    } //for
-        //}//loadComplete
+            } //for
+        }//loadComplete
 
 
 
@@ -605,7 +605,7 @@
         //},
 
             { name: "id", label: "ID", width: 60 },
-            //{ name: "QuoteID", label: "QuoteID", width: 30 },
+            { name: "Required", label: "Required", width: 60, template: "booleanCheckbox", firstsortorder: "desc" },
             { name: "Description", label: "Description", width: 200 },
             { name: "ColorTypeName", label: "ColorType", width: 100 },
             { name: "LockTypeName", label: "LockType", width: 100 },
@@ -647,7 +647,7 @@
         sortIconsBeforeText: true,
         headertitles: true,
         toppager: false,
-        pager: false,
+        pager: true,
         rowNum: 10,
         viewrecords: true,
         searching: {
@@ -695,31 +695,31 @@
             }
         },
 
-        //loadComplete: function () {
-        //    var rowIds = $('#grid1b').jqGrid('getDataIDs');
-        //    for (var i = 0; i < rowIds.length; i++) {//iterate over each row
-        //        rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
-        //        //set background style if ColValue === true\
-        //        console.log('Stage: ' + rowData['Stage']);
+        loadComplete: function () {
+            var rowIds = $('#grid3b').jqGrid('getDataIDs');
+            for (var i = 0; i < rowIds.length; i++) {//iterate over each row
+                rowData = $('#grid3b').jqGrid('getRowData', rowIds[i]);
+                //set background style if ColValue === true\
+                console.log('Stage: ' + rowData['Stage']);
 
-        //        if (rowData['Stage'] === 'Completed') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-        //        }
-        //        else if (rowData['Stage'] === 'Ordered') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
-        //        }
-        //        else if (rowData['Stage'] === 'In Progress') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
-        //        }
-        //        else if (rowData['Stage'] === 'On Hold') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
-        //        }
-        //        else if (rowData['Stage'] === 'Canceled') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-        //        }
+                if (rowData['Required'] === 'false') {
+                    $('#grid3b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+                }
+                //else if (rowData['Stage'] === 'Ordered') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
+                //}
+                //else if (rowData['Stage'] === 'In Progress') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+                //}
+                //else if (rowData['Stage'] === 'On Hold') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
+                //}
+                //else if (rowData['Stage'] === 'Canceled') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+                //}
 
-        //    } //for
-        //}//loadComplete
+            } //for
+        }//loadComplete
 
 
 
@@ -753,7 +753,8 @@
         //},
 
             { name: "id", label: "ID", width: 60 },
-            //{ name: "QuoteID", label: "QuoteID", width: 30 },
+            { name: "Required", label: "Required", width: 60, template: "booleanCheckbox", firstsortorder: "desc" },
+            { name: "Description", label: "Description", width: 200 },
             { name: "FlyScreenName", label: "FlyScreen", width: 180 },
             { name: "ColorTypeName", label: "Color Type", width: 100 },
             //{ name: "Width", label: "Width", width: 100 },
@@ -778,7 +779,7 @@
         sortIconsBeforeText: true,
         headertitles: true,
         toppager: false,
-        pager: false,
+        pager: true,
         rowNum: 10,
         viewrecords: true,
         searching: {
@@ -826,31 +827,31 @@
             }
         },
 
-        //loadComplete: function () {
-        //    var rowIds = $('#grid1b').jqGrid('getDataIDs');
-        //    for (var i = 0; i < rowIds.length; i++) {//iterate over each row
-        //        rowData = $('#grid1b').jqGrid('getRowData', rowIds[i]);
-        //        //set background style if ColValue === true\
-        //        console.log('Stage: ' + rowData['Stage']);
+        loadComplete: function () {
+            var rowIds = $('#grid2b').jqGrid('getDataIDs');
+            for (var i = 0; i < rowIds.length; i++) {//iterate over each row
+                rowData = $('#grid2b').jqGrid('getRowData', rowIds[i]);
+                //set background style if ColValue === true\
+                console.log('Stage: ' + rowData['Stage']);
 
-        //        if (rowData['Stage'] === 'Completed') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-        //        }
-        //        else if (rowData['Stage'] === 'Ordered') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
-        //        }
-        //        else if (rowData['Stage'] === 'In Progress') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
-        //        }
-        //        else if (rowData['Stage'] === 'On Hold') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
-        //        }
-        //        else if (rowData['Stage'] === 'Canceled') {
-        //            $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
-        //        }
+                if (rowData['Required'] === 'false') {
+                    $('#grid2b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+                }
+                //else if (rowData['Stage'] === 'Ordered') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-success");
+                //}
+                //else if (rowData['Stage'] === 'In Progress') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-warning");
+                //}
+                //else if (rowData['Stage'] === 'On Hold') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-danger");
+                //}
+                //else if (rowData['Stage'] === 'Canceled') {
+                //    $('#grid1b').jqGrid('setRowData', rowIds[i], false, "text-white bg-dark");
+                //}
 
-        //    } //for
-        //}//loadComplete
+            } //for
+        }//loadComplete
 
 
 

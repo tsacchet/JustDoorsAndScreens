@@ -193,10 +193,12 @@
 
                     @foreach (var str in ViewBag.Doors)
                     {
-                        string picture = @Request.Url.Scheme + "://"+ @Request.Url.Host + ":" + @Request.Url.Port +"/"+ @Request.ApplicationPath + "/images/" +@Html.Raw(str.DoorTypeName) + ".PNG";
-                        <tr class="border-dark"> <td><br />@Html.Raw(str.DesignTypeName)</td> <td><br />@Html.Raw(str.ColorTypeName)</td>  <td> <br /><br /><br /><br /><br /><br /><br /> <strong>Lock Type : </strong>@Html.Raw(str.LockTypeName) <br /><br /> <strong>Hinge Type : </strong>@Html.Raw(str.HingeTypeName)</td>          <td> <h6>@Html.Raw(str.DoorTypeName)</h6>  <img src='@picture' />  </td> <td>@Html.Raw(str.Description)</td> <td><br />@Html.Raw(str.Cost)</td> </tr>
+                        if (str.Required == true)
+                        {
+                            string picture = @Request.Url.Scheme + "://" + @Request.Url.Host + ":" + @Request.Url.Port + "/" + @Request.ApplicationPath + "/images/" + @Html.Raw(str.DoorTypeName) + ".PNG";
+                            <tr class="border-dark"> <td><br />@Html.Raw(str.DesignTypeName)</td> <td><br />@Html.Raw(str.ColorTypeName)</td>  <td> <br /><br /><br /><br /><br /><br /><br /> <strong>Lock Type : </strong>@Html.Raw(str.LockTypeName) <br /><br /> <strong>Hinge Type : </strong>@Html.Raw(str.HingeTypeName)</td>          <td> <h6>@Html.Raw(str.DoorTypeName)</h6>  <img src='@picture' />  </td> <td>@Html.Raw(str.Description)</td> <td><br />@Html.Raw(str.Cost)</td> </tr>
+                        }
                     }
-
                 </tbody>
             </table>
         </div>
@@ -204,7 +206,7 @@
 
     @*<P CLASS="pagebreakhere" />*@
 
-        @*<div id="DoorItems">
+    @*<div id="DoorItems">
             <div class="table-responsive">
                 <h5><strong>Door Items</strong></h5>
 
@@ -234,7 +236,7 @@
                     {
                         <P CLASS="pagebreakbefore" />
                         <h5><strong>Door Items</strong></h5>
-                        
+
                     }
 
                     count++;
@@ -250,7 +252,10 @@
 @if (ViewBag.SlidersCnt > 0)
 {
 
-    <P CLASS="pagebreakafter" />
+    if (ViewBag.DoorsCnt > 0)
+    {
+        <P CLASS="pagebreakafter" />
+    }
 
     <div id="SliderItems">
         <div class="table-responsive">
@@ -273,11 +278,13 @@
 
                     @foreach (var str in ViewBag.Sliders)
                     {
-                        //string picture = @Html.Raw(str.DoorTypeName) + ".PNG";
-                        string picture = @Request.Url.Scheme + "://" + @Request.Url.Host + ":" + @Request.Url.Port + "/" + @Request.ApplicationPath + "/images/" + @Html.Raw(str.DoorTypeName) + ".PNG";
-                        <tr> <td><br />@Html.Raw(str.DesignTypeName)</td> <td><br />@Html.Raw(str.ColorTypeName)</td>  <td> <br /><br /><br /><br /><br /><br /><br /> <strong>Lock Type : </strong>@Html.Raw(str.LockTypeName) <br /><br />@*<strong>Lock Height : </strong>@Html.Raw(str.LockHeight)*@</td>  @*<td><br /><strong>Height : </strong>@Html.Raw(str.Height) </td>*@ @*<td><br /><br /><br /><strong>Top Track : </strong>@Html.Raw(str.SliderTopTrackTypeName)  <br /><br /> <strong>Top Track Width : </strong>@Html.Raw(str.SliderTopTrackWidth)  <br /><hr /> <strong>Bottom Track : </strong>@Html.Raw(str.SliderBottomTrackTypeName)  <br /><br /> <strong>Bottom Track Width : </strong>@Html.Raw(str.SliderBottomTrackWidth)  <br /><hr /> <strong>Side Channel Track : </strong>@Html.Raw(str.SliderSideChannelTypeName)    <br /><br /> <strong>Side Channel Width : </strong>@Html.Raw(str.SliderSideChannelWidth)   <hr /><strong>Fs </strong>@Html.Raw(str.F) <hr /><strong>Zs </strong>@Html.Raw(str.Z) <hr /><strong>BugStrip </strong>@Html.Raw(str.BugStrip)</td>*@     <td> <h5>@Html.Raw(str.DoorTypeName)</h5>  <img src='@picture' /> @*<hr /><strong>Width : </strong>@Html.Raw(str.Width1)  <br />*@ </td> <td><br />@Html.Raw(str.Description)</td> <td><br />@Html.Raw(str.Cost)</td> </tr>
+                        if (str.Required == true)
+                        {
+                            //string picture = @Html.Raw(str.DoorTypeName) + ".PNG";
+                            string picture = @Request.Url.Scheme + "://" + @Request.Url.Host + ":" + @Request.Url.Port + "/" + @Request.ApplicationPath + "/images/" + @Html.Raw(str.DoorTypeName) + ".PNG";
+                            <tr> <td><br />@Html.Raw(str.DesignTypeName)</td> <td><br />@Html.Raw(str.ColorTypeName)</td>  <td> <br /><br /> <strong>Lock Type : </strong>@Html.Raw(str.LockTypeName) <br /><br />@*<strong>Lock Height : </strong>@Html.Raw(str.LockHeight)*@</td>  @*<td><br /><strong>Height : </strong>@Html.Raw(str.Height) </td>*@ @*<td><br /><br /><br /><strong>Top Track : </strong>@Html.Raw(str.SliderTopTrackTypeName)  <br /><br /> <strong>Top Track Width : </strong>@Html.Raw(str.SliderTopTrackWidth)  <br /><hr /> <strong>Bottom Track : </strong>@Html.Raw(str.SliderBottomTrackTypeName)  <br /><br /> <strong>Bottom Track Width : </strong>@Html.Raw(str.SliderBottomTrackWidth)  <br /><hr /> <strong>Side Channel Track : </strong>@Html.Raw(str.SliderSideChannelTypeName)    <br /><br /> <strong>Side Channel Width : </strong>@Html.Raw(str.SliderSideChannelWidth)   <hr /><strong>Fs </strong>@Html.Raw(str.F) <hr /><strong>Zs </strong>@Html.Raw(str.Z) <hr /><strong>BugStrip </strong>@Html.Raw(str.BugStrip)</td>*@     <td> <h5>@Html.Raw(str.DoorTypeName)</h5>  <img src='@picture' /> @*<hr /><strong>Width : </strong>@Html.Raw(str.Width1)  <br />*@ </td> <td><br />@Html.Raw(str.Description)</td> <td><br />@Html.Raw(str.Cost)</td> </tr>
+                        }
                     }
-
                 </tbody>
             </table>
         </div>
@@ -287,7 +294,10 @@
 
 @if (ViewBag.FlyScreenCnt > 0)
 {
-    <P CLASS="pagebreakafter" />
+    if (ViewBag.SlidersCnt > 0)
+    {
+        <P CLASS="pagebreakafter" />
+    }
 
     <div id="FlyScreenItems">
         <div class="table-responsive">
@@ -301,6 +311,7 @@
                         @*<th>Depth</th>*@
                         @*<th>Qty</th>*@
                         <th>Pic</th>
+                        <th>Description</th>
                         <th>Qty</th>
                         <th>Cost PerItem</th>
                         <th>Total Cost</th>
@@ -310,11 +321,13 @@
 
                     @foreach (var str in ViewBag.FlyScreen)
                     {
-                        //var picture = @Html.Raw(str.FlyScreenName) + ".PNG";
-                        string picture = @Request.Url.Scheme + "://" + @Request.Url.Host + ":" + @Request.Url.Port + "/" + @Request.ApplicationPath + "/images/" + @Html.Raw(str.FlyScreenName) + ".PNG";
-                    <tr>   <td><br />@Html.Raw(str.ColorTypeName)</td>     <td><h5>@Html.Raw(str.FlyScreenName)</h5><img src='@picture' /></td>  <td><br />@Html.Raw(str.Qty)</td>      <td><br />@Html.Raw(str.Cost)</td>   <td><br />@Html.Raw(str.Cost * str.Qty)</td> </tr>
+                        if (str.Required == true)
+                        {
+                            //var picture = @Html.Raw(str.FlyScreenName) + ".PNG";
+                            string picture = @Request.Url.Scheme + "://" + @Request.Url.Host + ":" + @Request.Url.Port + "/" + @Request.ApplicationPath + "/images/" + @Html.Raw(str.FlyScreenName) + ".PNG";
+                            <tr>   <td><br />@Html.Raw(str.ColorTypeName)</td>     <td><h5>@Html.Raw(str.FlyScreenName)</h5><img src='@picture' /></td>  <td><br />@Html.Raw(str.Description)</td>         <td><br />@Html.Raw(str.Qty)</td>      <td><br />@Html.Raw(str.Cost)</td>   <td><br />@Html.Raw(str.Cost * str.Qty)</td> </tr>
+                        }
                     }
-
                     @*<tr> <td></td> <td> </td> <td> </td> <td><strong>@Model.Cost.ToString("C2")</strong>  </td> </tr>*@
                 </tbody>
             </table>
@@ -362,10 +375,10 @@
 
 @*<hr class="bg-dark" />
 
-<div class="clearfix">
-    <span class="float-left">.</span>
-    <span class="float-right">.</span>
-</div>*@
+    <div class="clearfix">
+        <span class="float-left">.</span>
+        <span class="float-right">.</span>
+    </div>*@
 
 @*<img class="img-fluid" src="~/images/JustDoorsAndScreenFooter.PNG" />*@
 

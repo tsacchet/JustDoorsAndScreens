@@ -71,6 +71,7 @@
     <EntitySetMapping Name="DoorItems">
       <EntityTypeMapping TypeName="JustDoorsAndScreensModel.DoorItem">
         <MappingFragment StoreEntitySet="DoorItems">
+          <ScalarProperty Name="Required" ColumnName="Required" />
           <ScalarProperty Name="BugStrip" ColumnName="BugStrip" />
           <ScalarProperty Name="HingeType" ColumnName="HingeType" />
           <ScalarProperty Name="Z" ColumnName="Z" />
@@ -107,6 +108,8 @@
     <EntitySetMapping Name="FlyScreenItems">
       <EntityTypeMapping TypeName="JustDoorsAndScreensModel.FlyScreenItem">
         <MappingFragment StoreEntitySet="FlyScreenItem">
+          <ScalarProperty Name="Required" ColumnName="Required" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Q15" ColumnName="Q15" />
           <ScalarProperty Name="D15" ColumnName="D15" />
           <ScalarProperty Name="W15" ColumnName="W15" />
@@ -166,6 +169,8 @@
     <EntitySetMapping Name="vwFlyScreenItems">
       <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwFlyScreenItem">
         <MappingFragment StoreEntitySet="vwFlyScreenItems">
+          <ScalarProperty Name="Required" ColumnName="Required" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Q15" ColumnName="Q15" />
           <ScalarProperty Name="D15" ColumnName="D15" />
           <ScalarProperty Name="W15" ColumnName="W15" />
@@ -271,6 +276,7 @@
     <EntitySetMapping Name="vwDoorItems">
       <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwDoorItem">
         <MappingFragment StoreEntitySet="vwDoorItems">
+          <ScalarProperty Name="Required" ColumnName="Required" />
           <ScalarProperty Name="BugStrip" ColumnName="BugStrip" />
           <ScalarProperty Name="Cost" ColumnName="Cost" />
           <ScalarProperty Name="Z" ColumnName="Z" />

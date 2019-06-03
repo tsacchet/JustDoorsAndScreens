@@ -44,5 +44,6 @@ namespace JustDoorsAndScreens
         public Nullable<int> Z { get; set; }
         public Nullable<decimal> Cost { get; set; }
         public Nullable<int> BugStrip { get; set; }
+        public Nullable<bool> Required { get; set; }
     }
 }

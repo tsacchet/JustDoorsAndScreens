@@ -19,15 +19,15 @@
 
             <div class="col-sm-2">
                 <h5>Details</h5>
-                <hr class="bg-dark"/>
+                <hr class="bg-dark" />
                 <dl class="dl-horizontal">
                     @*<dt>
-                        @Html.DisplayNameFor(model => model.Quote.Customer)
-                    </dt>
+            @Html.DisplayNameFor(model => model.Quote.Customer)
+        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.Quote.Customer)
-                    </dd>*@
+        <dd>
+            @Html.DisplayFor(model => model.Quote.Customer)
+        </dd>*@
 
                     <dt>
                         @Html.DisplayNameFor(model => model.Description)
@@ -44,6 +44,15 @@
                     <dd>
                         @Html.DisplayFor(model => model.Cost)
                     </dd>
+
+                    <div class="form-group">
+                        @Html.HiddenFor(model => model.Required, new { id = "Required" })
+                        <div class="checkbox icheck-alizarin">
+                            <input type="checkbox" id="required" name="prepresssnewartwork" checked="@Model.Required" onclick="CheckBoxChange();" />
+                            <label for="required" class="control-label">@Html.LabelFor(model => model.Required)</label>
+                        </div>
+                    </div>
+
 
                 </dl>
 
@@ -97,12 +106,12 @@
 
 
                     @*<dt>
-                        @Html.DisplayNameFor(model => model.HingeType)
-                    </dt>
+                            @Html.DisplayNameFor(model => model.HingeType)
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.HingeType1.HingeTypeName)
-                    </dd>*@
+                        <dd>
+                            @Html.DisplayFor(model => model.HingeType1.HingeTypeName)
+                        </dd>*@
 
                 </dl>
 
@@ -139,7 +148,7 @@
                     <dd>
                         @Html.DisplayFor(model => model.Width1)
                     </dd>
-                    </dl>
+                </dl>
             </div>
 
 
@@ -149,12 +158,12 @@
                 <dl class="dl-horizontal">
 
                     @*<dt>
-                        @Html.DisplayNameFor(model => model.SliderTopTrack)
-                    </dt>
+                            @Html.DisplayNameFor(model => model.SliderTopTrack)
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.SliderTopTrack)
-                    </dd>*@
+                        <dd>
+                            @Html.DisplayFor(model => model.SliderTopTrack)
+                        </dd>*@
 
                     <dt>
                         Slider Top Track
@@ -175,12 +184,12 @@
 
 
                     @*<dt>
-                        @Html.DisplayNameFor(model => model.SliderBottomTrack)
-                    </dt>
+                            @Html.DisplayNameFor(model => model.SliderBottomTrack)
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.SliderBottomTrack)
-                    </dd>*@
+                        <dd>
+                            @Html.DisplayFor(model => model.SliderBottomTrack)
+                        </dd>*@
 
                     <dt>
                         Slider Bottom Track
@@ -202,12 +211,12 @@
 
 
                     @*<dt>
-                        @Html.DisplayNameFor(model => model.SliderSideChannel)
-                    </dt>
+                            @Html.DisplayNameFor(model => model.SliderSideChannel)
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.SliderSideChannel)
-                    </dd>*@
+                        <dd>
+                            @Html.DisplayFor(model => model.SliderSideChannel)
+                        </dd>*@
 
                     <dt>
                         Slider Side Channel
@@ -236,12 +245,12 @@
                 <dl class="dl-horizontal">
 
                     @*<dt>
-                        @Html.DisplayNameFor(model => model.SliderFs)
-                    </dt>
+                            @Html.DisplayNameFor(model => model.SliderFs)
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.SliderFs)
-                    </dd>*@
+                        <dd>
+                            @Html.DisplayFor(model => model.SliderFs)
+                        </dd>*@
 
                     <dt>
                         @Html.DisplayNameFor(model => model.F) Qty.
@@ -253,12 +262,12 @@
 
 
                     @*<dt>
-                        @Html.DisplayNameFor(model => model.SliderZs)
-                    </dt>
+                            @Html.DisplayNameFor(model => model.SliderZs)
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.SliderZs)
-                    </dd>*@
+                        <dd>
+                            @Html.DisplayFor(model => model.SliderZs)
+                        </dd>*@
 
                     <dt>
                         @Html.DisplayNameFor(model => model.Z) Qty.
@@ -279,12 +288,12 @@
                     </dd>
 
                     @*<dt>
-                @Html.DisplayNameFor(model => model.TrackTypes)
-            </dt>
+                            @Html.DisplayNameFor(model => model.TrackTypes)
+                        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.TrackTypes)
-            </dd>*@
+                        <dd>
+                            @Html.DisplayFor(model => model.TrackTypes)
+                        </dd>*@
 
 
                 </dl>
@@ -306,9 +315,13 @@
 </div>
 
 
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/icheck-bootstrap.css" rel="stylesheet" />
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
 
     <script>
 

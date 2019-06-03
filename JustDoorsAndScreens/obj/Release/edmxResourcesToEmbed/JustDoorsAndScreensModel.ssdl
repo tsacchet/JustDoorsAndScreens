@@ -48,6 +48,7 @@
     <Property Name="Z" Type="int" />
     <Property Name="HingeType" Type="int" />
     <Property Name="BugStrip" Type="int" />
+    <Property Name="Required" Type="bit" />
   </EntityType>
   <EntityType Name="DoorType">
     <Key>
@@ -113,6 +114,8 @@
     <Property Name="W15" Type="numeric" Precision="18" Scale="2" />
     <Property Name="D15" Type="numeric" Precision="18" Scale="2" />
     <Property Name="Q15" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Required" Type="bit" />
   </EntityType>
   <EntityType Name="FlysScreenType">
     <Key>
@@ -206,7 +209,6 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwDoorItems' does not have
   <EntityType Name="vwDoorItems">
     <Key>
       <PropertyRef Name="id" />
-      <PropertyRef Name="DesignTypeName" />
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="QuoteID" Type="int" />
@@ -238,6 +240,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwDoorItems' does not have
     <Property Name="Z" Type="int" />
     <Property Name="BugStrip" Type="int" />
     <Property Name="Cost" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Required" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwFlyScreenItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -248,6 +251,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwFlyScreenItems' does not
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="QuoteID" Type="int" />
     <Property Name="FlyScreenName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
     <Property Name="Width" Type="numeric" Precision="18" Scale="2" />
     <Property Name="Depth" Type="numeric" Precision="18" Scale="2" />
     <Property Name="Qty" Type="decimal" Precision="18" Scale="2" />
@@ -299,6 +303,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwFlyScreenItems' does not
     <Property Name="W15" Type="numeric" Precision="18" Scale="2" />
     <Property Name="D15" Type="numeric" Precision="18" Scale="2" />
     <Property Name="Q15" Type="int" />
+    <Property Name="Required" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwQuoteReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -327,7 +332,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
     <Key>
       <PropertyRef Name="Item" />
     </Key>
-    <Property Name="QuoteID" Type="int" />
+    <Property Name="QuoteID" Type="int" Nullable="false" />
     <Property Name="Item" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="Total" Type="numeric" Precision="38" Scale="2" />
   </EntityType>
@@ -545,7 +550,8 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
     [vwDoorItems].[F] AS [F], 
     [vwDoorItems].[Z] AS [Z], 
     [vwDoorItems].[BugStrip] AS [BugStrip], 
-    [vwDoorItems].[Cost] AS [Cost]
+    [vwDoorItems].[Cost] AS [Cost], 
+    [vwDoorItems].[Required] AS [Required]
     FROM [dbo].[vwDoorItems] AS [vwDoorItems]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vwFlyScreenItems" EntityType="Self.vwFlyScreenItems" store:Type="Views" store:Schema="dbo">
@@ -553,6 +559,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
     [vwFlyScreenItems].[id] AS [id], 
     [vwFlyScreenItems].[QuoteID] AS [QuoteID], 
     [vwFlyScreenItems].[FlyScreenName] AS [FlyScreenName], 
+    [vwFlyScreenItems].[Description] AS [Description], 
     [vwFlyScreenItems].[Width] AS [Width], 
     [vwFlyScreenItems].[Depth] AS [Depth], 
     [vwFlyScreenItems].[Qty] AS [Qty], 
@@ -603,7 +610,8 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
     [vwFlyScreenItems].[Q14] AS [Q14], 
     [vwFlyScreenItems].[W15] AS [W15], 
     [vwFlyScreenItems].[D15] AS [D15], 
-    [vwFlyScreenItems].[Q15] AS [Q15]
+    [vwFlyScreenItems].[Q15] AS [Q15], 
+    [vwFlyScreenItems].[Required] AS [Required]
     FROM [dbo].[vwFlyScreenItems] AS [vwFlyScreenItems]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vwQuoteReport" EntityType="Self.vwQuoteReport" store:Type="Views" store:Schema="dbo">

@@ -201,6 +201,7 @@
     <NavigationProperty Name="TrackType1" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType1" FromRole="DoorItem" ToRole="TrackType" />
     <NavigationProperty Name="TrackType2" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType2" FromRole="DoorItem" ToRole="TrackType" />
     <Property Name="BugStrip" Type="Int32" />
+    <Property Name="Required" Type="Boolean" />
   </EntityType>
   <Association Name="FK_DoorItems_ColorType">
     <End Type="JustDoorsAndScreensModel.ColorType" Role="ColorType" Multiplicity="0..1" />
@@ -322,6 +323,8 @@
     <Property Name="W15" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="D15" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Q15" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Required" Type="Boolean" />
   </EntityType>
   <Association Name="FK_FlyScreenItem_FlysScreenType">
     <End Type="JustDoorsAndScreensModel.FlysScreenType" Role="FlysScreenType" Multiplicity="0..1" />
@@ -405,6 +408,8 @@
     <Property Name="W15" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="D15" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Q15" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Required" Type="Boolean" />
   </EntityType>
   <Association Name="FK_FlyScreenItem_ColorType">
     <End Type="JustDoorsAndScreensModel.ColorType" Role="ColorType" Multiplicity="0..1" />
@@ -441,7 +446,7 @@
     <Key>
       <PropertyRef Name="Item" />
     </Key>
-    <Property Name="QuoteID" Type="Int32" />
+    <Property Name="QuoteID" Type="Int32" Nullable="false" />
     <Property Name="Item" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
     <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
   </EntityType>
@@ -514,7 +519,6 @@
   <EntityType Name="vwDoorItem">
     <Key>
       <PropertyRef Name="id" />
-      <PropertyRef Name="DesignTypeName" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="QuoteID" Type="Int32" />
@@ -546,6 +550,7 @@
     <Property Name="Z" Type="Int32" />
     <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="BugStrip" Type="Int32" />
+    <Property Name="Required" Type="Boolean" />
   </EntityType>
   <EntityType Name="Supplier">
     <Key>

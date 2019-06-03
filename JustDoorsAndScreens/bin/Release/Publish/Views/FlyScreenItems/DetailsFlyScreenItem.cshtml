@@ -15,9 +15,31 @@
 
     <div class="card-body row">
 
+        <div class="col-sm-4">
+            <h5>Details</h5>
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <div class="form-group">
+                    @Html.HiddenFor(model => model.Required, new { id = "Required" })
+                    <div class="checkbox icheck-alizarin">
+                        <input type="checkbox" id="required" name="prepresssnewartwork" checked="@Model.Required" onclick="CheckBoxChange();" />
+                        <label for="required" class="control-label">@Html.LabelFor(model => model.Required)</label>
+                    </div>
+                </div>
+
+            </dl>
+        </div>
 
 
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <h5>FlyScreen Details</h5>
             <hr class="bg-dark" />
 
@@ -65,7 +87,7 @@
                     @{
                         var cst = @Model.Cost * @Model.Qty;
                         <label>@cst</label>
-                     }
+                    }
                 </dd>
 
 
@@ -78,7 +100,7 @@
             </dl>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <h5>Width / Depth / Qty</h5>
             <hr class="bg-dark" />
 
@@ -173,7 +195,7 @@
 
 
 
-  
+
 
 
 
@@ -197,8 +219,13 @@
 
 </div>
 
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/icheck-bootstrap.css" rel="stylesheet" />
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
 
     <script>
 

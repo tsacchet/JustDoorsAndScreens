@@ -586,6 +586,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\icheck-bootstrap.css" />
+    <Content Include="Content\icheck-bootstrap.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -669,6 +671,8 @@
     <Content Include="images\SignatureSmall.png" />
     <Content Include="images\Slider_LH.PNG" />
     <Content Include="images\Slider_LH_tripple.PNG" />
+    <Content Include="images\Slider_NoLock.png" />
+    <Content Include="images\Slider_NoLock_TB_Wheels.png" />
     <Content Include="images\Slider_RH.PNG" />
     <Content Include="images\Slider_RH_tripple.PNG" />
     <Content Include="JustDoorsAndScreensModel.Context.tt">

@@ -53,6 +53,7 @@
           <Property Name="Z" Type="int" />
           <Property Name="HingeType" Type="int" />
           <Property Name="BugStrip" Type="int" />
+          <Property Name="Required" Type="bit" />
         </EntityType>
         <EntityType Name="DoorType">
           <Key>
@@ -118,6 +119,8 @@
           <Property Name="W15" Type="numeric" Precision="18" Scale="2" />
           <Property Name="D15" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Q15" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Required" Type="bit" />
         </EntityType>
         <EntityType Name="FlysScreenType">
           <Key>
@@ -211,7 +214,6 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwDoorItems' does not have
         <EntityType Name="vwDoorItems">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="DesignTypeName" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="QuoteID" Type="int" />
@@ -243,6 +245,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwDoorItems' does not have
           <Property Name="Z" Type="int" />
           <Property Name="BugStrip" Type="int" />
           <Property Name="Cost" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Required" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwFlyScreenItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -253,6 +256,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwFlyScreenItems' does not
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="QuoteID" Type="int" />
           <Property Name="FlyScreenName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="Width" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Depth" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Qty" Type="decimal" Precision="18" Scale="2" />
@@ -304,6 +308,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwFlyScreenItems' does not
           <Property Name="W15" Type="numeric" Precision="18" Scale="2" />
           <Property Name="D15" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Q15" Type="int" />
+          <Property Name="Required" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwQuoteReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -332,7 +337,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Key>
             <PropertyRef Name="Item" />
           </Key>
-          <Property Name="QuoteID" Type="int" />
+          <Property Name="QuoteID" Type="int" Nullable="false" />
           <Property Name="Item" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="Total" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
@@ -550,7 +555,8 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
     [vwDoorItems].[F] AS [F], 
     [vwDoorItems].[Z] AS [Z], 
     [vwDoorItems].[BugStrip] AS [BugStrip], 
-    [vwDoorItems].[Cost] AS [Cost]
+    [vwDoorItems].[Cost] AS [Cost], 
+    [vwDoorItems].[Required] AS [Required]
     FROM [dbo].[vwDoorItems] AS [vwDoorItems]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwFlyScreenItems" EntityType="Self.vwFlyScreenItems" store:Type="Views" store:Schema="dbo">
@@ -558,6 +564,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
     [vwFlyScreenItems].[id] AS [id], 
     [vwFlyScreenItems].[QuoteID] AS [QuoteID], 
     [vwFlyScreenItems].[FlyScreenName] AS [FlyScreenName], 
+    [vwFlyScreenItems].[Description] AS [Description], 
     [vwFlyScreenItems].[Width] AS [Width], 
     [vwFlyScreenItems].[Depth] AS [Depth], 
     [vwFlyScreenItems].[Qty] AS [Qty], 
@@ -608,7 +615,8 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
     [vwFlyScreenItems].[Q14] AS [Q14], 
     [vwFlyScreenItems].[W15] AS [W15], 
     [vwFlyScreenItems].[D15] AS [D15], 
-    [vwFlyScreenItems].[Q15] AS [Q15]
+    [vwFlyScreenItems].[Q15] AS [Q15], 
+    [vwFlyScreenItems].[Required] AS [Required]
     FROM [dbo].[vwFlyScreenItems] AS [vwFlyScreenItems]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwQuoteReport" EntityType="Self.vwQuoteReport" store:Type="Views" store:Schema="dbo">
@@ -898,6 +906,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <NavigationProperty Name="TrackType1" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType1" FromRole="DoorItem" ToRole="TrackType" />
           <NavigationProperty Name="TrackType2" Relationship="JustDoorsAndScreensModel.FK_DoorItems_SliderType2" FromRole="DoorItem" ToRole="TrackType" />
           <Property Name="BugStrip" Type="Int32" />
+          <Property Name="Required" Type="Boolean" />
         </EntityType>
         <Association Name="FK_DoorItems_ColorType">
           <End Type="JustDoorsAndScreensModel.ColorType" Role="ColorType" Multiplicity="0..1" />
@@ -1019,6 +1028,8 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Property Name="W15" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="D15" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Q15" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Required" Type="Boolean" />
         </EntityType>
         <Association Name="FK_FlyScreenItem_FlysScreenType">
           <End Type="JustDoorsAndScreensModel.FlysScreenType" Role="FlysScreenType" Multiplicity="0..1" />
@@ -1102,6 +1113,8 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Property Name="W15" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="D15" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Q15" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Required" Type="Boolean" />
         </EntityType>
         <Association Name="FK_FlyScreenItem_ColorType">
           <End Type="JustDoorsAndScreensModel.ColorType" Role="ColorType" Multiplicity="0..1" />
@@ -1138,7 +1151,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Key>
             <PropertyRef Name="Item" />
           </Key>
-          <Property Name="QuoteID" Type="Int32" />
+          <Property Name="QuoteID" Type="Int32" Nullable="false" />
           <Property Name="Item" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
         </EntityType>
@@ -1211,7 +1224,6 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
         <EntityType Name="vwDoorItem">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="DesignTypeName" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="QuoteID" Type="Int32" />
@@ -1243,6 +1255,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Property Name="Z" Type="Int32" />
           <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="BugStrip" Type="Int32" />
+          <Property Name="Required" Type="Boolean" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -1368,6 +1381,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <EntitySetMapping Name="DoorItems">
             <EntityTypeMapping TypeName="JustDoorsAndScreensModel.DoorItem">
               <MappingFragment StoreEntitySet="DoorItems">
+                <ScalarProperty Name="Required" ColumnName="Required" />
                 <ScalarProperty Name="BugStrip" ColumnName="BugStrip" />
                 <ScalarProperty Name="HingeType" ColumnName="HingeType" />
                 <ScalarProperty Name="Z" ColumnName="Z" />
@@ -1404,6 +1418,8 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <EntitySetMapping Name="FlyScreenItems">
             <EntityTypeMapping TypeName="JustDoorsAndScreensModel.FlyScreenItem">
               <MappingFragment StoreEntitySet="FlyScreenItem">
+                <ScalarProperty Name="Required" ColumnName="Required" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Q15" ColumnName="Q15" />
                 <ScalarProperty Name="D15" ColumnName="D15" />
                 <ScalarProperty Name="W15" ColumnName="W15" />
@@ -1463,6 +1479,8 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <EntitySetMapping Name="vwFlyScreenItems">
             <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwFlyScreenItem">
               <MappingFragment StoreEntitySet="vwFlyScreenItems">
+                <ScalarProperty Name="Required" ColumnName="Required" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Q15" ColumnName="Q15" />
                 <ScalarProperty Name="D15" ColumnName="D15" />
                 <ScalarProperty Name="W15" ColumnName="W15" />
@@ -1568,6 +1586,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <EntitySetMapping Name="vwDoorItems">
             <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwDoorItem">
               <MappingFragment StoreEntitySet="vwDoorItems">
+                <ScalarProperty Name="Required" ColumnName="Required" />
                 <ScalarProperty Name="BugStrip" ColumnName="BugStrip" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Z" ColumnName="Z" />
