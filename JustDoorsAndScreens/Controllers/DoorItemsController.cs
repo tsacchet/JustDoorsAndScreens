@@ -82,6 +82,10 @@ namespace JustDoorsAndScreens.Controllers
             ViewBag.ColorTypeID = new SelectList(db.ColorTypes, "ColorTypeID", "ColorTypeName");
             ViewBag.DesignTypeID = new SelectList(db.DesignTypes, "DesignTypeID", "DesignTypeName");
             ViewBag.DoorTypeID = new SelectList(db.DoorTypes, "DoorTypeID", "DoorTypeName");
+
+            //ViewBag.DoorTypeID = new SelectList(new[] { new KeyValuePair<int, string>(-1, "please select") }).Union(new SelectList(db.DoorTypes, "DoorTypeID", "DoorTypeName"));
+
+
             ViewBag.LockTypeID = new SelectList(db.LockTypes, "LockTypeID", "LockTypeName");
             ViewBag.QuoteID = new SelectList(db.Quotes, "QuoteID", "Customer");
             ViewBag.TrackTypeID = new SelectList(db.TrackTypes, "TrackTypeID", "TrackTypeName");
@@ -130,6 +134,8 @@ namespace JustDoorsAndScreens.Controllers
             ViewBag.ColorTypeID = new SelectList(db.ColorTypes, "ColorTypeID", "ColorTypeName");
             ViewBag.DesignTypeID = new SelectList(db.DesignTypes, "DesignTypeID", "DesignTypeName");
             ViewBag.DoorTypeID = new SelectList(db.DoorTypes.Where(x => x.DoorTypeName.ToUpper().Contains("DOOR")), "DoorTypeID", "DoorTypeName");
+
+
             ViewBag.LockTypeID = new SelectList(db.LockTypes, "LockTypeID", "LockTypeName");
             ViewBag.TrackTypeID = new SelectList(db.TrackTypes, "TrackTypeID", "TrackTypeName");
 
@@ -287,8 +293,8 @@ namespace JustDoorsAndScreens.Controllers
             ViewBag.HingeType = new SelectList(db.HingeTypes, "HingeTypeID", "HingeTypeName");
             ViewBag.SliderTopTrackType = new SelectList(db.TrackTypes, "TrackTypeID", "TrackTypeName");
             ViewBag.SliderBottomTrackType = new SelectList(db.TrackTypes, "TrackTypeID", "TrackTypeName");
-            ViewBag.SliderSideChannelTrackType = new SelectList(db.TrackTypes, "TrackTypeID", "TrackTypeName");
-
+            ViewBag.SliderSideChannelType = new SelectList(db.TrackTypes, "TrackTypeID", "TrackTypeName");
+                    
 
             ViewBag.QuoteID = doorItem.QuoteID;
 

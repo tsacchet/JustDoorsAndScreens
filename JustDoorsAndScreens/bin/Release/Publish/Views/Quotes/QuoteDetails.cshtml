@@ -36,7 +36,12 @@
 
         <div class="clearfix">
             <span class="float-left"><strong>Customer : </strong> <strong class="text-warning"> @Html.DisplayFor(model => model.Customer)</strong></span>
-            <span class="float-right"><a href='@Url.Action("Edit/" + Model.QuoteID, "Quotes")' id="" class="btn btn-danger btn-sm border-dark shadow"><i class="fa fa-edit"></i> Edit</a> <a href='@Url.Action("SendEmailTo/" + Model.QuoteID, "Quotes")' id="" class="btn btn-primary btn-sm border-dark shadow" onclick="$('#myModal').modal('show');"><i class="fa fa-envelope"></i> Email</a></span>
+            <span class="float-right">
+                <a href='@Url.Action("Edit/" + Model.QuoteID, "Quotes")' id="" class="btn btn-danger btn-sm border-dark shadow"><i class="fa fa-edit"></i> Edit</a>
+                <a href='@Url.Action("SendEmailTo/" + Model.QuoteID, "Quotes")' id="" class="btn btn-primary btn-sm border-dark shadow" onclick="$('#myModal').modal('show');"><i class="fa fa-envelope"></i> Email Quote</a>
+
+                <a href='@Url.Action("SendEmailInvoiceTo/" + Model.QuoteID, "Quotes")' id="" class="btn btn-success btn-sm border-dark shadow" onclick="$('#myModal').modal('show');"><i class="fa fa-envelope"></i> Email Invoice</a>
+            </span>
         </div>
 
     </div>
@@ -167,9 +172,9 @@
 
         <a href='@Url.Action("Index", "Quotes")' id="" class="btn btn-success border-dark shadow"><i class="fa fa-arrow-circle-left"></i> Quotes</a>
 
+        <a href='@Url.Action("QuoteDetailsPDF/" + Model.QuoteID, "Quotes")'  id="" class="btn btn-outline-secondary shadow"><i class="fa fa-file-text"></i> View Quote</a>
 
-
-        <a href='@Url.Action("QuoteDetailsPDF/" + Model.QuoteID, "Quotes")' id="" class="btn btn-outline-secondary shadow"><i class="fa fa-file-text"></i> View</a>
+        <a href='@Url.Action("InvoiceDetailsPDF/" + Model.QuoteID, "Quotes")'  id="" class="btn btn-outline-secondary shadow"><i class="fa fa-file-text"></i> View Invoice</a>
 
 
         @*Customer*@

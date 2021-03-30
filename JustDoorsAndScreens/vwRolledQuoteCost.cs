@@ -14,7 +14,7 @@ namespace JustDoorsAndScreens
     
     public partial class vwRolledQuoteCost
     {
-        public int QuoteID { get; set; }
+        public Nullable<int> QuoteID { get; set; }
         public string Item { get; set; }
         public Nullable<decimal> Total { get; set; }
     }

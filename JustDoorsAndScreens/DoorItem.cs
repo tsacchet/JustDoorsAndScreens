@@ -11,14 +11,17 @@ namespace JustDoorsAndScreens
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class DoorItem
     {
         public int DoorItemID { get; set; }
         public Nullable<int> QuoteID { get; set; }
         public string Description { get; set; }
+        [Required]
         public Nullable<int> ColorTypeID { get; set; }
         public Nullable<int> LockTypeID { get; set; }
+        [Required]
         public Nullable<decimal> Height { get; set; }
         public Nullable<decimal> Width1 { get; set; }
         public Nullable<decimal> Width2 { get; set; }
@@ -29,7 +32,9 @@ namespace JustDoorsAndScreens
         public Nullable<bool> SliderFs { get; set; }
         public Nullable<bool> SliderZs { get; set; }
         public Nullable<bool> SliderBugStrip { get; set; }
+        [Required]
         public Nullable<decimal> Cost { get; set; }
+        [Required]
         public Nullable<int> DoorTypeID { get; set; }
         public Nullable<int> DesignTypeID { get; set; }
         public Nullable<decimal> LockHeight { get; set; }
@@ -45,7 +50,7 @@ namespace JustDoorsAndScreens
         public Nullable<int> HingeType { get; set; }
         public Nullable<int> BugStrip { get; set; }
         public Nullable<bool> Required { get; set; }
-    
+
         public virtual ColorType ColorType { get; set; }
         public virtual DesignType DesignType { get; set; }
         public virtual DoorType DoorType { get; set; }

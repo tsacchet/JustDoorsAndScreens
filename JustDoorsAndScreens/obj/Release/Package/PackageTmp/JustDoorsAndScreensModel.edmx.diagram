@@ -25,7 +25,7 @@
         <EntityTypeShape EntityType="JustDoorsAndScreensModel.vwFlyScreenItem" Width="1.5" PointX="15.125" PointY="6.625" />
         <AssociationConnector Association="JustDoorsAndScreensModel.FK_FlyScreenItem_ColorType" />
         <EntityTypeShape EntityType="JustDoorsAndScreensModel.vwQuoteReport" Width="1.5" PointX="13.125" PointY="0.625" />
-        <EntityTypeShape EntityType="JustDoorsAndScreensModel.vwRolledQuoteCost" Width="1.5" PointX="13.125" PointY="4.5" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.vwRolledQuoteCost" Width="1.5" PointX="13.125" PointY="4.75" />
         <EntityTypeShape EntityType="JustDoorsAndScreensModel.TrackType" Width="1.5" PointX="7.875" PointY="12.875" />
         <EntityTypeShape EntityType="JustDoorsAndScreensModel.HingeType" Width="1.5" PointX="8" PointY="10.875" />
         <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_HingeType" />
@@ -33,7 +33,7 @@
         <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_SliderType1" />
         <AssociationConnector Association="JustDoorsAndScreensModel.FK_DoorItems_SliderType2" />
         <EntityTypeShape EntityType="JustDoorsAndScreensModel.vwDoorItem" Width="2" PointX="12.875" PointY="6.625" />
-        <EntityTypeShape EntityType="JustDoorsAndScreensModel.Supplier" Width="1.875" PointX="10" PointY="12.875" />
+        <EntityTypeShape EntityType="JustDoorsAndScreensModel.Supplier" Width="1.875" PointX="9.875" PointY="13.625" />
         <EntityTypeShape EntityType="JustDoorsAndScreensModel.Role" Width="1.5" PointX="15.375" PointY="1.375" />
         <EntityTypeShape EntityType="JustDoorsAndScreensModel.User" Width="1.5" PointX="17.625" PointY="1" />
         <AssociationConnector Association="JustDoorsAndScreensModel.FK_Users_Roles" />

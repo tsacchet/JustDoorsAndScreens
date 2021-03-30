@@ -1,0 +1,190 @@
+﻿@model JustDoorsAndScreens.vwQuoteReport
+
+@{
+    ViewBag.Title = "InvoiceDetails";
+}
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="~/images/SignatureSmall.png" />
+    </div>
+    <div class="col-md-6">
+        <div class="clearfix">
+            <h2 class="float-right text-black-50">INVOICE</h2>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>10 Baloo Crt</dt>
+            <dt>Greensborough 3088</dt>
+            <dt>0439 316 641</dt>
+            <br />
+            <dt>ABN: 45623876639</dt>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>Date: @ViewBag.Date </dt>
+            <dt>INVOICE # @Model.QuoteID</dt>
+            <dt>WORK ORDER #</dt>
+        </dl>
+    </div>
+</div>
+
+
+
+
+
+
+<div>
+    <h3>BILL TO:</h3>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <div class="form-inline">
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer):
+            </dt>
+
+            <dd class="m-1">
+                @Html.DisplayFor(model => model.Customer)
+            </dd>
+        </div>
+
+        <div class="form-inline">
+            <dt>
+                @Html.DisplayNameFor(model => model.Address):
+            </dt>
+
+            <dd class="m-1">
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+        </div>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>*@
+        <div class="form-inline">
+            <dt>
+                @Html.DisplayNameFor(model => model.Telephone):
+            </dt>
+
+            <dd class="m-1">
+                @Html.DisplayFor(model => model.Telephone)
+            </dd>
+        </div>
+
+        <div class="form-inline">
+            <dt>
+                @Html.DisplayNameFor(model => model.Mobile):
+            </dt>
+
+            <dd class="m-1">
+                @Html.DisplayFor(model => model.Mobile)
+            </dd>
+        </div>
+
+        <div class="form-inline">
+            <dt>
+                @Html.DisplayNameFor(model => model.Email):
+            </dt>
+
+            <dd class="m-1">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+        </div>
+
+
+    </dl>
+</div>
+<br />
+
+
+
+<table class="table table-bordered table-sm table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">PRODUCT</th>
+            <th class="text-center">UNIT</th>
+            <th class="text-center">UNIT COST</th>
+            <th class="text-center">AMOUNT</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var str in ViewBag.Doors)
+        {
+            if (str.Required == true)
+            {
+                <tr>
+                    <td><strong>Security Door :</strong> @Html.Raw(str.DesignTypeName) -@Html.Raw(str.ColorTypeName) - @Html.Raw(str.LockTypeName) - @Html.Raw(str.DoorTypeName) </td>
+                    <td>1</td>
+                    <td>@Html.Raw(str.Cost) </td>
+                    <td>@Html.Raw(str.Cost) </td>
+                </tr>
+            }
+        }
+
+        @foreach (var str in ViewBag.Sliders)
+        {
+            if (str.Required == true)
+            {
+                <tr>
+                    <td><strong>Sliding Door :</strong> @Html.Raw(str.DesignTypeName) -@Html.Raw(str.ColorTypeName) - @Html.Raw(str.LockTypeName) - @Html.Raw(str.DoorTypeName) </td>
+                    <td>1</td>
+                    <td>@Html.Raw(str.Cost) </td>
+                    <td>@Html.Raw(str.Cost) </td>
+                </tr>
+            }
+        }
+
+        @foreach (var str in ViewBag.FlyScreen)
+        {
+            if (str.Required == true)
+            {
+                <tr>
+                    <td><strong>FlyScreen :</strong> @Html.Raw(str.FlyScreenName) - @Html.Raw(str.ColorTypeName)</td>
+                    <td>@Html.Raw(str.Qty)</td>
+                    <td>@Html.Raw(str.Cost)</td>
+                    <td>@Html.Raw(str.Cost * str.Qty)</td>
+                </tr>
+            }
+        }
+
+        <tr class="border border-0">
+            <td class="border border-0"></td>
+            <td class="border border-0"></td>
+            <td class="border border-0 text-right p-2"><strong>TOTAL</strong>(inclusive of GST)</td>
+            <td class="border"><strong>$@Model.TotalCost</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<br />
+<br />
+
+<p class="text-center text-danger"><strong>Account Name: Just Doors and Screens</strong></p>
+<p class="text-center text-danger"><strong>BSB: 033 053  ACC: 720 774</strong></p>
+
+<p class="text-center small">TERMS: 7 DAYS FROM DATE of INVOICE</p>
+<p class="text-center small">THIS PAYMENT CLIAM IS MADE UNDER THE BUILDING AND CONSTRUCTION INDUSTRY SECURITY OF PAYMENTS ACT 2002</p>
+<p class="text-center small">THANK YOU FOR YOUR BUSINESS</p>
+
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.QuoteID }) |*@
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+</p>

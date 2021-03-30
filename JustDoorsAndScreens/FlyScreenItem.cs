@@ -11,16 +11,20 @@ namespace JustDoorsAndScreens
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class FlyScreenItem
     {
         public int FlyScreenItemsID { get; set; }
         public Nullable<int> QuoteID { get; set; }
+        [Required]
         public Nullable<int> FlyScreenTypeID { get; set; }
         public Nullable<decimal> Width { get; set; }
         public Nullable<decimal> Depth { get; set; }
         public Nullable<decimal> Qty { get; set; }
+        [Required]
         public Nullable<decimal> Cost { get; set; }
+        [Required]
         public Nullable<int> ColorTypeID { get; set; }
         public Nullable<decimal> W1 { get; set; }
         public Nullable<decimal> D1 { get; set; }
@@ -69,7 +73,7 @@ namespace JustDoorsAndScreens
         public Nullable<int> Q15 { get; set; }
         public string Description { get; set; }
         public Nullable<bool> Required { get; set; }
-    
+
         public virtual FlysScreenType FlysScreenType { get; set; }
         public virtual Quote Quote { get; set; }
         public virtual ColorType ColorType { get; set; }

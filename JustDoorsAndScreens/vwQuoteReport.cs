@@ -28,5 +28,6 @@ namespace JustDoorsAndScreens
         public string Address { get; set; }
         public Nullable<System.DateTime> OrderDate { get; set; }
         public Nullable<System.DateTime> CompletedDate { get; set; }
+        public string WorkOrder { get; set; }
     }
 }

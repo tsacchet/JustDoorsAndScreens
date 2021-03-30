@@ -61,6 +61,7 @@
     <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="OrderDate" Type="DateTime" Precision="0" />
     <Property Name="CompletedDate" Type="DateTime" Precision="0" />
+    <Property Name="WorkOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="StagesType">
     <Key>
@@ -441,12 +442,13 @@
     <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="OrderDate" Type="DateTime" Precision="0" />
     <Property Name="CompletedDate" Type="DateTime" Precision="0" />
+    <Property Name="WorkOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="vwRolledQuoteCost">
     <Key>
       <PropertyRef Name="Item" />
     </Key>
-    <Property Name="QuoteID" Type="Int32" Nullable="false" />
+    <Property Name="QuoteID" Type="Int32" />
     <Property Name="Item" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
     <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
   </EntityType>

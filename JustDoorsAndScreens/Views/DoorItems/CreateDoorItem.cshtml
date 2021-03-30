@@ -87,7 +87,7 @@
                 <div class="form-group">
                     <strong>@Html.LabelFor(model => model.DoorTypeID, "DoorTypeID", htmlAttributes: new { @class = "control-label" })</strong>
 
-                    @Html.DropDownList("DoorTypeID", null, htmlAttributes: new { @class = "form-control", @id = "DoorType", @onchange = "ChangeDoorType();" })
+                    @Html.DropDownList("DoorTypeID", null, "--Select DoorType--", htmlAttributes: new { @class = "form-control", @id = "DoorType", @onchange = "ChangeDoorType();" })
                     @Html.ValidationMessageFor(model => model.DoorTypeID, "", new { @class = "text-danger" })
 
                 </div>
@@ -102,7 +102,7 @@
                 <div class="form-group">
                     <strong>@Html.LabelFor(model => model.ColorTypeID, "ColorTypeID", htmlAttributes: new { @class = "control-label" })</strong>
 
-                    @Html.DropDownList("ColorTypeID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("ColorTypeID", null, "--Select ColourType--", htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.ColorTypeID, "", new { @class = "text-danger" })
                 </div>
 

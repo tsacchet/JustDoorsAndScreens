@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="col-sm-4">
-                    <h5> Width / Depth / Qty</h5>
+                    <h5><span class="ml-4">Width</span><span class="ml-5">Depth</span><span class="ml-5">Qty</span></h5>
 
                     <div class="form-inline pb-1">
                         <strong>W</strong>&nbsp;
@@ -101,8 +101,8 @@
                         @Html.EditorFor(model => model.D1, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D1, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q1, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q1", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q1, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q1", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q1, "", new { @class = "text-danger" })
                     </div>
 
@@ -115,8 +115,8 @@
                         @Html.EditorFor(model => model.D2, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D2, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q2, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q2", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q2, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q2", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q2, "", new { @class = "text-danger" })
                     </div>
 
@@ -129,8 +129,8 @@
                         @Html.EditorFor(model => model.D3, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D3, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q3, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q3", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q3, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q3", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q3, "", new { @class = "text-danger" })
                     </div>
 
@@ -143,8 +143,8 @@
                         @Html.EditorFor(model => model.D4, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D4, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q4, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q4", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q4, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q4", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q4, "", new { @class = "text-danger" })
                     </div>
 
@@ -157,8 +157,8 @@
                         @Html.EditorFor(model => model.D5, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D5, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q5, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q5", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q5, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q5", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q5, "", new { @class = "text-danger" })
                     </div>
 
@@ -171,8 +171,8 @@
                         @Html.EditorFor(model => model.D6, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D6, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q6, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q6", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q6, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q6", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q6, "", new { @class = "text-danger" })
                     </div>
 
@@ -185,8 +185,8 @@
                         @Html.EditorFor(model => model.D7, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D7, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q7, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q7", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q7, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q7", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q7, "", new { @class = "text-danger" })
                     </div>
 
@@ -199,8 +199,8 @@
                         @Html.EditorFor(model => model.D8, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D8, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q8, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q8", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q8, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q8", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q8, "", new { @class = "text-danger" })
                     </div>
 
@@ -213,8 +213,8 @@
                         @Html.EditorFor(model => model.D9, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D9, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q9, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q9", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q9, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q9", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q9, "", new { @class = "text-danger" })
                     </div>
 
@@ -227,8 +227,8 @@
                         @Html.EditorFor(model => model.D10, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D10, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q10, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q10", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q10, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q10", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q10, "", new { @class = "text-danger" })
                     </div>
 
@@ -241,8 +241,8 @@
                         @Html.EditorFor(model => model.D11, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D11, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q11, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q11", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q11, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q11", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q11, "", new { @class = "text-danger" })
                     </div>
 
@@ -255,8 +255,8 @@
                         @Html.EditorFor(model => model.D12, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D12, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q12, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q12", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q12, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q12", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q12, "", new { @class = "text-danger" })
                     </div>
 
@@ -269,8 +269,8 @@
                         @Html.EditorFor(model => model.D13, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D13, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q13, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q13", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q13, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q13", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q13, "", new { @class = "text-danger" })
                     </div>
 
@@ -283,8 +283,8 @@
                         @Html.EditorFor(model => model.D14, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D14, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q14, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q14", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q14, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q14", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q14, "", new { @class = "text-danger" })
                     </div>
 
@@ -297,8 +297,8 @@
                         @Html.EditorFor(model => model.D15, new { htmlAttributes = new { @class = "form-control", style = "width: 80px" } })
                         @Html.ValidationMessageFor(model => model.D15, "", new { @class = "text-danger" })&nbsp;
 
-                        <strong>QTY</strong>&nbsp;
-                        @Html.EditorFor(model => model.Q15, new { htmlAttributes = new { @class = "form-control", style = "width: 60px", @id = "Q15", @onchange = "AddQty();" } })
+                        <strong>Q</strong>&nbsp;
+                        @Html.EditorFor(model => model.Q15, new { htmlAttributes = new { @class = "form-control", style = "width: 80px", @id = "Q15", @onchange = "AddQty();" } })
                         @Html.ValidationMessageFor(model => model.Q15, "", new { @class = "text-danger" })
                     </div>
 

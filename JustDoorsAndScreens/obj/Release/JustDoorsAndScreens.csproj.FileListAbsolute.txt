@@ -372,8 +372,8 @@ C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\bin\tr\Micro
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\bin\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\bin\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\bin\Select.Html.dep
-C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\JustDoorsAndScreens.csproj.CoreCompileInputs.cache
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\JustDoorsAndScreens.csproj.CopyComplete
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\JustDoorsAndScreens.dll
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\JustDoorsAndScreens.pdb
 C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\JustDoorsAndScreens.csprojAssemblyReference.cache
+C:\Users\tony_\source\repos\JustDoorsAndScreens\JustDoorsAndScreens\obj\Release\JustDoorsAndScreens.csproj.CoreCompileInputs.cache

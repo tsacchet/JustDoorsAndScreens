@@ -274,7 +274,66 @@ namespace JustDoorsAndScreens.Controllers
             return View(quote);
         }
 
+        // GET: Quotes/Details/5
+        public ActionResult InvoiceDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            vwQuoteReport quote = db.vwQuoteReports.Find(id);
+            if (quote == null)
+            {
+                return HttpNotFound();
+            }
 
+            ViewBag.Date = DateTime.Now.ToShortDateString();
+
+            var doors = db.vwDoorItems.Where(t => t.QuoteID == id && t.DoorTypeName.ToUpper().Contains("DOOR")).ToList();
+            ViewBag.Doors = doors;
+            ViewBag.DoorsCnt = doors.Count();
+
+            var sliders = db.vwDoorItems.Where(t => t.QuoteID == id && t.DoorTypeName.ToUpper().Contains("SLIDER")).ToList();
+            ViewBag.Sliders = sliders;
+            ViewBag.SlidersCnt = sliders.Count();
+
+            var flyscreens = db.vwFlyScreenItems.Where(t => t.QuoteID == id).ToList();
+            ViewBag.FlyScreen = flyscreens;
+            ViewBag.FlyScreenCnt = flyscreens.Count();
+
+            return View(quote);
+        }
+
+
+        // GET: Quotes/Details/5
+        public ActionResult InvoiceDetailsPDF(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            vwQuoteReport quote = db.vwQuoteReports.Find(id);
+            if (quote == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.Date = DateTime.Now.ToShortDateString();
+
+            var doors = db.vwDoorItems.Where(t => t.QuoteID == id && t.DoorTypeName.ToUpper().Contains("DOOR")).ToList();
+            ViewBag.Doors = doors;
+            ViewBag.DoorsCnt = doors.Count();
+
+            var sliders = db.vwDoorItems.Where(t => t.QuoteID == id && t.DoorTypeName.ToUpper().Contains("SLIDER")).ToList();
+            ViewBag.Sliders = sliders;
+            ViewBag.SlidersCnt = sliders.Count();
+
+            var flyscreens = db.vwFlyScreenItems.Where(t => t.QuoteID == id).ToList();
+            ViewBag.FlyScreen = flyscreens;
+            ViewBag.FlyScreenCnt = flyscreens.Count();
+
+            return View(quote);
+        }
 
 
         //********************************************************************************************
@@ -294,6 +353,27 @@ namespace JustDoorsAndScreens.Controllers
 
             return RedirectToAction("QuoteDetails/" + id);
         }
+
+        //********************************************************************************************
+        // Send Invoice
+        //********************************************************************************************
+        public ActionResult SendEmailInvoiceTo(int id)
+        {
+            SaveInvoicePDF(id);
+
+            var emailto = db.vwQuoteReports.Where(t => t.QuoteID == id).Select(t => t.Email).First();
+
+            SendInvoiceEmail(emailto, id);
+
+            //var quote = db.vwQuoteReports.Where(t => t.QuoteID == id);
+
+            //Redirect("QuoteDetails/" + id);
+
+            return RedirectToAction("QuoteDetails/" + id);
+        }
+
+
+
 
         //********************************************************************************************
         // 
@@ -377,6 +457,40 @@ namespace JustDoorsAndScreens.Controllers
         }
 
         //********************************************************************************************
+        // Save Invoice PDF
+        //********************************************************************************************
+        private void SaveInvoicePDF(int id)
+        {
+            try
+            {
+                var tempFilesFolder = Server.MapPath(ConfigurationManager.AppSettings["TempFilesRoot"]);
+                var filename = id + "_Invoice.pdf";
+                var fileloc = tempFilesFolder + "\\";
+                var fullPath = fileloc + filename;
+
+                SelectPdf.HtmlToPdf converter = new SelectPdf.HtmlToPdf();
+                string url = Request.Url.Authority + Request.ApplicationPath + "/Quotes/InvoiceDetailsPDF/" + id;
+                converter.Options.PdfPageSize = SelectPdf.PdfPageSize.A4;
+                converter.Options.PdfPageOrientation = SelectPdf.PdfPageOrientation.Portrait;
+
+                SelectPdf.PdfDocument doc = converter.ConvertUrl(url);
+
+                doc.Save(fullPath);
+                doc.Close();
+
+            }
+            catch (Exception ex)
+            {
+                //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+            }
+
+        }
+
+
+
+
+
+        //********************************************************************************************
         // Save PDF
         //********************************************************************************************
         private void SaveSuppPDF(int id)
@@ -415,6 +529,8 @@ namespace JustDoorsAndScreens.Controllers
             try
             {
                 var EmailFrom = ConfigurationManager.AppSettings["FromEmail"];
+                var EmailCC = ConfigurationManager.AppSettings["CCEmail"];
+
                 var CustomerName = db.vwQuoteReports.Where(t => t.QuoteID == QuoteID).Select(t => t.Customer).First();
                 string Status = db.vwQuoteReports.Where(t => t.QuoteID == QuoteID).Select(t => t.Stage).First();
                 var FilesFolder = Server.MapPath(ConfigurationManager.AppSettings["TempFilesRoot"]);
@@ -437,6 +553,11 @@ namespace JustDoorsAndScreens.Controllers
                     body += "<br /><a href='https://www.justdoorsandscreens.com.au'>Website: www.justdoorsandscreens.com.au</a>";
                     body += "<br /><br />";
                     body += "<br /><img src='" + picture + "' />";
+
+                    // Add a carbon copy recipient.
+                    MailAddress cc = new MailAddress(EmailCC);
+                    mm.CC.Add(cc);
+
                     mm.Body = body.Replace('*', '"');
                     mm.IsBodyHtml = true;
 
@@ -475,6 +596,86 @@ namespace JustDoorsAndScreens.Controllers
 
 
         //********************************************************************************************
+        // Send Invoice Email
+        //********************************************************************************************
+        private void SendInvoiceEmail(string ToEmail, int QuoteID)
+        {
+            try
+            {
+                var EmailFrom = ConfigurationManager.AppSettings["FromEmail"];
+                var EmailCC = ConfigurationManager.AppSettings["CCEmail"];
+
+                var CustomerName = db.vwQuoteReports.Where(t => t.QuoteID == QuoteID).Select(t => t.Customer).First();
+                string Status = db.vwQuoteReports.Where(t => t.QuoteID == QuoteID).Select(t => t.Stage).First();
+                var FilesFolder = Server.MapPath(ConfigurationManager.AppSettings["TempFilesRoot"]);
+
+                string picture = Request.Url.Scheme + "://" + Request.Url.Host + ":" + Request.Url.Port + "/" + Request.ApplicationPath + "/images/SignatureSmall.PNG";
+
+                using (MailMessage mm = new MailMessage(EmailFrom, ToEmail))
+                {
+                    mm.Subject = "JustDoorsAndScreens Invoice No.: " + QuoteID;
+                    string body = "<h3>JustDoorsAndScreens</h3>";
+                    body += "Hello " + CustomerName + ",<br />";
+                    body += "<br /> Please find attached the invoice, for job number : " + QuoteID;
+                    body += "<br />";
+                    body += "<br />If you have any issues opening the invoice please contact us immediately.";
+                    body += "<br /><br />Regards,";
+                    body += "<br />";
+                    body += "<br />Alex Sacchetta";
+                    body += "<br />Director";
+                    //body += "<br />Phone: 0439 316 641";
+                    body += "<br /><a href = tel:{0439316641}>Phone: 0439 316 641</a>";
+                    body += "<br /><a href='https://www.justdoorsandscreens.com.au'>Website: www.justdoorsandscreens.com.au</a>";
+                    body += "<br /><br />";
+                    body += "<br /><img src='" + picture + "' />";
+                    mm.Body = body.Replace('*', '"');
+                    mm.IsBodyHtml = true;
+
+
+                    // Add a carbon copy recipient.
+                    MailAddress cc = new MailAddress(EmailCC);
+                    mm.CC.Add(cc);
+
+
+                    // Get All Attachments
+                    try
+                    {
+                        string qpdf = FilesFolder + "\\" + QuoteID + "_Invoice.pdf";
+                        if (System.IO.File.Exists(qpdf))
+                        {
+                            var pdf = new Attachment(FilesFolder + "\\" + QuoteID + "_Invoice.pdf");
+                            mm.Attachments.Add(pdf);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        //throw new Exception("Email Class unable to add Attachments.", ex);
+                        //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+                        Console.Write("Mail Error: Email Invoice Attachment failed: " + ex.Message);
+                    }
+
+                    // Send Mail
+                    using (var smtp = new SmtpClient())
+                    {
+                        smtp.Send(mm);
+                        Console.Write("Mail Sent: Email Invoice sent Sucessfully: Function Mail() :");
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+            }
+        }
+
+
+
+
+
+
+        //********************************************************************************************
         // Send Email
         //********************************************************************************************
         private void SendSuppEmail(string ToEmail, int QuoteID)
@@ -482,6 +683,9 @@ namespace JustDoorsAndScreens.Controllers
             try
             {
                 var EmailFrom = ConfigurationManager.AppSettings["FromEmail"];
+                var EmailCC = ConfigurationManager.AppSettings["CCEmail"];
+
+
                 var SupplierName = db.Suppliers.Where(t => t.SupplierEmail == ToEmail).Select(t => t.SupplierName).First();
                 string Status = db.vwQuoteReports.Where(t => t.QuoteID == QuoteID).Select(t => t.Stage).First();
                 var FilesFolder = Server.MapPath(ConfigurationManager.AppSettings["TempFilesRoot"]);
@@ -506,6 +710,10 @@ namespace JustDoorsAndScreens.Controllers
                     body += "<br /><img src='" + picture + "' />";
                     mm.Body = body.Replace('*', '"');
                     mm.IsBodyHtml = true;
+
+                    // Add a carbon copy recipient.
+                    MailAddress cc = new MailAddress(EmailCC);
+                    mm.CC.Add(cc);
 
                     // Get All Attachments
                     try
@@ -540,6 +748,10 @@ namespace JustDoorsAndScreens.Controllers
                 Console.WriteLine("Mail Error: " + ex.Message);
             }
         }
+
+
+
+
 
 
         //********************************************************************************************
@@ -660,7 +872,8 @@ namespace JustDoorsAndScreens.Controllers
         public ActionResult Create()
         {
             ViewBag.TodaysDate = DateTime.Now.ToString("yyyy/MM/dd");
-            ViewBag.StageID = new SelectList(db.StagesTypes, "StageID", "StageName");
+            ViewBag.StageID = new SelectList(db.StagesTypes, "StageID", "StageName");           
+
             return View();
         }
 
@@ -669,7 +882,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuoteID,Customer,Date,Telephone,Mobile,Email,Deposit,TotalCost,StageID,Address,OrderDate,CompletedDate")] Quote quote)
+        public ActionResult Create([Bind(Include = "QuoteID,Customer,Date,Telephone,Mobile,Email,Deposit,TotalCost,StageID,Paid,Address,OrderDate,CompletedDate,WorkOrder")] Quote quote)
         {
             if (ModelState.IsValid)
             {
@@ -679,7 +892,9 @@ namespace JustDoorsAndScreens.Controllers
                 return RedirectToAction("QuoteDetails/"+ quote.QuoteID);
             }
 
-            ViewBag.StageID = new SelectList(db.StagesTypes, "StageID", "StageName", quote.StageID);
+            ViewBag.TodaysDate = DateTime.Now.ToString("yyyy/MM/dd");
+            ViewBag.StageID = new SelectList(db.StagesTypes, "StageID", "StageName", quote.StageID);           
+
             return View(quote);
         }
 
@@ -695,7 +910,9 @@ namespace JustDoorsAndScreens.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.StageID = new SelectList(db.StagesTypes, "StageID", "StageName", quote.StageID);
+
             return View(quote);
         }
 
@@ -704,7 +921,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuoteID,Customer,Date,Telephone,Mobile,Email,Deposit,TotalCost,StageID,Paid,Address,OrderDate,CompletedDate")] Quote quote)
+        public ActionResult Edit([Bind(Include = "QuoteID,Customer,Date,Telephone,Mobile,Email,Deposit,TotalCost,StageID,Paid,Address,OrderDate,CompletedDate,WorkOrder")] Quote quote)
         {
             if (ModelState.IsValid)
             {

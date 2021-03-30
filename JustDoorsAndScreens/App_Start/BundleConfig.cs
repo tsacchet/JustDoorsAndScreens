@@ -24,7 +24,8 @@ namespace JustDoorsAndScreens
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/bootstrap-multiselect.js",
                       "~/Scripts/jquery-ui-1.12.1.min.js",
-                      "~/Scripts/free-jqGrid/jquery.jqgrid.min.js"                     
+                      "~/Scripts/free-jqGrid/jquery.jqgrid.min.js"
+                      //"~/Scripts/datepicker/bootstrap-datepicker.js"                     
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -34,6 +35,7 @@ namespace JustDoorsAndScreens
                       "~/Content/ui.jqgrid.min.css",
                       "~/Content/font-awesome.min.css",
                       "~/Content/site.css"
+                      //"~/Content/datepicker/datepicker3.css"
                       ));
         }
     }

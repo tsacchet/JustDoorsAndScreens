@@ -44,6 +44,7 @@
     <EntitySetMapping Name="Quotes">
       <EntityTypeMapping TypeName="JustDoorsAndScreensModel.Quote">
         <MappingFragment StoreEntitySet="Quote">
+          <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
           <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
           <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
           <ScalarProperty Name="Address" ColumnName="Address" />
@@ -231,6 +232,7 @@
     <EntitySetMapping Name="vwQuoteReports">
       <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwQuoteReport">
         <MappingFragment StoreEntitySet="vwQuoteReport">
+          <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
           <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
           <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
           <ScalarProperty Name="Address" ColumnName="Address" />

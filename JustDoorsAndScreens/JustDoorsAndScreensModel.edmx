@@ -160,6 +160,7 @@
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
           <Property Name="OrderDate" Type="date" />
           <Property Name="CompletedDate" Type="date" />
+          <Property Name="WorkOrder" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -214,6 +215,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwDoorItems' does not have
         <EntityType Name="vwDoorItems">
           <Key>
             <PropertyRef Name="id" />
+            
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="QuoteID" Type="int" />
@@ -330,6 +332,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwQuoteReport' does not ha
           <Property Name="Paid" Type="bit" />
           <Property Name="OrderDate" Type="date" />
           <Property Name="CompletedDate" Type="date" />
+          <Property Name="WorkOrder" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -337,7 +340,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Key>
             <PropertyRef Name="Item" />
           </Key>
-          <Property Name="QuoteID" Type="int" Nullable="false" />
+          <Property Name="QuoteID" Type="int" />
           <Property Name="Item" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="Total" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
@@ -634,7 +637,8 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
     [vwQuoteReport].[Balance] AS [Balance], 
     [vwQuoteReport].[Paid] AS [Paid], 
     [vwQuoteReport].[OrderDate] AS [OrderDate], 
-    [vwQuoteReport].[CompletedDate] AS [CompletedDate]
+    [vwQuoteReport].[CompletedDate] AS [CompletedDate], 
+    [vwQuoteReport].[WorkOrder] AS [WorkOrder]
     FROM [dbo].[vwQuoteReport] AS [vwQuoteReport]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwRolledQuoteCost" EntityType="Self.vwRolledQuoteCost" store:Type="Views" store:Schema="dbo">
@@ -766,6 +770,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="OrderDate" Type="DateTime" Precision="0" />
           <Property Name="CompletedDate" Type="DateTime" Precision="0" />
+          <Property Name="WorkOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="StagesType">
           <Key>
@@ -1146,12 +1151,13 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="OrderDate" Type="DateTime" Precision="0" />
           <Property Name="CompletedDate" Type="DateTime" Precision="0" />
+          <Property Name="WorkOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="vwRolledQuoteCost">
           <Key>
             <PropertyRef Name="Item" />
           </Key>
-          <Property Name="QuoteID" Type="Int32" Nullable="false" />
+          <Property Name="QuoteID" Type="Int32" />
           <Property Name="Item" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
         </EntityType>
@@ -1354,6 +1360,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <EntitySetMapping Name="Quotes">
             <EntityTypeMapping TypeName="JustDoorsAndScreensModel.Quote">
               <MappingFragment StoreEntitySet="Quote">
+                <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
                 <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
                 <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
@@ -1541,6 +1548,7 @@ warning 6002: The table/view 'JustDoorsAndScreens.dbo.vwRolledQuoteCost' does no
           <EntitySetMapping Name="vwQuoteReports">
             <EntityTypeMapping TypeName="JustDoorsAndScreensModel.vwQuoteReport">
               <MappingFragment StoreEntitySet="vwQuoteReport">
+                <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
                 <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
                 <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
