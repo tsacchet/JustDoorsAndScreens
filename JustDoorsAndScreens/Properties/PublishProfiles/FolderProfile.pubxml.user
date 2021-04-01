@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\WebApplications\JustDoorsAndScreens</_PublishTargetUrl>
-    <History>True|2021-03-30T00:38:23.0053623Z;</History>
+    <History>True|2021-04-01T00:06:26.9641333Z;True|2021-03-30T11:38:23.0053623+11:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -62,10 +62,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/21/2017 19:57:54</publishTime>
     </File>
     <File Include="bin/JustDoorsAndScreens.dll">
-      <publishTime>03/30/2021 11:38:19</publishTime>
+      <publishTime>04/01/2021 11:06:23</publishTime>
     </File>
     <File Include="bin/JustDoorsAndScreens.pdb">
-      <publishTime>03/30/2021 11:38:19</publishTime>
+      <publishTime>04/01/2021 11:06:23</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>11/01/2018 13:23:02</publishTime>
@@ -2243,7 +2243,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/01/2019 17:32:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/18/2020 16:34:40</publishTime>
+      <publishTime>04/01/2021 11:06:24</publishTime>
     </File>
   </ItemGroup>
 </Project>

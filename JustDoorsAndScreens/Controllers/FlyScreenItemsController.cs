@@ -64,7 +64,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FlyScreenItemsID,QuoteID,ColorTypeID,FlyScreenTypeID,Width,Depth,Qty,Cost,W1,D1,Q1,W2,D2,Q2,W3,D3,Q3,W4,D4,Q4,W5,D5,Q5,W6,D6,Q6,W7,D7,Q7,W8,D8,Q8,W9,D9,Q9,W10,D10,Q10,W11,D11,W12,D12,Q12,W13,D13,Q13,W14,D14,Q14,W15,D15,Q15,Description,Required")] FlyScreenItem flyScreenItem)
+        public ActionResult Create([Bind(Include = "FlyScreenItemsID,QuoteID,ColorTypeID,FlyScreenTypeID,Width,Depth,Qty,Cost,W1,D1,Q1, W2,D2,Q2, W3,D3,Q3, W4,D4,Q4, W5,D5,Q5, W6,D6,Q6, W7,D7,Q7, W8,D8,Q8, W9,D9,Q9, W10,D10,Q10, W11,D11,Q11, W12,D12,Q12, W13,D13,Q13, W14,D14,Q14, W15,D15,Q15,Description,Required")] FlyScreenItem flyScreenItem)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateFlyScreenItem([Bind(Include = "FlyScreenItemsID,QuoteID,ColorTypeID,FlyScreenTypeID,Width,Depth,Qty,Cost,W1,D1,Q1,W2,D2,Q2,W3,D3,Q3,W4,D4,Q4,W5,D5,Q5,W6,D6,Q6,W7,D7,Q7,W8,D8,Q8,W9,D9,Q9,W10,D10,Q10,W11,D11,W12,D12,Q12,W13,D13,Q13,W14,D14,Q14,W15,D15,Q15,Description,Required")] FlyScreenItem flyScreenItem)
+        public ActionResult CreateFlyScreenItem([Bind(Include = "FlyScreenItemsID,QuoteID,ColorTypeID,FlyScreenTypeID,Width,Depth,Qty,Cost,W1,D1,Q1, W2,D2,Q2, W3,D3,Q3, W4,D4,Q4, W5,D5,Q5, W6,D6,Q6, W7,D7,Q7, W8,D8,Q8, W9,D9,Q9, W10,D10,Q10, W11,D11,Q11, W12,D12,Q12, W13,D13,Q13, W14,D14,Q14, W15,D15,Q15,Description,Required")] FlyScreenItem flyScreenItem)
         {
             if (ModelState.IsValid)
             {
@@ -140,7 +140,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditFlyScreenItem([Bind(Include = "FlyScreenItemsID,QuoteID,ColorTypeID,FlyScreenTypeID,Width,Depth,Qty,Cost,W1,D1,Q1,W2,D2,Q2,W3,D3,Q3,W4,D4,Q4,W5,D5,Q5,W6,D6,Q6,W7,D7,Q7,W8,D8,Q8,W9,D9,Q9,W10,D10,Q10,W11,D11,W12,D12,Q12,W13,D13,Q13,W14,D14,Q14,W15,D15,Q15,Description,Required")] FlyScreenItem flyScreenItem)
+        public ActionResult EditFlyScreenItem([Bind(Include = "FlyScreenItemsID,QuoteID,ColorTypeID,FlyScreenTypeID,Width,Depth,Qty,Cost,W1,D1,Q1,W2,D2,Q2,W3,D3,Q3,W4,D4,Q4,W5,D5,Q5,W6,D6,Q6,W7,D7,Q7,W8,D8,Q8,W9,D9,Q9,W10,D10,Q10,W11,D11,Q11,W12,D12,Q12,W13,D13,Q13,W14,D14,Q14,W15,D15,Q15,Description,Required")] FlyScreenItem flyScreenItem)
         {
             if (ModelState.IsValid)
             {
@@ -181,7 +181,7 @@ namespace JustDoorsAndScreens.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FlyScreenItemsID,QuoteID,ColorTypeID,FlyScreenTypeID,Width,Depth,Qty,Cost,W1,D1,Q1,W2,D2,Q2,W3,D3,Q3,W4,D4,Q4,W5,D5,Q5,W6,D6,Q6,W7,D7,Q7,W8,D8,Q8,W9,D9,Q9,W10,D10,Q10,W11,D11,W12,D12,Q12,W13,D13,Q13,W14,D14,Q14,W15,D15,Q15,Description,Required")] FlyScreenItem flyScreenItem)
+        public ActionResult Edit([Bind(Include = "FlyScreenItemsID,QuoteID,ColorTypeID,FlyScreenTypeID,Width,Depth,Qty,Cost,W1,D1,Q1,W2,D2,Q2,W3,D3,Q3,W4,D4,Q4,W5,D5,Q5,W6,D6,Q6,W7,D7,Q7,W8,D8,Q8,W9,D9,Q9,W10,D10,Q10,W11,D11,Q11,W12,D12,Q12,W13,D13,Q13,W14,D14,Q14,W15,D15,Q15,Description,Required")] FlyScreenItem flyScreenItem)
         {
             if (ModelState.IsValid)
             {
